@@ -1,1 +1,0 @@
-requireCfg['paths']['geo'] = CONTEXT_PATH+'content/pentaho-geo/resources/web';
