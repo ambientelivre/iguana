@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="type_accounts" type="sql.jndi">
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="business_accounts" type="sql.jndi">
+         <Jndi>iguana</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="type_accounts"
+               id="type_accounts"
+               type="sql">
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT account_type, count(*) as quantidade 
+FROM sugarcrm_ce_dimen_account
+GROUP BY account_type</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="business_accounts"
+               id="business_accounts"
+               type="sql">
+      <Columns/>
+      <Parameters>
+         <Parameter default="" name="type" type="String"/>
+      </Parameters>
+      <Query>SELECT business, count(*) as quantidade 
+FROM sugarcrm_ce_dimen_account
+where account_type = ${type}
+GROUP BY business</Query>
+   </DataAccess>
+</CDADescriptor>

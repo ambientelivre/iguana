@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="olapQuery" type="mondrian.jndi">
+         <Catalog>/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="olapQuery"
+               id="olapQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters/>
+      <Query>SELECT
+NON EMPTY {Hierarchize({[Measures].[Valor]})} ON COLUMNS,
+NON EMPTY Hierarchize(Union(CrossJoin([Periodo].[Ano].Members, [contas].[conta].Members), CrossJoin([Periodo].[Mes].Members, [contas].[conta].Members))) ON ROWS
+FROM [opportunities]</Query>
+   </DataAccess>
+</CDADescriptor>

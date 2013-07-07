@@ -1,0 +1,54 @@
+<Schema name="Custom Magicel">
+  <Cube name="Acionamentos" visible="true" cache="true" enabled="true">
+    <Table name="sugarcrm_ce_fact_custom_acionamentos">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_socios" highCardinality="false" name="Socio">
+      <Hierarchy name="Socio" visible="true" hasAll="true" primaryKey="pk_socios">
+        <Table name="sugarcrm_ce_dimen_custom_socios">
+        </Table>
+        <Level name="Socio" visible="true" table="sugarcrm_ce_dimen_custom_socios" column="nome_socio" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_acionamento" highCardinality="false" name="Acionamento">
+      <Hierarchy name="Acionamento" visible="true" hasAll="true" primaryKey="pk_acionamentos">
+        <Table name="sugarcrm_ce_dimen_custom_acionamentos">
+        </Table>
+        <Level name="Grupo" visible="true" table="sugarcrm_ce_dimen_custom_acionamentos" column="grupo_acionamento" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Acionamento" visible="true" table="sugarcrm_ce_dimen_custom_acionamentos" column="nome_acionamento" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="fk_data" highCardinality="false" name="Periodo">
+      <Hierarchy name="Periodo" visible="true" hasAll="true" primaryKey="pk_time">
+        <Table name="sugarcrm_ce_dimen_time">
+        </Table>
+        <Level name="Ano" visible="true" table="sugarcrm_ce_dimen_time" column="year" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeHalfYear" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" table="sugarcrm_ce_dimen_time" column="month" nameColumn="descmonth" ordinalColumn="month" type="Integer" internalType="int" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Dia" visible="true" table="sugarcrm_ce_dimen_time" column="date" type="Date" internalType="Object" uniqueMembers="true" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_user" highCardinality="false" name="Usuario">
+      <Hierarchy name="Usuario" visible="true" hasAll="true" allMemberName="Todos Usuarios">
+        <Table name="sugarcrm_ce_dimen_user">
+        </Table>
+        <Level name="Usuario" visible="true" table="sugarcrm_ce_dimen_user" column="pk_id_user" nameColumn="first_name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_conta" name="Conta">
+      <Hierarchy name="Conta" visible="true" hasAll="true" allMemberName="Todas Contas">
+        <Table name="sugarcrm_ce_dimen_account">
+        </Table>
+        <Level name="Conta" visible="true" table="sugarcrm_ce_dimen_account" column="name" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="quantidade" column="fk_user" datatype="Numeric" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

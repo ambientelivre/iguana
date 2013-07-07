@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="select_userQuery" type="mondrian.jndi">
+         <Catalog>/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="graficovendasMesQuery" type="mondrian.jndi">
+         <Catalog>/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="TopVendedoresQuery" type="mondrian.jndi">
+         <Catalog>/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="LigacoesQuery" type="mondrian.jndi">
+         <Catalog>/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="select_userQuery"
+               id="select_userQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Output indexes="1,0" mode="include"/>
+      <Parameters/>
+      <Query>with member [Measures].[Name] as '[vendedores].CurrentMember.UniqueName' select TopCount( filter({Descendants([vendedores].[Todos Vendedores] ,[vendedores].[Vendedor])}, not isempty(([vendedores].CurrentMember)) ) , 50) on ROWS, 
+ {[Measures].[Name]} on Columns 
+ from [opportunities]</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="graficovendasMesQuery"
+               id="graficovendasMesQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="[vendedores].[Todos Vendedores]" name="select_userParameter"
+                    type="String"/>
+      </Parameters>
+      <Query>select NON EMPTY({Descendants([Periodo].[Todos Periodos] ,[Periodo].[Ano])}) on ROWS, 
+ NON EMPTY({[Measures].[Valor]}) on Columns 
+ from [opportunities]
+ where (${select_userParameter})</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="TopVendedoresQuery"
+               id="TopVendedoresQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters/>
+      <Query>select NON EMPTY(TopCount({Descendants([vendedores].[Todos Vendedores] ,[vendedores].[Vendedor])}, 5, [Measures].[Fact Count])) on ROWS, 
+ NON EMPTY({[Measures].[Fact Count]}) on Columns 
+ from [opportunities]</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="LigacoesQuery"
+               id="LigacoesQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters/>
+      <Query>select NON EMPTY(TopCount({Descendants([user].[Todos os Usuarios] ,[user].[User])}, 5, [Measures].[quantidade])) on ROWS, 
+ NON EMPTY({[Measures].[quantidade]}) on Columns 
+ from [calls]</Query>
+   </DataAccess>
+</CDADescriptor>

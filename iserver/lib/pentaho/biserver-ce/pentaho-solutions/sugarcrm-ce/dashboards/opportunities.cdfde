@@ -1,0 +1,2314 @@
+{
+ "layout": {
+  "title": "Top Filter Template",
+  "rows": [
+   {
+    "id": "e12f9bf3-27f1-beb1-0a68-a5b0facd091b",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Header"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "5dc54aa4-6a22-269a-d641-ac5fd3a61298",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "e12f9bf3-27f1-beb1-0a68-a5b0facd091b",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "24"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#a1d200"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "60"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "center"
+     }
+    ]
+   },
+   {
+    "id": "53e4ccdd-bd66-1ee1-8b5a-5a8771703095",
+    "type": "LayoutHtml",
+    "typeDesc": "Html",
+    "parent": "5dc54aa4-6a22-269a-d641-ac5fd3a61298",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "title"
+     },
+     {
+      "name": "html",
+      "type": "Html",
+      "value": "<h2 style=\"color:#606060;\">Opportunities - SugarCRM CE</h2> "
+     },
+     {
+      "name": "color",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "fontSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "cda9bf5f-0f51-13db-68ac-616cef3e73be",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Spacer"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "5"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "9b5e4665-60dd-d123-d49a-7cb9072a0540",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Body"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "a75b059a-0f5b-deda-6d3f-aeba72af2fe5",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "9b5e4665-60dd-d123-d49a-7cb9072a0540",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Content"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "24"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "cbfee5d3-92e7-2f3a-75de-69e81df1951f",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "a75b059a-0f5b-deda-6d3f-aeba72af2fe5",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "80"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "355a304e-0dd6-769e-6eea-3fd4b4c8cac3",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "cbfee5d3-92e7-2f3a-75de-69e81df1951f",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Filter_panel"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "22"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#e0e0e0"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "70"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "fdbab606-f70b-bd3f-2348-c474caa005c9",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "a75b059a-0f5b-deda-6d3f-aeba72af2fe5",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "1af922c4-245f-4e63-5342-320ecd4ecfca",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "fdbab606-f70b-bd3f-2348-c474caa005c9",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Panel_1"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "6"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#e0e0e0"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "320"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "99c1b751-ca32-a842-75d9-0a9fe507c6c4",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "fdbab606-f70b-bd3f-2348-c474caa005c9",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Panel_2"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "6"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#e0e0e0"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "320"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "c6154503-d5d6-103a-836e-5f3d956b63f3",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "fdbab606-f70b-bd3f-2348-c474caa005c9",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Panel_3"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "6"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": "1"
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#e0e0e0"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "320"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "6e933249-6d80-9b57-95f9-8a47a24ae398",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Small_Space"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "5"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": ""
+     }
+    ]
+   },
+   {
+    "id": "64b07960-f21e-b93e-4911-8c2c025d0d3b",
+    "type": "LayoutRow",
+    "typeDesc": "Row",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Footer"
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "50"
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": "#e0e0e0"
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": "cdfdd-round"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "right"
+     }
+    ]
+   },
+   {
+    "id": "e03427a4-44c1-d56c-e8e5-ec4b6b48a612",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "64b07960-f21e-b93e-4911-8c2c025d0d3b",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Footer_Text"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "20"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": "false"
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": "40"
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "right"
+     }
+    ]
+   },
+   {
+    "id": "b45069a3-a949-0502-b04e-c736d142c232",
+    "type": "LayoutHtml",
+    "typeDesc": "Html",
+    "parent": "e03427a4-44c1-d56c-e8e5-ec4b6b48a612",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Text"
+     },
+     {
+      "name": "html",
+      "type": "Html",
+      "value": "<h4 style=\"color:#606060;\" >Iguana for SugarCRM module</h4> "
+     },
+     {
+      "name": "color",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "fontSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   },
+   {
+    "id": "e5c22f13-2f56-9638-5a05-b675a84fc695",
+    "type": "LayoutColumn",
+    "typeDesc": "Column",
+    "parent": "64b07960-f21e-b93e-4911-8c2c025d0d3b",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Footer_Image"
+     },
+     {
+      "name": "columnSpan",
+      "type": "Integer",
+      "value": "4"
+     },
+     {
+      "name": "columnPrepend",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "columnAppend",
+      "type": "Integer",
+      "value": "0"
+     },
+     {
+      "name": "columnPrependTop",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnAppendBottom",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "columnBigBorder",
+      "type": "Boolean",
+      "value": false
+     },
+     {
+      "name": "backgroundColor",
+      "type": "Color",
+      "value": ""
+     },
+     {
+      "name": "roundCorners",
+      "type": "RoundCorners",
+      "value": ""
+     },
+     {
+      "name": "height",
+      "type": "Integer",
+      "value": ""
+     },
+     {
+      "name": "cssClass",
+      "type": "String",
+      "value": ""
+     },
+     {
+      "name": "textAlign",
+      "type": "TextAlign",
+      "value": "left"
+     }
+    ]
+   },
+   {
+    "id": "68d6b48f-a44c-99af-7261-38b98e99259e",
+    "type": "LayoutHtml",
+    "typeDesc": "Html",
+    "parent": "e5c22f13-2f56-9638-5a05-b675a84fc695",
+    "properties": [
+     {
+      "name": "name",
+      "type": "Id",
+      "value": "Image"
+     },
+     {
+      "name": "html",
+      "type": "Html",
+      "value": ""
+     },
+     {
+      "name": "color",
+      "value": "",
+      "type": "Color"
+     },
+     {
+      "name": "fontSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cssClass",
+      "value": "",
+      "type": "String"
+     }
+    ]
+   }
+  ]
+ },
+ "components": {
+  "rows": [
+   {
+    "id": "GENERIC",
+    "name": "Generic",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Generic",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "7790c516-f5f2-87ea-3d63-cc61f9fb2219",
+    "type": "ComponentsParameter",
+    "typeDesc": "Parameter",
+    "parent": "GENERIC",
+    "properties": [
+     {
+      "name": "name",
+      "value": "select_userParameter",
+      "type": "Id"
+     },
+     {
+      "name": "propertyValue",
+      "value": "[vendedores].[Todos Vendedores]",
+      "type": "String"
+     },
+     {
+      "name": "bookmarkable",
+      "value": "false",
+      "type": "Boolean"
+     }
+    ],
+    "dimension": "[vendedores].[Todos Vendedores]"
+   },
+   {
+    "id": "SELECTORS",
+    "name": "Selects",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Selects",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "8d65c5e6-ca80-2b37-b9a4-4734255f47c3",
+    "type": "ComponentsSelect",
+    "typeDesc": "Select Component",
+    "parent": "SELECTORS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "select_userSelector",
+      "type": "Id"
+     },
+     {
+      "name": "parameter",
+      "value": "select_userParameter",
+      "type": "Parameter"
+     },
+     {
+      "name": "htmlObject",
+      "value": "Filter_panel",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "select_userQuery"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "valuesArray",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "valueAsId",
+      "value": false,
+      "type": "Boolean"
+     },
+     {
+      "name": "externalPlugin",
+      "value": "",
+      "type": "String"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "refreshPeriod",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     }
+    ]
+   },
+   {
+    "id": "CHARTS",
+    "name": "Charts",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "Charts",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "58bdb694-faec-b324-92fe-7ca25e33ac93",
+    "type": "ComponentscccPieChart",
+    "typeDesc": "CCC Pie Chart",
+    "meta_cdwSupport": "true",
+    "parent": "CHARTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "graficovendasMesChart",
+      "type": "Id"
+     },
+     {
+      "name": "width",
+      "value": "300",
+      "type": "Integer"
+     },
+     {
+      "name": "height",
+      "value": "300",
+      "type": "Integer"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "graficovendasMesQuery"
+     },
+     {
+      "name": "cccCrosstabMode",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccSeriesInRows",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccRenderCallback",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccAnimate",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickable",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTimeSeries",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccTimeSeriesFormat",
+      "value": "%Y-%m-%d",
+      "type": "String"
+     },
+     {
+      "name": "cccInnerGap",
+      "value": 0.9,
+      "type": "Float"
+     },
+     {
+      "name": "cccExplodedSliceIndex",
+      "value": 0,
+      "type": "Integer"
+     },
+     {
+      "name": "cccExplodedSliceRadius",
+      "value": 0,
+      "type": "Integer"
+     },
+     {
+      "name": "cccOrientation",
+      "value": "horizontal",
+      "type": "MenuMode"
+     },
+     {
+      "name": "cccColors",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "cccShowValues",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTooltipFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccPercentValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccValuesAnchor",
+      "value": "right",
+      "type": "AnchorCenter"
+     },
+     {
+      "name": "title",
+      "value": "Vendas por Ano",
+      "type": "String"
+     },
+     {
+      "name": "cccTitlePosition",
+      "value": "top",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccTitleSize",
+      "value": 25,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowLegend",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccLegendPosition",
+      "value": "bottom",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccLegendSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccLegendAlign",
+      "value": "center",
+      "type": "SquareAlign"
+     },
+     {
+      "name": "cccShowXScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisPosition",
+      "value": "bottom",
+      "type": "TopBottom"
+     },
+     {
+      "name": "cccXAxisSize",
+      "value": 30,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowYScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisPosition",
+      "value": "left",
+      "type": "LeftRight"
+     },
+     {
+      "name": "cccYAxisSize",
+      "value": 50,
+      "type": "Integer"
+     },
+     {
+      "name": "cccXAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAxisOffset",
+      "value": "0",
+      "type": "Float"
+     },
+     {
+      "name": "cccOriginIsZero",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccExtensionPoints",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[[\"select_userParameter\",\"select_userParameter\"]]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "htmlObject",
+      "value": "Panel_1",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "listeners",
+      "value": "[\"select_userParameter\"]",
+      "type": "Listeners"
+     }
+    ]
+   },
+   {
+    "id": "b84a1a5f-e4d8-7ed2-e0a1-f8328c36c423",
+    "type": "ComponentscccPieChart",
+    "typeDesc": "CCC Pie Chart",
+    "meta_cdwSupport": "true",
+    "parent": "CHARTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "TopVendedoresChart",
+      "type": "Id"
+     },
+     {
+      "name": "width",
+      "value": "280",
+      "type": "Integer"
+     },
+     {
+      "name": "height",
+      "value": "280",
+      "type": "Integer"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "TopVendedoresQuery"
+     },
+     {
+      "name": "cccCrosstabMode",
+      "value": true,
+      "type": "Boolean"
+     },
+     {
+      "name": "cccSeriesInRows",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccRenderCallback",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccAnimate",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickable",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTimeSeries",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccTimeSeriesFormat",
+      "value": "%Y-%m-%d",
+      "type": "String"
+     },
+     {
+      "name": "cccInnerGap",
+      "value": 0.9,
+      "type": "Float"
+     },
+     {
+      "name": "cccExplodedSliceIndex",
+      "value": 0,
+      "type": "Integer"
+     },
+     {
+      "name": "cccExplodedSliceRadius",
+      "value": 0,
+      "type": "Integer"
+     },
+     {
+      "name": "cccOrientation",
+      "value": "horizontal",
+      "type": "MenuMode"
+     },
+     {
+      "name": "cccColors",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "cccShowValues",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTooltipFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccPercentValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccValuesAnchor",
+      "value": "right",
+      "type": "AnchorCenter"
+     },
+     {
+      "name": "title",
+      "value": "Top Vendedores",
+      "type": "String"
+     },
+     {
+      "name": "cccTitlePosition",
+      "value": "top",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccTitleSize",
+      "value": 25,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowLegend",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccLegendPosition",
+      "value": "bottom",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccLegendSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccLegendAlign",
+      "value": "center",
+      "type": "SquareAlign"
+     },
+     {
+      "name": "cccShowXScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisPosition",
+      "value": "bottom",
+      "type": "TopBottom"
+     },
+     {
+      "name": "cccXAxisSize",
+      "value": 30,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowYScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisPosition",
+      "value": "left",
+      "type": "LeftRight"
+     },
+     {
+      "name": "cccYAxisSize",
+      "value": 50,
+      "type": "Integer"
+     },
+     {
+      "name": "cccXAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAxisOffset",
+      "value": "0",
+      "type": "Float"
+     },
+     {
+      "name": "cccOriginIsZero",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccExtensionPoints",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "htmlObject",
+      "value": "Panel_3",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "listeners",
+      "value": "[]",
+      "type": "Listeners"
+     }
+    ]
+   },
+   {
+    "id": "ad40ee44-5bdd-7489-8dcb-e026e01d00b3",
+    "type": "ComponentscccBarChart",
+    "typeDesc": "CCC Bar Chart",
+    "meta_cdwSupport": "true",
+    "parent": "CHARTS",
+    "properties": [
+     {
+      "name": "name",
+      "value": "LigacoesChart",
+      "type": "Id"
+     },
+     {
+      "name": "width",
+      "value": "250",
+      "type": "Integer"
+     },
+     {
+      "name": "height",
+      "value": "300",
+      "type": "Integer"
+     },
+     {
+      "name": "dataSource",
+      "type": "Datasource",
+      "value": "LigacoesQuery"
+     },
+     {
+      "name": "cccCrosstabMode",
+      "value": true,
+      "type": "Boolean"
+     },
+     {
+      "name": "cccSeriesInRows",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccRenderCallback",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccAnimate",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickable",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccClickAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccSelectable",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccSelectionChangedAction",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTimeSeries",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccTimeSeriesFormat",
+      "value": "%Y-%m-%d",
+      "type": "String"
+     },
+     {
+      "name": "cccStacked",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccMaxBarSize",
+      "value": 100,
+      "type": "Integer"
+     },
+     {
+      "name": "cccPanelSizeRatio",
+      "value": 0.8,
+      "type": "Float"
+     },
+     {
+      "name": "cccBarSizeRatio",
+      "value": 0.9,
+      "type": "Float"
+     },
+     {
+      "name": "cccOrientation",
+      "value": "vertical",
+      "type": "MenuMode"
+     },
+     {
+      "name": "cccColors",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "cccShowValues",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccValueFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccTooltipFormat",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "cccValuesAnchor",
+      "value": "right",
+      "type": "AnchorCenter"
+     },
+     {
+      "name": "title",
+      "value": "Ligacoes",
+      "type": "String"
+     },
+     {
+      "name": "cccTitlePosition",
+      "value": "top",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccTitleSize",
+      "value": 25,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowLegend",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccLegendPosition",
+      "value": "bottom",
+      "type": "Anchor"
+     },
+     {
+      "name": "cccLegendSize",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccLegendAlign",
+      "value": "center",
+      "type": "SquareAlign"
+     },
+     {
+      "name": "cccShowXScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisPosition",
+      "value": "bottom",
+      "type": "TopBottom"
+     },
+     {
+      "name": "cccXAxisSize",
+      "value": 30,
+      "type": "Integer"
+     },
+     {
+      "name": "cccShowYScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisPosition",
+      "value": "left",
+      "type": "LeftRight"
+     },
+     {
+      "name": "cccYAxisSize",
+      "value": 50,
+      "type": "Integer"
+     },
+     {
+      "name": "cccXAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisFullGrid",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisEndLine",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisEndLine",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccXAxisDomainRoundMode",
+      "value": "none",
+      "type": "cccXAxisDomainRoundModeCustom"
+     },
+     {
+      "name": "cccYAxisDomainRoundMode",
+      "value": "none",
+      "type": "cccYAxisDomainRoundModeCustom"
+     },
+     {
+      "name": "cccBarLineDomainRoundMode",
+      "value": "none",
+      "type": "cccBarLineDomainRoundModeCustom"
+     },
+     {
+      "name": "cccXAxisDesiredTickCount",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccYAxisDesiredTickCount",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccBarLineDesiredTickCount",
+      "value": "",
+      "type": "Integer"
+     },
+     {
+      "name": "cccXAxisMinorTicks",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccYAxisMinorTicks",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccBarLineMinorTicks",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccAxisOffset",
+      "value": "0",
+      "type": "Float"
+     },
+     {
+      "name": "cccOriginIsZero",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccOrthoFixedMax",
+      "value": "",
+      "type": "Float"
+     },
+     {
+      "name": "cccBarLine",
+      "value": "false",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccBarLineIndependentScale",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccBarLineIdx",
+      "value": "[]",
+      "type": "Array"
+     },
+     {
+      "name": "cccBarLineOriginIsZero",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cccBarLineTickColor",
+      "value": "blue",
+      "type": "String"
+     },
+     {
+      "name": "cccExtensionPoints",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "xActionArrayParameter",
+      "value": "[]",
+      "type": "ValuesArray"
+     },
+     {
+      "name": "executeAtStart",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "postFetch",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "preChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postChange",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "htmlObject",
+      "value": "Panel_2",
+      "type": "HtmlObject"
+     },
+     {
+      "name": "preExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "postExecution",
+      "value": "",
+      "type": "JavaScript"
+     },
+     {
+      "name": "tooltip",
+      "value": "",
+      "type": "Html"
+     },
+     {
+      "name": "listeners",
+      "value": "['select_userParameter']",
+      "type": "Listeners"
+     }
+    ]
+   }
+  ]
+ },
+ "datasources": {
+  "rows": [
+   {
+    "id": "MDX",
+    "name": "MDX Queries",
+    "type": "Label",
+    "typeDesc": "<i>Group</i>",
+    "parent": "UnIqEiD",
+    "properties": [
+     {
+      "name": "Group",
+      "value": "MDX Queries",
+      "type": "Label"
+     }
+    ]
+   },
+   {
+    "id": "ce3f8243-6e33-8d84-9694-3c22795cd550",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "value": "select_userQuery",
+      "type": "Id"
+     },
+     {
+      "name": "catalog",
+      "value": "/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml",
+      "type": "MondrianCatalog"
+     },
+     {
+      "name": "jndi",
+      "value": "iguana",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[\"1\",\"0\"]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": "with member [Measures].[Name] as '[vendedores].CurrentMember.UniqueName' select TopCount( filter({Descendants([vendedores].[Todos Vendedores] ,[vendedores].[Vendedor])}, not isempty(([vendedores].CurrentMember)) ) , 50) on ROWS, \n {[Measures].[Name]} on Columns \n from [opportunities]",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     },
+     {
+      "name": "bandedMode",
+      "value": "compact",
+      "type": "BandedMode"
+     }
+    ]
+   },
+   {
+    "id": "c6f5c2dd-6c0f-7545-b4ff-152fcd5c46ae",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "value": "graficovendasMesQuery",
+      "type": "Id"
+     },
+     {
+      "name": "catalog",
+      "value": "/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml",
+      "type": "MondrianCatalog"
+     },
+     {
+      "name": "jndi",
+      "value": "iguana",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[[\"select_userParameter\",\"[vendedores].[Todos Vendedores]\", \"String\",\"\"]]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": " select NON EMPTY({Descendants([Periodo].[Todos Periodos] ,[Periodo].[Ano])}) on ROWS, \n NON EMPTY({[Measures].[Valor]}) on Columns \n from [opportunities]\n where (${select_userParameter})",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     },
+     {
+      "name": "bandedMode",
+      "value": "compact",
+      "type": "BandedMode"
+     }
+    ]
+   },
+   {
+    "id": "056cbe03-57c5-80b8-5638-cf2edcce3abb",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "value": "TopVendedoresQuery",
+      "type": "Id"
+     },
+     {
+      "name": "catalog",
+      "value": "/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml",
+      "type": "MondrianCatalog"
+     },
+     {
+      "name": "jndi",
+      "value": "iguana",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": " select NON EMPTY(TopCount({Descendants([vendedores].[Todos Vendedores] ,[vendedores].[Vendedor])}, 5, [Measures].[Fact Count])) on ROWS, \n NON EMPTY({[Measures].[Fact Count]}) on Columns \n from [opportunities]",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     },
+     {
+      "name": "bandedMode",
+      "value": "compact",
+      "type": "BandedMode"
+     }
+    ]
+   },
+   {
+    "id": "82ff6e39-adc2-7607-c59f-197b3a9a5816",
+    "type": "Componentsmdx_mondrianJndi",
+    "typeDesc": "mdx over mondrianJndi",
+    "meta": "CDA",
+    "meta_conntype": "mondrian.jndi",
+    "meta_datype": "mdx",
+    "parent": "MDX",
+    "properties": [
+     {
+      "name": "name",
+      "value": "LigacoesQuery",
+      "type": "Id"
+     },
+     {
+      "name": "catalog",
+      "value": "/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml",
+      "type": "MondrianCatalog"
+     },
+     {
+      "name": "jndi",
+      "value": "iguana",
+      "type": "Jndi"
+     },
+     {
+      "name": "access",
+      "value": "public",
+      "type": "Access"
+     },
+     {
+      "name": "parameters",
+      "value": "[]",
+      "type": "CdaParameters"
+     },
+     {
+      "name": "output",
+      "value": "[]",
+      "type": "IndexArray"
+     },
+     {
+      "name": "outputMode",
+      "value": "include",
+      "type": "OutputMode"
+     },
+     {
+      "name": "cdacolumns",
+      "value": "[]",
+      "type": "CdaColumnsArray"
+     },
+     {
+      "name": "cdacalculatedcolumns",
+      "value": "[]",
+      "type": "CdaCalculatedColumnsArray"
+     },
+     {
+      "name": "query",
+      "value": " select NON EMPTY(TopCount({Descendants([user].[Todos os Usuarios] ,[user].[User])}, 5, [Measures].[quantidade])) on ROWS, \n NON EMPTY({[Measures].[quantidade]}) on Columns \n from [calls]",
+      "type": "SqlQuery"
+     },
+     {
+      "name": "cache",
+      "value": "true",
+      "type": "Boolean"
+     },
+     {
+      "name": "cacheDuration",
+      "value": 3600,
+      "type": "Integer"
+     },
+     {
+      "name": "bandedMode",
+      "value": "compact",
+      "type": "BandedMode"
+     }
+    ]
+   }
+  ]
+ },
+ "filename": "/sugarcrm-ce/dashboards/opportunities.cdfde"
+}
