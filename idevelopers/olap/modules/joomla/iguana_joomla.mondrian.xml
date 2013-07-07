@@ -1,0 +1,56 @@
+<Schema name="joomla">
+  <Cube name="article" visible="true" cache="true" enabled="true">
+    <Table name="joomla_fact_article">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_publication_status" highCardinality="false" name="State">
+      <Hierarchy name="State" visible="true" hasAll="true" primaryKey="pk_id_publication_status">
+        <Table name="joomla_dimen_publication status">
+        </Table>
+        <Level name="State" visible="true" table="joomla_dimen_publication status" column="name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_article" highCardinality="false" name="Article">
+      <Hierarchy name="Article" visible="true" hasAll="true" primaryKey="pk_id_article">
+        <Table name="joomla_dimen_article">
+        </Table>
+        <Level name="Article" visible="true" table="joomla_dimen_article" column="title" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_user" highCardinality="false" name="User">
+      <Hierarchy name="User" visible="true" hasAll="true" primaryKey="pk_id_user">
+        <Table name="joomla_dimen_user">
+        </Table>
+        <Level name="User" visible="true" table="joomla_dimen_user" column="name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_time" highCardinality="false" name="Time">
+      <Hierarchy name="Time" visible="true" hasAll="true" primaryKey="pk_time">
+        <Table name="joomla_dimen_time">
+        </Table>
+        <Level name="Year" visible="true" table="joomla_dimen_time" column="year" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Quarter" visible="true" table="joomla_dimen_time" column="quarter" type="Integer" internalType="int" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" table="joomla_dimen_time" column="descmonth" type="String" internalType="String" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+        <Level name="Date" visible="true" table="joomla_dimen_time" column="date" type="Date" uniqueMembers="true" levelType="TimeDays" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_section" highCardinality="false" name="Section">
+      <Hierarchy name="Section" visible="true" hasAll="true" primaryKey="pk_id_section">
+        <Table name="joomla_dimen_section">
+        </Table>
+        <Level name="Section" visible="true" table="joomla_dimen_section" column="name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Category" visible="true" table="joomla_dimen_section" column="category" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Amount" column="sk_article" aggregator="distinct-count" visible="false">
+    </Measure>
+  </Cube>
+</Schema>

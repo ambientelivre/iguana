@@ -1,0 +1,30 @@
+<Schema name="New Schema1">
+  <Cube name="articles" visible="true" cache="true" enabled="true">
+    <Table name="noosfero_fact_article">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_time" name="Time">
+      <Hierarchy name="Time" visible="true" hasAll="true" primaryKey="pk_time">
+        <Table name="noosfero_dimen_time" alias="">
+        </Table>
+        <Level name="Year" visible="true" table="noosfero_dimen_time" column="year" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Quarter" visible="true" table="noosfero_dimen_time" column="quarter" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeQuarters" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" table="noosfero_dimen_time" column="month" nameColumn="month" ordinalColumn="descweek" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_time" name="User">
+      <Hierarchy name="User" visible="true" hasAll="true">
+        <Table name="noosfero_dimen_user" alias="">
+        </Table>
+        <Level name="Login" visible="true" table="noosfero_dimen_user" column="login" type="String" uniqueMembers="true" levelType="Regular">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="count" column="id" datatype="Integer" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="hits" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

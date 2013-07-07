@@ -1,0 +1,80 @@
+<Schema name="sugarcrm">
+  <Cube name="opportunities" caption="opportunities" visible="true" description="opportunities" cache="true" enabled="true">
+    <Table name="sugarcrm_ce_fact_opportunities">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_date_closed" highCardinality="false" name="Periodo" description="Periodo">
+      <Hierarchy name="Periodo" visible="true" hasAll="true" allMemberName="Todos Periodos" primaryKey="pk_time">
+        <Table name="sugarcrm_ce_dimen_time">
+        </Table>
+        <Level name="Ano" visible="true" table="sugarcrm_ce_dimen_time" column="year" type="Integer" uniqueMembers="false" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" table="sugarcrm_ce_dimen_time" column="month" nameColumn="descmonth" type="Integer" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_assigned_user_id" highCardinality="false" name="vendedores">
+      <Hierarchy name="vendedores" visible="true" hasAll="true" allMemberName="Todos Vendedores" primaryKey="pk_id_user">
+        <Table name="sugarcrm_ce_dimen_user">
+        </Table>
+        <Level name="Vendedor" visible="true" table="sugarcrm_ce_dimen_user" column="first_name" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_account_id" highCardinality="false" name="contas">
+      <Hierarchy name="contas" visible="true" hasAll="true" allMemberName="Todas Contas" primaryKey="pk_id_accounts">
+        <Table name="sugarcrm_ce_dimen_account">
+        </Table>
+        <Level name="tipoconta" visible="true" table="sugarcrm_ce_dimen_account" column="account_type" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="negocio" visible="true" table="sugarcrm_ce_dimen_account" column="business" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="conta" visible="true" table="sugarcrm_ce_dimen_account" column="name" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_opportunity_type" highCardinality="false" name="tipooportunidade">
+      <Hierarchy name="tipooportunidade" visible="true" hasAll="true" allMemberName="Todos Tipos" primaryKey="pk_id_opportunity_type">
+        <Table name="sugarcrm_ce_dimen_opportunity_type">
+        </Table>
+        <Level name="tipo" visible="true" table="sugarcrm_ce_dimen_opportunity_type" column="pk_id_opportunity_type" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Valor" column="amount" aggregator="sum" visible="true">
+    </Measure>
+    <Measure name="quantidade" column="amount" datatype="Integer" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+  <Cube name="calls" visible="true" cache="true" enabled="true">
+    <Table name="sugarcrm_ce_fact_calls">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_assigned_user_id" highCardinality="false" name="user">
+      <Hierarchy name="user" visible="true" hasAll="true" allMemberName="Todos os Usuarios" primaryKey="pk_id_user">
+        <Table name="sugarcrm_ce_dimen_user">
+        </Table>
+        <Level name="User" visible="true" table="sugarcrm_ce_dimen_user" column="first_name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_status" highCardinality="false" name="status">
+      <Hierarchy name="status" visible="true" hasAll="true" allMemberName="Todos os Status">
+        <Table name="sugarcrm_ce_dimen_status">
+        </Table>
+        <Level name="Status" visible="true" table="sugarcrm_ce_dimen_status" column="description" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_date_start" highCardinality="false" name="Periodo">
+      <Hierarchy name="Periodo" visible="true" hasAll="true" primaryKey="pk_time">
+        <Table name="sugarcrm_ce_dimen_time">
+        </Table>
+        <Level name="Ano" visible="true" table="sugarcrm_ce_dimen_time" column="year" type="Integer" internalType="int" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Mes" visible="true" table="sugarcrm_ce_dimen_time" column="month" nameColumn="descmonth" ordinalColumn="month" type="String" internalType="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="quantidade" column="sk_account_id" datatype="Numeric" aggregator="count" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
