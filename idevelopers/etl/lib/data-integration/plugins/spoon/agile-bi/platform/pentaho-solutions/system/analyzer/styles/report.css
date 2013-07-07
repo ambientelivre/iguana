@@ -1,0 +1,1105 @@
+/******** NEW SKIN STYLES *************/
+
+/* Hide browser scroll bar */
+body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+  width: 100%;
+
+}
+
+.statusIcon {
+  vertical-align: middle;
+  padding-right: 6px;
+  width: 15px;
+  height: 15px;
+}
+
+.disabled {
+  cursor: default;
+}
+
+/* Message bar padding */
+#commonMsgText, #commonMsgBarBackground {
+  margin-left:256px;
+}
+
+/* Measures and Attributes Panel */
+#fieldListWrapper{
+  /*min-width: 160px;*/
+  width: 200px;
+}
+
+#fieldList {
+  height: 400px;
+  width: 240px;
+  font-size: .86em;
+}
+
+#layoutPanel{
+  /*min-width: 160px;*/
+  width: 200px;
+}
+
+#fieldListContent {
+  width: 240px;
+}
+#fieldListWrapper {
+  height: 100%;
+}
+
+#fieldList #fieldListTop {
+  width: 100%;
+  padding: 0px;
+}
+
+#fieldList #fieldListTop #fieldListHeading {
+  width: 100%;
+  padding: 7px 7px 5px 7px;
+}
+
+#fieldList #hideFieldList {
+  float: right;
+  cursor: pointer;
+  padding-bottom: 7px;
+  height: 16px;
+}
+
+#fieldList #fieldListTop .fieldListOptions {
+  width: 100%;
+  height: 32px;
+  padding: 5px 7px 5px 7px;
+}
+
+#fieldList #fieldListTop .searchFieldLabel {
+  line-height: 21px;
+}
+
+#fieldList #fieldListTop #searchBox {
+  width: 100%;
+  padding: 0px 8px 0px 0px;
+}
+
+#fieldList #fieldListTop #searchField {
+  width: 100%;
+  height: 18px;
+}
+
+#fieldList #fieldListTop #editDatasource {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#fieldList #fieldListTop #clearSearchField {
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  right: 10px;
+  top: 4px;
+  cursor: pointer;
+
+}
+
+#fieldList #fieldListTop .fieldListStatus {
+  display: none;
+  width: 244px;
+  padding: 5px 7px 5px 7px;
+}
+
+#fieldList #fieldListTop #viewFieldOptions {
+  height: 15px;
+  padding: 1px 3px 0 3px;
+  cursor: pointer;
+  width: 43px;
+}
+
+#fieldList #fieldListTree {
+  position: relative;
+  width: 237px;
+  overflow: auto;
+  padding-left: 3px;
+}
+
+#fieldListTree .folder {
+  position: relative;
+  clear: left;
+  white-space: nowrap;
+  margin: 2px 2px 2px 0;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+#fieldListTree .folderContent {
+  float: left;
+  clear: left;
+  width: 100%;
+}
+
+#fieldListTree .field {
+  position: relative;
+  clear: left;
+  white-space: nowrap;
+  padding: 0 0 0 18px;
+  cursor: move;
+  margin: 2px;
+  background-repeat: no-repeat;
+  background-image: none;
+}
+
+.cvTooltip {
+  width: 200px;
+  position: absolute;
+  font-size: 86%;
+  padding: 2px;
+  z-index: 10;
+  display: block;
+}
+
+.fieldTooltipTitle {
+  width: 100%;
+}
+
+.fieldTooltipFooter {
+  /*width: auto;*/
+}
+
+/* End measures and attributes bar */
+
+.editor #reportContent {
+  padding: 10px 0 0;
+}
+
+#reportContent {
+}
+
+/* Report Buttons Bar */
+
+#reportBtns {
+  height: 22px;
+  padding: 5px;
+}
+
+#main_toolbar{
+  float:left;
+}
+
+.btnContainer {
+  position: relative;
+  float: left;
+}
+
+#main_toolbar .reportBtn {
+  float: left;
+  margin-right: 6px;
+  margin-top: 1px;
+  padding: 2px;
+  cursor:pointer;
+  text-align: center;
+  z-index: 100;
+  overflow: hidden;
+  white-space: nowrap;
+  color: white;
+  line-height: 1em;
+  vertical-align: middle;
+}
+
+#main_toolbar .reportBtn IMG {
+  width: 16px;
+  height: 16px;	
+}
+
+#main_toolbar .separator {
+  float: left;
+  margin-left: 3px;
+  margin-right: 9px;
+  border-left: 1px solid #999999;
+  height: 22px;
+}
+
+#reportBtns IMG.downArrow {
+  width: 11px;
+  height: 9px;
+  padding: 6px 0;
+}
+
+.reportImgBtn{
+  display: block;
+  float:left;
+  height:18px;
+  width: 18px;
+  margin-right: 15px;
+  cursor:pointer;
+  padding-top: 2px;
+  padding-left: 2px;
+}
+
+.reportImgBtn img {
+  cursor: pointer;
+}
+
+
+/* End Report Buttons Bar */
+/* Glow styles */
+
+.glow {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+}
+
+/* End glow styles */
+
+.reportMain {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.VIEW .EDIT_Only {
+  display: none;
+}
+
+.MINI .EDIT_Only {
+  display: none;
+}
+
+/* Title bar */
+.reportTitle {
+  padding: 5px 10px 5px 0px;
+  overflow: hidden;
+}
+
+.reportTitle H2 {
+  font-size: 1.29em;
+  display: inline;
+  cursor: pointer;
+  line-height: 21px;
+}
+
+.titleLink {
+  float: left;
+  text-decoration:none;
+  padding-left: 4px;
+}
+
+.reportName {
+	padding-top: 5px;
+	position: absolute;
+	font-weight: bold;
+	cursor: default;
+}
+
+.VIEW .reportTitle A {
+  cursor: default;
+}
+
+.VIEW .reportTitle .titleLink {
+  padding-left: 5px;
+}
+
+.reportTitle .titleLink IMG {
+  float: left;
+  vertical-align: middle;
+  padding-left: 5px;
+  padding-top: 4px;
+  padding-right: 2px;
+}
+
+.reportFormatDiv {
+  height: 24px;
+  width: 240px;
+  overflow: hidden;
+  float: right;
+  padding: 4px;
+}
+
+.reportFormatShowDiv {
+  height: 21px;
+  overflow: hidden;
+  float: right;
+}
+
+.reportDisplayFormat {
+  float: right;
+  cursor: pointer;
+}
+
+/* End title bar */
+
+/* Report summary bar */
+
+.filterSummary {
+  cursor: pointer;
+}
+
+.filterSummary SPAN {
+  float: left;
+  height: 20px;
+  padding: 3px 3px 0 3px;
+}
+
+.filterPaneToggle {
+  height: 20px;
+  width: 22px;
+  float: left;
+  margin: 4px 2px 0 5px;
+  cursor: pointer;
+}
+
+.statusBar {
+  float: right;
+  padding: 5px 10px 0 0;
+}
+
+/* End report summary bar */
+
+/* Field zones */
+.commonDragObject {
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+
+.dropZoneAttributes {
+  vertical-align: top;
+  width: 98%;
+  min-height: 24px;
+  height: auto !important;
+  height: 24px;
+  overflow: auto;
+}
+
+.dropZoneMeasures {
+  vertical-align: top;
+  width: 98%;
+  min-height: 24px;
+  height: auto !important;
+  height: 24px;
+  overflow: auto;
+}
+
+.reportLayout .attributeItem {
+  width: 120px;
+}
+
+.reportLayout .attributeMultiChartItem {
+  width: 120px;
+}
+
+
+.reportLayout .metricItem {
+  margin: 2px 0 2px 2px;
+  width: 120px;
+}
+
+
+.reportLayout TABLE {
+  width: 100%;
+  float: left;
+  table-layout: fixed;
+  border: 0;
+}
+
+.reportLayout .hideLayoutPane {
+  width: 16px;
+  height: 16px;
+  margin: 5px;
+  cursor: pointer;
+  float: right;
+}
+
+TD.dropZoneLabel {
+  width: 125px;
+  text-align: right;
+  padding-right: 3px;
+  font-size: .86em;
+}
+
+.dropZoneItem {
+  cursor: move;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 20px;
+}
+
+.gemLabel {
+  width: 114px;
+  height: 17px;
+  overflow: hidden;
+  padding-top: 3px;
+  padding-left: 6px;
+}
+
+/* End fields stuff */
+
+/* Filter related styles */
+
+.reportFilter {
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.filters {
+  vertical-align: top;
+  min-height: 82px;
+  width: 92%;
+  margin: 2px 0 2px 8px;
+  overflow: auto;
+}
+
+.filterPaneHint {
+  width: 100%;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.filterGroup {
+  float: left;
+  width: 97%;
+}
+
+.lockImg {
+  width: 11px;
+  height: 16px;
+  margin-left: 5px;
+  vertical-align: top;
+}
+
+.unlocked .lockImg, .lockedForUser .filterAction {
+  display: none;
+}
+
+.filterItem {
+  width: 100%;
+  overflow: auto;
+  min-height: 17px;
+}
+
+.filterItem IMG {
+  cursor: pointer;
+  margin: 0 5px 0 2px;
+}
+
+.filterItemList {
+  float: left;
+  clear: left;
+  width: 100%;
+}
+
+.filterLine {
+  height: 17px;
+}
+
+.filterIndent {
+  float: left;
+  width: 50px;
+  overflow: hidden;
+}
+
+.filterIndent2 {
+  float: left;
+  width: 60px;
+}
+
+.filters .filterItemMouseOver {
+  cursor: move;
+}
+
+.filterText {
+  width: 70%;
+  padding: 3px 0;
+  vertical-align: middle;
+  float: left;
+}
+
+.optionItem {
+  float: left;
+  clear: left;
+  width: 90%;
+}
+
+
+/******** END NEW SKIN STYLES *************/
+/******** TEMP STYLES *************/
+.timePresets {display:none;}
+
+/******** END TEMP STYLES *************/
+.closeBox {
+  width: 16px;
+  height: 16px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.helpIcon {
+  margin-top: 5px;
+}
+
+/* Main Report Content */
+.reportRefresh {
+  height: 31px;
+  padding-left: 12px;
+  padding-top: 10px;
+}
+
+.reportArea {
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+}
+
+.reportArea .reportEmpty, .reportArea .noData {
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  vertical-align: center;
+  text-align: center;
+}
+
+.reportArea .reportEmpty, .reportArea .noData .noDataHeader {
+  font-size: 152%;
+}
+
+.reportArea .noData .noDataHint {
+  float: left;
+  clear: left;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reportArea IMG {
+  display: block;
+  margin: auto;
+}
+
+.reportArea PRE {
+  overflow: auto;
+  float: left;
+  clear: left;
+  width: 95%;
+  height: 80%;
+}
+
+.reportArea IMG.reportMsgIcon {
+  vertical-align: top;
+  float: left;
+  padding-right: 10px;
+}
+
+.reportArea .reportMsgText {
+  overflow: none;
+  width: 85%;
+  float: left;
+  padding-top: 10px;
+}
+
+.reportArea #selectionFilterPanel {
+  position: absolute;
+  z-index: 1000;
+  top: 0px;
+  border-bottom-left-radius:5px;
+  border-bottom-right-radius:5px;
+  padding: 2px 3px 5px 3px;
+  background-color: #888888;
+  opacity: .8;
+  border-left: 1px #333333 solid;
+  border-right: 1px #333333 solid;
+  border-bottom: 1px #333333 solid;
+}
+
+/* Pivot Table Styles */
+.pivotTable {
+  margin: 10px;
+  vertical-align: middle;
+  overflow: hidden;
+  -moz-user-select:none;
+  cursor:default;
+  padding: 0 0 0 0;
+}
+
+.pivotTable TABLE {
+  border-spacing: 0px;
+  vertical-align: middle;
+  margin: 0;
+  _border-collapse: collapse;  /* show to IE only */
+}
+
+.pivotTable .pivotTableRowLabelHeaderSection {
+  vertical-align: bottom;
+}
+
+.pivotTable .pivotTableRowLabelHeaderContainer {
+  vertical-align: bottom;
+}
+
+.pivotTable .pivotTableRowLabelHeaderContainer TABLE {
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.pivotTable .pivotTableColumnHeaderSection {
+  vertical-align: bottom;
+  position:relative;
+  overflow:hidden;
+  width: auto;
+}
+
+
+.pivotTable .pivotTableColumnHeaderSection TABLE {
+  position: relative;
+}
+
+.pivotTable .pivotTableColumnHeaderContainer {
+  overflow: hidden;
+  vertical-align: bottom;
+  width: auto;
+  position: relative;
+}
+
+.pivotTable .pivotTableColumnHeaderContainer TABLE {
+  border-collapse: collapse;
+  table-layout: fixed;
+  cursor: pointer;
+  position: relative;
+}
+
+.pivotTable .pivotTableDataSection {
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+}
+
+.pivotTable .pivotTableDataContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.pivotTable .pivotTableDataContainer TABLE {
+  table-layout: fixed;
+  position: relative;
+}
+
+.pivotTable .pivotTableRowLabelSection {
+  vertical-align: top;
+}
+
+.pivotTable .pivotTableRowLabelContainer {
+  overflow: hidden;
+  vertical-align: top;
+  position: relative;
+}
+
+.pivotTable .pivotTableRowLabelContainer TABLE {
+  border-collapse: collapse;
+  cursor: pointer;
+  position: relative;
+}
+
+.pivotTable .pivotTableScrollbars {
+  overflow: scroll;
+  position: relative;
+  z-index: 100;
+}
+
+.pivotTable .pivotTableContent {
+  position: relative;
+  z-index: 101;
+  overflow: hidden;
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+.pivotTable .pivotTableContent TABLE {
+  border-collapse: collapse;
+}
+
+.pivotTable .pivotTableContent A {
+  color: #003D89;
+}
+
+.pivotTable .slicer {
+  background-color: white;
+}
+
+.pivotTable .columnHeaders TD {
+  padding: 0 0 0 0;
+  vertical-align: top;
+}
+
+.pivotTable .columnHeaders .member {
+  text-align: center;
+}
+
+
+.pivotTable .columnHeaders .memberSubTotal {
+  text-align: center;
+}
+
+.pivotTable .columnHeaders .metricNoData {
+  text-align: center;
+}
+
+.pivotTable .columnHeaders .metric {
+  text-align: center;
+}
+
+.pivotTable .columnHeaders DIV {
+  overflow: hidden;
+  margin: 2px 4px 2px 4px;
+}
+
+.pivotTable .rowLabelHeaders TD {
+  vertical-align: top;
+}
+
+
+.pivotTable .rowLabelHeaders TD DIV {
+  white-space: nowrap;
+  margin: 2px 4px;
+  overflow: hidden;
+}
+
+.pivotTable .rowHeaders TD DIV {
+  white-space: nowrap;
+  padding: 2px 4px;
+  overflow: hidden;
+}
+
+.pivotTable .cells TD {
+  padding: 0 0 0 0;
+  text-align: right;
+  cursor: move;
+}
+
+.pivotTable .cells DIV {
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 2px 4px 2px 4px;
+}
+
+
+.pivotTable .cells  .databar-red
+{
+  margin: 0px;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+}
+
+.pivotTable .cells  .databar-green
+{
+  margin: 0px;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+}
+
+.pivotTable .cells  .databar-blue
+{
+  margin: 0px;
+  position: absolute;
+  height: 100%;
+  z-index: -1;
+}
+
+.pivotTable .cells .databar-wrapper
+{
+  position: relative;
+  margin: 0px;
+}
+
+.rowTruncate {
+  position: absolute;
+  left: 10px;
+  padding: 5px;
+  width: 600px;
+  z-Index: 200;
+}
+
+.colTruncate {
+  position: absolute;
+  padding: 5px;
+  width: 300px;
+  z-Index: 200;
+}
+
+.reportMain .trashcan {
+  position: absolute;
+  width: 138px;
+  height: 147px;
+  z-index: 1000;
+}
+
+
+/* Dojo widget styles */
+
+/* Dojo popup menus */
+body .dojoMenuItem2 {
+  height: 25px;
+}
+
+body .dojoMenuItem2Hover {
+  background-color: #CBEFA3;
+}
+
+#progressPane #progressPaneActions div {
+  width: 100%;
+  clear: both;
+}
+
+.pivotTable .rowLabelHeaders .resize {
+  margin-left: 0;
+  padding-left: 5px;
+  padding-right: 0;
+  margin-right:0;
+  height:100%;
+}
+.pivotTable .columnHeaders .resize {
+  margin-left: 0;
+  padding-left: 5px;
+  padding-right: 0;
+  margin-right:0;
+  height:100%;
+}
+
+.pivotTable .rowLabelHeaders .resizeHandle{
+  cursor:col-resize;
+  line-height: 0px;
+  position: absolute;
+  width: 0px;
+  bottom: 0px;
+  height: 118px;
+  margin:0;
+  padding:0;
+}
+/*IE6 doesn't support transparent border, do IE6 hack here*/
+*html .pivotTable .rowLabelHeaders .resizeHandle
+{
+  border-color: pink;
+  filter: chroma(color=pink);
+}
+
+.pivotTable .columnHeaders .resizeHandle{
+  cursor:col-resize;
+  line-height: 0px;
+  position: absolute;
+  width: 0px;
+  bottom: 0px;
+  height: 118px;
+  margin:0;
+  padding:0;
+}
+
+*html .pivotTable .columnHeaders .resizeHandle
+{
+  border-color: pink;
+  filter: chroma(color=pink);
+}
+
+.pivotTable .resizeIndicator{
+  float: top;
+  position: absolute;
+  top: 0px;
+  width: 0px;
+  height: 1000px;
+  cursor: col-resize;
+}
+
+.rptInfoTitle {
+  color:#9dace0;
+}
+.rptInfo {
+  width: 460px;
+  border: 2px solid #848484;
+  background-color: #ffffff;
+}
+.rptInfoContent {
+  width: 460px;
+  background-color: #FFFFFF;
+  font-family: verdana, geneva, arial, helvetica, sans-serif;
+}
+
+.cvRptInfoTooltip{
+  position: absolute;
+}
+
+.cvRptInfoTooltipHeader {
+  height: 25px;
+  width: 460px;
+}
+
+.cvRptInfoTooltipTitle {
+}
+
+.cvRptInfoTooltipBody_2 {
+  height: 102px;
+  width: 460px;
+  padding-top:8px;
+}
+
+.cvRptInfoTooltipFooter {
+  height: 10px;
+  width: 460px;
+}
+
+.buttonOK {
+  margin-right: 0px;
+  align: right;
+}
+.buttonCancel {
+  margin-right:0px;
+}
+
+.refreshPaneComplete {
+  padding: 3px 5px 0px 15px;
+}
+
+*html refreshPaneComplete
+{
+  border-color: pink;
+  filter: chroma(color=pink);
+}
+
+.refreshPaneCanceledMode {
+  padding-top: 3px;
+  padding-bottom:0px;
+  padding-right:5px;
+  height: 18px;
+}
+
+.progressPaneUp {
+  width: 240px;
+  height:66px;
+  z-index: 1100;
+  top:105px;
+  right:5%;
+}
+
+.progressPaneContent {
+  width: 220px;
+  padding-left:10px;
+  z-index: 1100;
+  word-wrap: break-word;
+  white-space-collapse:collapse;
+}
+
+.progressPaneDown {
+  width: 240px;
+  height:20px;
+  background-repeat:no-repeat;
+  z-index: 1100;
+}
+
+.progressPaneHeaderLabel {
+  padding-top:40px;
+  padding-left:15px;
+}
+
+.progressPaneDiv {
+  float:right;
+  margin-top:3px;
+  height:18px;
+}
+
+.reportTooltipTextArea {
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.cmdActionsBtn{
+  border: 1px solid #848484;
+  margin:2px 10px 0px 0px;
+  padding-right: 10px;
+  padding-left 6px;
+  height: 19px;
+  display:block;
+  width: 60px;
+  cursor: pointer;
+}
+
+.cmdActionsBtn span{
+  line-height: 19px;
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.autoRefreshDirtyPane{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 998;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#gridChartDiv #gridChartTable {
+  border-collapse:collapse;
+}
+
+#gridChartDiv #gridChartTable .gridChartItem {
+  padding: 5px 0px 0px 0px;
+}
+
+.multiChartCmdButton {
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+#reportContainerWrapper{
+  padding: 0px 0px 0px 0px;
+}
+
+.rubberBand {
+  position: absolute;
+  visibility: hidden;
+  width: 0px;
+  height: 0px;
+  border: 2px solid #86fe00;
+  z-index: 999;
+  background-color: #cbefa3;
+  opacity: 0.6;
+  filter:alpha(opacity=60);
+}
+
+#selectChartWait {
+	position:absolute;
+	cursor:wait;
+	width:100%;
+	height:100%;
+	z-index:999;
+	background-color: white;
+	opacity: .01;
+	filter:alpha(opacity=1)
+}
+
+#fieldListTree .attribute {
+  background-image: url(../images/gemBar_level.png);
+}
+
+#fieldListTree .measure {
+  background-image: url(../images/gemBar_measure.png);
+}
+
+.dijitDialogTitleBar.Caption{ /* we do not use this diji dialog element, hide */
+  display: none;
+}
+
+.IE #reportContent, .IE #borderContainer{
+  position:fixed;
+  top:0px;
+  left: 0px;
+}
+
+#pageLoading {
+  z-index: 100; 
+  height: 100%; 
+  width: 100%; 
+  position: absolute; 
+  color: white; 
+  font-size:100%;
+  padding-left:250px;	
+}

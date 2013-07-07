@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+  <!-- Tell browser to cache static resources defined in plugin.xml for 1 hour -->
+  <max-age>3600</max-age>
+
+  <json-chart-content-generators>
+    <!-- uncomment the following to enable printing of Geo Maps -->
+    <!--open_layers>geomapexport</open_layers-->
+    <ccc_heatgrid>analyzer</ccc_heatgrid>
+    <ccc_bar>analyzer</ccc_bar>
+    <ccc_barstacked>analyzer</ccc_barstacked>
+    <ccc_barnormalized>analyzer</ccc_barnormalized>
+    <ccc_horzbar>analyzer</ccc_horzbar>
+    <ccc_horzbarstacked>analyzer</ccc_horzbarstacked>
+    <ccc_horzbarnormalized>analyzer</ccc_horzbarnormalized>
+    <ccc_line>analyzer</ccc_line>
+    <ccc_area>analyzer</ccc_area>
+    <ccc_scatter>analyzer</ccc_scatter>
+    <ccc_pie>analyzer</ccc_pie>
+    <ccc_waterfall>analyzer</ccc_waterfall>
+    <ccc_boxplot>analyzer</ccc_boxplot>
+    <ccc_bulletchart>analyzer</ccc_bulletchart>
+    <ccc_line_hover>analyzer</ccc_line_hover>
+    <ccc_area_hover>analyzer</ccc_area_hover>    
+    <ccc_barline>analyzer</ccc_barline>    
+  </json-chart-content-generators>
+
+
+<ccc_barline-content-generator-path>cggPrint</ccc_barline-content-generator-path>    
+  <ccc_heatgrid-content-generator-path>cggPrint</ccc_heatgrid-content-generator-path>
+  <ccc_bar-content-generator-path>cggPrint</ccc_bar-content-generator-path>  
+  <ccc_barstacked-content-generator-path>cggPrint</ccc_barstacked-content-generator-path>
+  <ccc_barnormalized-content-generator-path>cggPrint</ccc_barnormalized-content-generator-path>
+  <ccc_horzbar-content-generator-path>cggPrint</ccc_horzbar-content-generator-path>
+  <ccc_horzbarstacked-content-generator-path>cggPrint</ccc_horzbarstacked-content-generator-path>
+  <ccc_horzbarnormalized-content-generator-path>cggPrint</ccc_horzbarnormalized-content-generator-path>
+  <ccc_line-content-generator-path>cggPrint</ccc_line-content-generator-path>
+  <ccc_area-content-generator-path>cggPrint</ccc_area-content-generator-path>
+  <ccc_scatter-content-generator-path>cggPrint</ccc_scatter-content-generator-path>
+  <ccc_pie-content-generator-path>cggPrint</ccc_pie-content-generator-path>
+  <ccc_waterfall-content-generator-path>cggPrint</ccc_waterfall-content-generator-path>
+  <ccc_boxplot-content-generator-path>cggPrint</ccc_boxplot-content-generator-path>
+  <ccc_bulletchart-content-generator-path>cggPrint</ccc_bulletchart-content-generator-path>
+  <ccc_line_hover-content-generator-path>cggPrint</ccc_line_hover-content-generator-path>
+  <ccc_area_hover-content-generator-path>cggPrint</ccc_area_hover-content-generator-path>
+</settings>
