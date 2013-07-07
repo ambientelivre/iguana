@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="testewQuery" type="mondrian.jndi">
+         <Catalog>/joomla/analysis/iguana_joomla.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="testewQuery"
+               id="testewQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters/>
+      <Query>select NON EMPTY(TopCount({Descendants([User].[All Users] ,[User].[User])}, 5, [Measures].[Fact Count])) on ROWS, 
+ NON EMPTY({[Measures].[Fact Count]}) on Columns 
+ from [article]</Query>
+   </DataAccess>
+</CDADescriptor>

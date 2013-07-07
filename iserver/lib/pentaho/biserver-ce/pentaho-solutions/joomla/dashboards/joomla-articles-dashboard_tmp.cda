@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="userFilterQuery" type="mondrian.jndi">
+         <Catalog>/joomla/analysis/iguana_joomla.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="chartStateArticleQuery" type="mondrian.jndi">
+         <Catalog>/joomla/analysis/iguana_joomla.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="charttopSectionsQuery" type="mondrian.jndi">
+         <Catalog>/joomla/analysis/iguana_joomla.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="charttimearticlesQuery" type="mondrian.jndi">
+         <Catalog>/joomla/analysis/iguana_joomla.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="userFilterQuery"
+               id="userFilterQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Output indexes="1,0" mode="include"/>
+      <Parameters/>
+      <Query>with member [Measures].[Name] as '[User].CurrentMember.UniqueName' select TopCount( filter({Descendants([User].[All Users] ,[User].[User])}, not isempty(([User].CurrentMember)) ) , 50) on ROWS, 
+ {[Measures].[Name]} on Columns 
+ from [article]</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="chartStateArticleQuery"
+               id="chartStateArticleQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="[User].[All Users]" name="userFilterParameter" type="String"/>
+      </Parameters>
+      <Query>select NON EMPTY({Descendants([State].[All States] ,[State].[State])}) on ROWS, 
+ NON EMPTY({[Measures].[Amount]}) on Columns 
+ from [article]
+ where (${userFilterParameter})</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="charttopSectionsQuery"
+               id="charttopSectionsQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="[User].[All Users]" name="userFilterParameter" type="String"/>
+      </Parameters>
+      <Query>select NON EMPTY(TopCount({Descendants([Section].[All Sections] ,[Section].[Section])}, 5, [Measures].[Amount])) on ROWS, 
+ NON EMPTY({[Measures].[Amount]}) on Columns 
+ from [article]
+ where (${userFilterParameter})</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600"
+               connection="charttimearticlesQuery"
+               id="charttimearticlesQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="[User].[All Users]" name="userFilterParameter" type="String"/>
+      </Parameters>
+      <Query>select NON EMPTY({Descendants([Time].[All Times] ,[Time].[Year])}) on ROWS, 
+ NON EMPTY({[Measures].[Amount]}) on Columns 
+ from [article]
+ where (${userFilterParameter})</Query>
+   </DataAccess>
+</CDADescriptor>
