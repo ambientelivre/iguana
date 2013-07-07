@@ -1,0 +1,38 @@
+<Schema name="noosfero">
+  <Cube name="articles" visible="true" cache="true" enabled="true">
+    <Table name="noosfero_fact_article">
+    </Table>
+    <Dimension type="TimeDimension" visible="true" foreignKey="sk_time" highCardinality="false" name="Time">
+      <Hierarchy name="Time" visible="true" hasAll="true" primaryKey="pk_time">
+        <Table name="noosfero_dimen_time">
+        </Table>
+        <Level name="Year" visible="true" table="noosfero_dimen_time" column="year" type="Integer" internalType="int" uniqueMembers="true" levelType="TimeYears" hideMemberIf="Never">
+        </Level>
+        <Level name="Quarter" visible="true" table="noosfero_dimen_time" column="quarter" type="Integer" internalType="int" uniqueMembers="false" levelType="TimeQuarters" hideMemberIf="Never">
+        </Level>
+        <Level name="Month" visible="true" table="noosfero_dimen_time" column="month" nameColumn="month" ordinalColumn="descweek" type="Integer" internalType="int" uniqueMembers="false" levelType="TimeMonths" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_time" highCardinality="false" name="User">
+      <Hierarchy name="User" visible="true" hasAll="true" primaryKey="pk_id_user">
+        <Table name="noosfero_dimen_user">
+        </Table>
+        <Level name="Login" visible="true" table="noosfero_dimen_user" column="login" type="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Dimension type="StandardDimension" visible="true" foreignKey="sk_type_article" highCardinality="false" name="type_articles">
+      <Hierarchy name="type_articles" visible="true" hasAll="true" primaryKey="pk_type_id">
+        <Table name="noosfero_dimen_type_article" alias="">
+        </Table>
+        <Level name="TypeArticle" visible="true" table="noosfero_dimen_type_article" column="name" type="String" internalType="String" uniqueMembers="true" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="count" column="id" datatype="Integer" aggregator="count" visible="true">
+    </Measure>
+    <Measure name="hits" column="hits" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>

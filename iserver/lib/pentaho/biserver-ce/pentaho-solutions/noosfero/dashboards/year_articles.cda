@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CDADescriptor>
+   <DataSources>
+      <Connection id="yearQuery" type="mondrian.jndi">
+         <Catalog>/noosfero/analysis/noosfero_articles_iguana.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="HitsQuery" type="mondrian.jndi">
+         <Catalog>/noosfero/analysis/noosfero_articles_iguana.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+      <Connection id="typeQuery" type="mondrian.jndi">
+         <Catalog>/noosfero/analysis/noosfero_articles_iguana.mondrian.xml</Catalog>
+         <Jndi>iguana</Jndi>
+      </Connection>
+   </DataSources>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="yearQuery"
+               id="yearQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Output indexes="1,0" mode="include"/>
+      <Parameters/>
+      <Query>with member [Measures].[Name] as '[Time].CurrentMember.UniqueName' select TopCount( filter({Descendants([Time].[All Times] ,[Time].[Year])}, not isempty(([Time].CurrentMember)) ) , 50) on ROWS, 
+ {[Measures].[Name]} on Columns 
+ from [articles]</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="HitsQuery"
+               id="HitsQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="[Time].[All Times]" name="yearParameter" type="String"/>
+      </Parameters>
+      <Query>select NON EMPTY(TopCount({Descendants([type_articles].[All type_articless] ,[type_articles].[TypeArticle])}, 5, [Measures].[hits])) on ROWS, 
+ NON EMPTY({[Measures].[hits]}) on Columns 
+ from [articles]
+ where (${yearParameter})</Query>
+   </DataAccess>
+   <DataAccess access="public" cache="true" cacheDuration="3600" connection="typeQuery"
+               id="typeQuery"
+               type="mdx">
+      <BandedMode>compact</BandedMode>
+      <Columns/>
+      <Parameters>
+         <Parameter default="[Time].[All Times]" name="yearParameter" type="String"/>
+      </Parameters>
+      <Query>select NON EMPTY({Descendants([type_articles].[All type_articless] ,[type_articles].[TypeArticle])}) on ROWS, 
+ NON EMPTY({[Measures].[count]}) on Columns 
+ from [articles]
+ where (${yearParameter})</Query>
+   </DataAccess>
+</CDADescriptor>
