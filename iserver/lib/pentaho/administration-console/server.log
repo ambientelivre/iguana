@@ -1,0 +1,18 @@
+2013-07-06 14:09:40,237 INFO  [org.pentaho.pac.server.JettyServer] Console is starting
+2013-07-06 14:09:40,273 INFO  [/] org.pentaho.pac.server.BrowserLocaleServlet-1080856869: init
+2013-07-06 14:09:40,274 INFO  [/] org.pentaho.pac.server.DefaultConsoleServlet-1420347505: init
+2013-07-06 14:09:40,275 INFO  [/] org.pentaho.pac.server.PacServiceImpl-1655257006: init
+2013-07-06 14:09:40,275 INFO  [/] org.pentaho.pac.server.SchedulerServiceImpl-1954980343: init
+2013-07-06 14:09:40,275 INFO  [/] org.pentaho.pac.server.SolutionRepositoryServiceImpl-914143743: init
+2013-07-06 14:09:40,275 INFO  [/] org.pentaho.pac.server.SubscriptionServiceImpl-2038808996: init
+2013-07-06 14:09:40,275 INFO  [/] org.pentaho.pac.server.common.HibernateConfigurationServiceImpl-1034922798: init
+2013-07-06 14:09:40,275 INFO  [/] org.pentaho.pac.server.common.JdbcDriverDiscoveryServiceImpl-1411865234: init
+2013-07-06 14:09:40,295 INFO  [org.pentaho.pac.server.JettyServer] Console is now started. It can be accessed using http://jabuti-piranga:8099 or http://127.0.1.1:8099
+2013-07-06 19:21:22,592 INFO  [/] org.pentaho.pac.server.common.HibernateConfigurationServiceImpl-1034922798: destroy
+2013-07-06 19:21:22,592 INFO  [/] org.pentaho.pac.server.common.JdbcDriverDiscoveryServiceImpl-1411865234: destroy
+2013-07-06 19:21:22,593 INFO  [/] org.pentaho.pac.server.SolutionRepositoryServiceImpl-914143743: destroy
+2013-07-06 19:21:22,595 INFO  [/] org.pentaho.pac.server.SubscriptionServiceImpl-2038808996: destroy
+2013-07-06 19:21:22,596 INFO  [/] org.pentaho.pac.server.SchedulerServiceImpl-1954980343: destroy
+2013-07-06 19:21:22,596 INFO  [/] org.pentaho.pac.server.PacServiceImpl-1655257006: destroy
+2013-07-06 19:21:22,596 INFO  [/] org.pentaho.pac.server.BrowserLocaleServlet-1080856869: destroy
+2013-07-06 19:21:22,596 INFO  [/] org.pentaho.pac.server.DefaultConsoleServlet-1420347505: destroy
