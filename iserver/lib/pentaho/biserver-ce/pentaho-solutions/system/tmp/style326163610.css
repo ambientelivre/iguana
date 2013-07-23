@@ -1,0 +1,158 @@
+.style-0 {
+    table-layout: fixed; 
+    width: 772pt
+}
+
+.style-1 {
+    color: #2f2c35; 
+    font-size: 8pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    border-top: 1pt solid #fdde85; 
+    border-left: 1pt solid #fdde85; 
+    border-bottom: 1pt solid #fdde85; 
+    -moz-border-radius-topleft: 6pt 6pt ; 
+    -moz-border-radius-bottomleft: 6pt 6pt ; 
+    border-top-left-radius: 6pt 6pt ; 
+    border-bottom-left-radius: 6pt 6pt ; 
+    background-color: #fdde85
+}
+
+.style-10 {
+    color: black; 
+    font-size: 10pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    border-top: 1pt solid #aed163; 
+    border-left: 1pt solid #aed163; 
+    border-bottom: 1pt solid #aed163
+}
+
+.style-11 {
+    color: black; 
+    font-size: 10pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    border: 1pt solid #aed163
+}
+
+.style-2 {
+    color: #2f2c35; 
+    font-size: 8pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: right; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    border-top: 1pt solid #fdde85; 
+    border-bottom: 1pt solid #fdde85; 
+    border-right: 1pt solid #fdde85; 
+    -moz-border-radius-topright: 6pt 6pt ; 
+    -moz-border-radius-bottomright: 6pt 6pt ; 
+    border-top-right-radius: 6pt 6pt ; 
+    border-bottom-right-radius: 6pt 6pt ; 
+    background-color: #fdde85
+}
+
+.style-3 {
+    font-size: 1pt; 
+    border-top: 3pt solid #1a7439
+}
+
+.style-4 {
+    color: #de6118; 
+    font-size: 16pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap
+}
+
+.style-5 {
+    color: #1a7439; 
+    font-size: 12pt; 
+    font-family: "Arial"; 
+    font-weight: bold; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap
+}
+
+.style-6 {
+    font-size: 1pt
+}
+
+.style-7 {
+    color: #1a7439; 
+    font-size: 10pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    background-color: #f98f13
+}
+
+.style-8 {
+    color: black; 
+    font-size: 10pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    border-top: 1pt solid #aed163; 
+    border-left: 1pt solid #aed163; 
+    border-bottom: 1pt solid #aed163; 
+    background-color: #f9f9ec
+}
+
+.style-9 {
+    color: black; 
+    font-size: 10pt; 
+    font-family: "Arial"; 
+    font-weight: normal; 
+    font-style: normal; 
+    text-decoration: none; 
+    text-align: left; 
+    word-spacing: 0pt; 
+    letter-spacing: 0pt; 
+    white-space: pre-wrap; 
+    border: 1pt solid #aed163; 
+    background-color: #f9f9ec
+}
+

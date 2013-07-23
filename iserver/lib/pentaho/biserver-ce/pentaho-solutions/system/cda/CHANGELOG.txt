@@ -1,0 +1,73 @@
+12.07.19
+Fixed [REDMINE CDA797] - ClassLoader issue using CdaQueryComponent in FusionContentGenerator
+Fixed [REDMINE CDA787] - use cde ext-editor for cda files
+Introduced CPF As plugin base
+New Robochef Version - Memory optimization
+CDV Integration
+print stack trace for hazelcast serialization errors, +MdxDataAccess.ExtraCacheKey.toString()
+path issue in cda editor
+-Util.isNullOrEmpty, using StringUtils; build was changed to use 4.5 2 commits ago
+pathParams->requestParams
+more cleaning, warning suppressions
+cde-editor corrections
+Use cde as editor if available; +RepositoryAccess and some cleaning
+
+
+12.05.15
+Fixed [REDMINE CDA038] - 	CDA does not accurately determine metadata of variable column kettle output
+Fixed [REDMINE CDA269] - cache lookups can return incorrect data with kettle data sources
+Fixed [REDMINE CDA577] - ETL metadata injection results in no data
+Fixed [REDMINE CDA612] - CDA hazelcast cache too prone to fatal failures
+Fixed [REDMINE CDA613] - Parameter separator should be configured per-parameter instead of in cda.properties
+Stopped using values in listeners to prevent memory problems (req hazelcast 2)
+Prevent cache locks on hazelcast failure
+Timeouts configurable; maps always fetched to prevent issues with original instance being shutdown; stats accessed synch due to unidentified issue
+KettleDataAccess: extraCacheKey now String
+Separator as a per-parameter attribute, serialization changed
+Typos, imports, extraCacheInfo toString
+Building against pho-3.8-SNAPSHOT, hazelcast 2.0.2
+Cache bean: cast exception can happen only on return if used inside another plugin
+
+
+12.04.02
+Implemented [REDMINE 515] - Added auditing support for cda doQuery
+Fixed [REDMINE CDA100] previewer: survive null rows
+Fixed [REDMINE CDA269] KettleDataAccess: use contextKey as extraCacheKey to avoid cache collisions
+Added custom separator for arrays, defined on cda.properties
+force string return type if defined for a formula parameter
+Added TypeSearchMaxRows property
+Solved NPE getting column type from data 
+Hazelcast dependency moved to ivy
+
+12.03.08
+[REDMINE #346]Fix an issue where calculated columns always made joins break.
+Build now outputs a marketplace xml to be merged into marketplace full plugin list
+Added french language to Messages.properties for Previewer and Editor
+Added branch info to version.xml
+Added setCacheDuration method
+bug with private formula parameters in new cache.
+some refactoring to keep queryDataSource sane.
+previewer issue with private params.
+individual time to live on hazelcast. 
+transitive attributes on ivy
+Added AbstractDataAccess.isCacheEnabled/setCacheEnabled.
+Changed icons.
+HazelcastQueryCache back to CDA.
+
+
+12.02.16
+
+Changed samples to plugin-samples. Made plugin compliant with Pentaho Marketplace.
+Cda cache entries print
+Remove some exceptions that are never thrown
+Added Boolean to AbstractExporter 
+
+12.01.26
+
+Solved Redmine Bug #104: CDA Cache Manager -> UI didn't update after delete a query
+Implemented Redmine Feature #105: CDA Cache Manager -> Delete all queries belonging to a cda file
+Fix a bug where html output would duplicate output in some cases
+cache refactor; cache monitor: +removeAll, require admin permissions
+cachemanager: user feedback for server requests
+Support for cache plugin bean. Serialization changed
+Added version info to cachemanager and SelfTest Page. Sorted out some images on SelfTest Page

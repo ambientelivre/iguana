@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<DataSources> 
+  <DataSource> 
+    <DataSourceName>Provider=Mondrian;DataSource=Pentaho</DataSourceName>  
+    <DataSourceDescription>Pentaho BI Platform Datasources</DataSourceDescription>  
+    <URL>http://localhost:8080/pentaho/Xmla?userid=joe&amp;password=password</URL>  
+    <DataSourceInfo>Provider=mondrian</DataSourceInfo>  
+    <ProviderName>PentahoXMLA</ProviderName>  
+    <ProviderType>MDP</ProviderType>  
+    <AuthenticationMode>Unauthenticated</AuthenticationMode>  
+    <Catalogs> 
+      <Catalog name="SteelWheels"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=SampleData</DataSourceInfo>  
+        <Definition>solution:steel-wheels/analysis/steelwheels.mondrian.xml</Definition> 
+      </Catalog>  
+      <Catalog name="SampleData"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=SampleData</DataSourceInfo>  
+        <Definition>solution:steel-wheels/analysis/SampleData.mondrian.xml</Definition> 
+      </Catalog>  
+      <Catalog name="sugarcrm"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=iguana</DataSourceInfo>  
+        <Definition>solution:/sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml</Definition> 
+      </Catalog>  
+      <Catalog name="joomla"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=iguana</DataSourceInfo>  
+        <Definition>solution:/joomla/analysis/iguana_joomla.mondrian.xml</Definition> 
+      </Catalog>  
+      <Catalog name="Custom Magicel"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=iguana</DataSourceInfo>  
+        <Definition>solution:/sugarcrm-ce/analysis/magicel_custom_olap.mondrian.xml</Definition> 
+      </Catalog>  
+      <Catalog name="noosfero"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=iguana</DataSourceInfo>  
+        <Definition>solution:/noosfero/analysis/noosfero_articles_iguana.mondrian.xml</Definition> 
+      </Catalog>  
+      <Catalog name="noosfero"> 
+        <DataSourceInfo>Provider=mondrian;DataSource=iguana</DataSourceInfo>  
+        <Definition>solution:/noosfero/analysis/noosfero_articles_iguana.mondrian.xml</Definition> 
+      </Catalog> 
+    </Catalogs> 
+  </DataSource> 
+</DataSources>

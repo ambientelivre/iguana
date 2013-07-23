@@ -1,0 +1,158 @@
+body {
+  padding: 20px;
+  font-family: Calibri, Helvetica, Arial;
+  background-color: #c9e576
+}
+
+.center{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cdalogo {
+
+  background-image: url("../static/headerbg.png");
+  background-repeat: no-repeat;
+  background-color: #8ed300;
+  min-height: 112px;
+
+}
+
+.params {
+  color:#222222;
+  font-size:115%;
+  font-weight:normal;
+  padding:10px;
+}
+
+.cdaButton {
+  border: none;
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: white;
+  width: 150px;
+  /*text-align: center;*/
+  background-image: none;
+  -moz-border-radius: 0px;
+  height: 18px;
+  margin-bottom: 5px;
+}
+
+input[readonly]{
+  background-color: lightgrey;
+  font-style:italic;
+}
+
+#selectorText{
+  display: inline
+}
+
+
+.param {
+  padding-left: 5px;
+}
+
+#fileid {
+
+  font-size:12pt;
+
+}
+
+#pleaseselect {
+  background-color:#FFFFFF;
+  color:#442222;
+  font-size:12pt;
+  font-style: italic;
+  margin:20px 20px 10px;
+}
+
+#previewerTable  {
+  min-height: 300px;
+}
+
+
+#previewerTable tr.odd > td {
+  background-color: #f1f1f1;
+}
+
+#previewerTable tr.even > td {
+  background-color: #f7f7f7;
+}
+
+#previewerTable tr > th {
+  background-color: #e3e2e2;
+  text-align: center;
+  vertical-align: middle;
+  min-height: 50px;
+}
+
+#parameterHolder{
+  text-align: right;
+}
+
+.dialogAction .notification {
+    float: left;
+}
+#previewerTable input, #previewerTable select {
+  border: solid #8eD300 1px  ;
+}
+
+#previewerTable .paginate_disabled_next,
+#previewerTable .paginate_enabled_next,
+#previewerTable .paginate_disabled_previous,
+#previewerTable .paginate_enabled_previous{
+  float:left;
+  height:15px;
+  margin-left:3px;
+  width:8px;
+
+}
+
+#previewerTable .paginate_disabled_next{
+  background-image: url("../static/right_inactive.png");
+}
+
+#previewerTable .paginate_enabled_next{
+  background-image: url("../static/right_active.png");
+}
+
+#previewerTable .paginate_disabled_previous{
+  background-image: url("../static/left_inactive.png");
+}
+
+#previewerTable .paginate_enabled_previous{
+  background-image: url("../static/left_active.png");
+
+}
+
+
+
+div#footerContainer{
+  text-align: center;
+
+}
+
+div#footer{
+  width: 950px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.helpButton {
+    text-align: center;
+    font-size: 14px;
+    float: right;
+    background: #92d600;
+    height:18px;
+    width:18px;
+    border:1px solid white;
+    color:white;
+    font-weight:bold
+}
+
+.helpButton:hover {
+    background: white;
+    color:#92d600;
+}

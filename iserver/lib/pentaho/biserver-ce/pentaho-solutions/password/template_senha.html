@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script language="javascript">
+		/*****************************************************************
+		 * Variáveis de solução e caminho
+		 *****************************************************************/
+		var solucao	=	"password";
+		var caminho	=	"";
+
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+<style type="text/css" >
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{ margin:0; padding:0;}
+table{ border-collapse:collapse; border-spacing:0;}
+fieldset,img{ border:0;}
+address,caption,cite,code,dfn,th,var{ font-style:normal; font-weight:normal;}
+ol,ul{ list-style:none;}
+caption,th{ text-align:left;}
+h1,h2,h3,h4,h5,h6{ font-size:100%; font-weight:normal;}
+q:before,q:after{ content:'';}
+abbr,acronym{ border:0;}
+
+html {
+	overflow:-moz-scrollbars-vertical;
+}
+body{
+	background:#eee;
+	color:#333;
+	font-family:Arial,sans-serif;
+	font-size:12px;
+	line-height:16px;
+	text-shadow:0 1px 0 #fff;
+}
+a{
+	color:#333;
+	text-decoration:underline;
+}
+form{
+	background:#f7f7f7;
+	background:-moz-linear-gradient(90deg, #ccc, #fff); /* Firefox */
+	background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ccc)); /* Webkit */
+	border:1px solid #aaa;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	-moz-box-shadow:0 0 15px #aaa;
+	-webkit-box-shadow:0 0 15px #aaa;
+	margin:60px auto 0;
+	padding:20px;
+	width:440px;
+}
+h1{
+	border-bottom:1px solid #ccc;
+	font-size:11px;
+	font-weight:bold;
+	letter-spacing:2px;
+	margin-bottom:20px;
+	text-transform:uppercase;
+}
+form p{
+	margin-bottom:20px;
+}
+form p:last-child{ /* Sélecteur avancé pour sélectionner le dernier paragraphe du formulaire */
+	margin-bottom:0;
+}
+label{
+	cursor:pointer;
+	display:block;
+	float:left;
+	font-size:13px;
+	font-weight:bold;
+	line-height:28px;
+	margin-bottom:5px;
+	width:220px;
+}
+form p:hover label{
+	color:#0459b7;
+}
+form p:hover label:after{
+	content:" »";
+}
+input[type=text],
+input[type=password]{
+	background: rgba(255, 255, 255, 0.9);
+	background:-moz-linear-gradient(90deg, #fff, #eee); /* Firefox */
+	background:-webkit-gradient(linear, left top, left bottom, from(#eee), to(#fff), color-stop(0.2, #fff)); /* Webkit */
+	border:1px solid #aaa;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-box-shadow:0 0 3px #aaa;
+	-webkit-box-shadow:0 0 3px #aaa;
+	padding:5px;
+	width:98%;
+}
+input[type=text]:focus,
+input[type=password]:focus{
+	border-color:#093c75;
+	-moz-box-shadow:0 0 3px #0459b7;
+	-webkit-box-shadow:0 0 3px #0459b7;
+	outline:none; /* Pour enlever le contour jaune lorsque l'on sélectionne un input dans Chrome */
+}
+select{
+	cursor:pointer;
+	padding:3px;
+	-moz-box-shadow:0 0 3px #aaa;
+	-webkit-box-shadow:0 0 3px #aaa;
+}
+select:active,
+select:focus{
+	border:1px solid #093c75;
+	-moz-box-shadow:0 0 3px #0459b7;
+	-webkit-box-shadow:0 0 3px #0459b7;
+	outline:none;
+}
+input[type=submit],
+a.submit{
+	background:#ddd;
+	background:-moz-linear-gradient(90deg, #0459b7, #08adff); /* Firefox */
+	background:-webkit-gradient(linear, left top, left bottom, from(#08adff), to(#0459b7)); /* Webkit */
+	border:1px solid #093c75;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	-moz-box-shadow:0 1px 0 #fff;
+	-webkit-box-shadow:0 1px 0 #fff;
+	color:#fff;
+	cursor:pointer;
+	font-family:Arial,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	margin-left:120px;
+	padding:5px 10px;
+	text-decoration:none;
+	text-shadow:0 1px 1px #333;
+	text-transform:uppercase;
+}
+input[type=submit]:hover,
+a.submit:hover{
+	background:#eee;
+	background:-moz-linear-gradient(90deg, #067cd3, #0bcdff);
+	background:-webkit-gradient(linear, left top, left bottom, from(#0bcdff), to(#067cd3));
+	border-color:#093c75;
+	text-decoration:none;
+}
+input[type=submit]:active,
+input[type=submit]:focus,
+a.submit:active,
+a.submit:focus{
+	background:#ccc;
+	background:-moz-linear-gradient(90deg, #0bcdff, #067cd3);
+	background:-webkit-gradient(linear, left top, left bottom, from(#067cd3), to(#0bcdff));
+	border-color:#093c75;
+	outline:none;
+}
+#options{
+	margin-bottom:20px;
+}
+#options p{
+	display:none;
+}
+#options .show{
+	display:block;
+}
+#options:target .show{
+	display:none;
+}
+#options .hide{
+	display:none;
+}
+#options:target .hide{
+	display:block;
+}
+#options:target p{
+	display:block;
+}
+#finish{
+	background:rgba(65, 166, 42, 0.2);
+	border:2px solid #41a62a;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	display:none;
+	padding:5px 10px;
+}
+#finish:target{
+	display:block;
+}
+#credits{
+	font-size:11px;
+	margin-top:20px;
+	text-align:center;
+}
+</style>
+<script language="javascript">
+/**
+*
+*  Base64 encode / decode
+*  http://www.webtoolkit.info/
+*
+**/
+ 
+var Base64 = {
+ 
+	// private property
+	_keyStr : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
+ 
+	// public method for encoding
+	encode : function (input) {
+		var output = "";
+		var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+		var i = 0;
+ 
+		input = Base64._utf8_encode(input);
+ 
+		while (i < input.length) {
+ 
+			chr1 = input.charCodeAt(i++);
+			chr2 = input.charCodeAt(i++);
+			chr3 = input.charCodeAt(i++);
+ 
+			enc1 = chr1 >> 2;
+			enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+			enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+			enc4 = chr3 & 63;
+ 
+			if (isNaN(chr2)) {
+				enc3 = enc4 = 64;
+			} else if (isNaN(chr3)) {
+				enc4 = 64;
+			}
+ 
+			output = output +
+			this._keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+			this._keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+ 
+		}
+ 
+		return output;
+	},
+ 
+	// public method for decoding
+	decode : function (input) {
+		var output = "";
+		var chr1, chr2, chr3;
+		var enc1, enc2, enc3, enc4;
+		var i = 0;
+ 
+		input = input.replace(/[^A-Za-z0-2\+\/\=]/g, "");
+ 
+		while (i < input.length) {
+ 
+			enc1 = this._keyStr.indexOf(input.charAt(i++));
+			enc2 = this._keyStr.indexOf(input.charAt(i++));
+			enc3 = this._keyStr.indexOf(input.charAt(i++));
+			enc4 = this._keyStr.indexOf(input.charAt(i++));
+ 
+			chr1 = (enc1 << 2) | (enc2 >> 4);
+			chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+			chr3 = ((enc3 & 3) << 6) | enc4;
+ 
+			output = output + String.fromCharCode(chr1);
+ 
+			if (enc3 != 64) {
+				output = output + String.fromCharCode(chr2);
+			}
+			if (enc4 != 64) {
+				output = output + String.fromCharCode(chr3);
+			}
+ 
+		}
+ 
+		output = Base64._utf8_decode(output);
+ 
+		return output;
+ 
+	},
+ 
+	// private method for UTF-8 encoding
+	_utf8_encode : function (string) {
+		string = string.replace(/\r\n/g,"\n");
+		var utftext = "";
+ 
+		for (var n = 0; n < string.length; n++) {
+ 
+			var c = string.charCodeAt(n);
+ 
+			if (c < 128) {
+				utftext += String.fromCharCode(c);
+			}
+			else if((c > 127) && (c < 2048)) {
+				utftext += String.fromCharCode((c >> 6) | 192);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+			else {
+				utftext += String.fromCharCode((c >> 12) | 224);
+				utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+				utftext += String.fromCharCode((c & 63) | 128);
+			}
+ 
+		}
+ 
+		return utftext;
+	},
+ 
+	// private method for UTF-8 decoding
+	_utf8_decode : function (utftext) {
+		var string = "";
+		var i = 0;
+		var c = c1 = c2 = 0;
+ 
+		while ( i < utftext.length ) {
+ 
+			c = utftext.charCodeAt(i);
+ 
+			if (c < 128) {
+				string += String.fromCharCode(c);
+				i++;
+			}
+			else if((c > 191) && (c < 224)) {
+				c2 = utftext.charCodeAt(i+1);
+				string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+				i += 2;
+			}
+			else {
+				c2 = utftext.charCodeAt(i+1);
+				c3 = utftext.charCodeAt(i+2);
+				string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+				i += 3;
+			}
+ 
+		}
+ 
+		return string;
+	}
+ 
+}
+
+//alert(Base64.encode('password'));
+</script>
+</head>
+
+<body>
+
+<form id="start" action="/">
+	<h1>Alterar senha</h1>
+	<p>
+		<label for="senhaantiga">Senha atual</label>
+		<input MAXLENGTH="30" id="senhaantiga" type="password" />
+	</p>
+	<p>
+		<label for="novasenha1">Nova senha</label>
+		<input MAXLENGTH="30" id="novasenha1" type="password" />
+	</p>
+	<p>
+		<label for="novasenha2">Confirmar nova senha</label>
+		<input MAXLENGTH="30" id="novasenha2" type="password" />
+	</p>
+	
+	<p>
+		<a class="submit">Alterar</a> ou <a>Anular</a>
+	</p>
+	<div id="finish">
+		<p>
+			Inscription termin&eacute;e!
+		</p>
+	</div>
+</form>
+
+<div id="XXXhtml">&nbsp;</div>
+
+<div id="XXXahtml">&nbsp;</div>
+
+<script language="javascript">
+
+var X			= ".";
+var novasenha1	= ".";
+var novasenha2	= ".";
+var atualizar	= ".";
+
+$(".submit").click(function(){
+	
+	novasenha1=Base64.encode($("#novasenha1").val());
+	novasenha2=Base64.encode($("#novasenha2").val());
+
+       alert(Base64.encode($("#novasenha1").val()));
+       alert(Base64.encode($("#novasenha2").val()));
+       alert(Base64.encode($("#senhaantiga").val()));
+       alert(X);
+	
+				
+				
+				/***********************************************
+				* Se senha antiga não confere
+				************************************************/
+				if( Base64.encode($("#senhaantiga").val()) != X ){
+					alert('Sua senha atual não confere.\nPor favor corrija.');
+					return;
+					
+				/***********************************************
+				* Senha antiga confere.
+				* Mas senha nova diferente nos dois campos
+				************************************************/
+				}else if($("#novasenha1").val() != $("#novasenha2").val()){
+					alert('Valores de "Nova senha" e "Confirmar nova senha" estão diferentes.\nPor favor digite o mesmo valor nesses dois campos, correspondentes à sua nova senha.');
+					return;
+					
+					
+				/***********************************************
+				* Se tudo bate
+				************************************************/				
+				}else{
+					Dashboards.fireChange('atualizar','true');
+				}
+				
+	//closeMantleTab();
+	});
+
+
+
+ObjXXXoist = 
+{
+  name: "ObjXXXoist",
+  type: "xaction",
+  solution: solucao,
+  path: caminho,
+  action: "X.xaction",
+  listeners:[], 
+  htmlObject: "XXXhtml",
+  executeAtStart: true,
+  postExecution:function(){},
+  preExecution:function(){}
+
+}
+
+ObjXXXaoist = 
+{
+  name: "ObjXXXaoist",
+  type: "xaction",
+  solution: solucao,
+  path: caminho,
+  action: "Xa.xaction",
+  listeners:["atualizar"],
+  parameters:[["SENHAANTIGA","X"],["SENHANOVA1","novasenha1"],["SENHANOVA2","novasenha2"]],
+  htmlObject: "XXXahtml",
+  executeAtStart: false,
+  postExecution:function(){},
+  preExecution:function(){}
+
+}
+
+
+
+Dashboards.init([ObjXXXoist,ObjXXXaoist]);
+
+function resultadoAlteracao(res){
+		if(res=="sucesso"){
+			alert("Senha alterada com sucesso.\nVocê precisa fazer Logout e depois Login novamente.");
+			closeMantleTab();
+		}else{
+			alert("Sua senha não foi alterada. Tente novamente");
+			closeMantleTab();
+			}
+	}
+
+
+//função para fechar aba do mantle
+function closeMantleTab(){
+  try{
+    window.parent.closeTab('');
+  } catch(e){
+    alert("error closing tab: "+e);
+  }
+}
+
+</script>
+</body>
+</html>

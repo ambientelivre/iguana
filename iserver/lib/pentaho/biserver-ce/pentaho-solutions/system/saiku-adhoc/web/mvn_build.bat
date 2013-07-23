@@ -1,0 +1,1 @@
+mvn clean package install:install-file -Dfile=target/saiku-adhoc-ui-1.0-GA.war -DgroupId=org.saiku -DartifactId=saiku-adhoc-ui -Dversion=1.0-GA -Dpackaging=war

@@ -1,0 +1,7 @@
+<cdf>
+	<title>Alterar Senha</title>
+	<author>Oncase</author>
+	<description>Alterar Senha</description>
+	<icon></icon>
+	<template>template_senha.html</template>
+</cdf>

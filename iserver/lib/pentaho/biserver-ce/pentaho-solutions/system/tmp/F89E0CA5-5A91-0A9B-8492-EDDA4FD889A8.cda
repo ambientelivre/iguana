@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CDADescriptor>
+  <DataSources>
+    <Connection id="1" type="metadata.metadata">
+      <XmiFile>metadata.xmi</XmiFile>
+      <DomainId>sugarcrm-ce/metadata.xmi</DomainId>
+    </Connection>
+  </DataSources>
+  <DataAccess id="F89E0CA5-5A91-0A9B-8492-EDDA4FD889A8" connection="1" type="mql" access="public">
+    <Name>F89E0CA5-5A91-0A9B-8492-EDDA4FD889A8</Name>
+    <Query><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<mql>
+  <domain_id>sugarcrm-ce/metadata.xmi</domain_id>
+  <model_id>BV_MODEL_2</model_id>
+  <options>
+    <disable_distinct>false</disable_distinct>
+    <limit>-1</limit>
+  </options>
+  <selections>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT_ACCOUNT_TYPE</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT_NAME</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT_ACCOUNT_TYPE</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+  </selections>
+  <constraints/>
+  <orders/>
+</mql>
+]]></Query>
+    <Columns>
+      <Column idx="0">
+        <Name>Account type</Name>
+      </Column>
+      <Column idx="1">
+        <Name>Name Account</Name>
+      </Column>
+      <Column idx="2">
+        <Name>Account type</Name>
+      </Column>
+    </Columns>
+  </DataAccess>
+</CDADescriptor>

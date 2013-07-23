@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CDADescriptor>
+  <DataSources>
+    <Connection id="1" type="metadata.metadata">
+      <XmiFile>metadata.xmi</XmiFile>
+      <DomainId>sugarcrm-ce/metadata.xmi</DomainId>
+    </Connection>
+  </DataSources>
+  <DataAccess id="C32FBD18-6FF4-C7F9-B6D1-F5614786A744" connection="1" type="mql" access="public">
+    <Name>C32FBD18-6FF4-C7F9-B6D1-F5614786A744</Name>
+    <Query><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<mql>
+  <domain_id>sugarcrm-ce/metadata.xmi</domain_id>
+  <model_id>BV_MODEL_2</model_id>
+  <options>
+    <disable_distinct>false</disable_distinct>
+    <limit>-1</limit>
+  </options>
+  <selections>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_USER</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_USER_USER_NAME</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_FACT_OPPORTUNITIES</view>
+      <column>BC_SUGARCRM_MINUS_CE_FACT_OPPORTUNITIES_AMOUNT</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+  </selections>
+  <constraints/>
+  <orders/>
+</mql>
+]]></Query>
+    <Columns>
+      <Column idx="0">
+        <Name>Usuario</Name>
+      </Column>
+      <Column idx="1">
+        <Name>Amount opportunitie</Name>
+      </Column>
+    </Columns>
+  </DataAccess>
+</CDADescriptor>

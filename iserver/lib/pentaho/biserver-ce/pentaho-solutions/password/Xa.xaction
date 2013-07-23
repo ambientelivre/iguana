@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title/>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author>www.oncase.com.br</author>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type>none</result-type>  
+    <icon/> 
+  </documentation>
+
+  <inputs> 
+    <SENHAANTIGA type="string"> 
+      <sources> 
+        <request>SENHAANTIGA</request> 
+      </sources>  
+      <default-value><![CDATA[ ]]></default-value> 
+    </SENHAANTIGA>  
+    <SENHANOVA1 type="string"> 
+      <sources> 
+        <request>SENHANOVA1</request> 
+      </sources>  
+      <default-value><![CDATA[.]]></default-value> 
+    </SENHANOVA1>  
+    <SENHANOVA2 type="string"> 
+      <sources> 
+        <request>SENHANOVA2</request> 
+      </sources>  
+      <default-value><![CDATA[,]]></default-value> 
+    </SENHANOVA2>  
+    <usuario type="string"> 
+      <sources> 
+        <security>principalName</security> 
+      </sources>  
+      <default-value><![CDATA[p]]></default-value> 
+    </usuario> 
+  </inputs>
+
+  <outputs> 
+    <mess type="string"/> 
+  </outputs>
+
+  <resources/>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SQLLookupRule</component-name>
+      <action-type>hibernate</action-type>
+      <action-inputs> 
+        <usuario type="string"/>
+      </action-inputs>
+      <action-outputs> 
+        <query-result type="result-set" mapping="resultado"/>  
+        <password type="string"/> 
+      </action-outputs>
+      <component-definition> 
+        <jndi><![CDATA[Hibernate]]></jndi>  
+        <query><![CDATA[SELECT PASSWORD FROM USERS WHERE USERNAME={PREPARE:usuario}]]></query>  
+        <live><![CDATA[true]]></live> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>JavascriptRule</component-name>
+      <action-type>JavaScript</action-type>
+      <action-inputs> 
+        <resultado type="result-set"/> 
+      </action-inputs>
+      <action-outputs> 
+        <senha type="string"/> 
+      </action-outputs>
+      <component-definition> 
+        <script><![CDATA[var quantidade = resultado.getRowCount();
+var senha = "erro";
+
+if(quantidade>0){
+	
+	senha = resultado.getValueAt(0,0);
+	
+}]]></script> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>JavascriptRule</component-name>
+      <action-type>JavaScript</action-type>
+      <action-inputs> 
+        <SENHAANTIGA type="string"/>  
+        <SENHANOVA1 type="string"/>  
+        <SENHANOVA2 type="string"/>  
+        <senha type="string"/> 
+      </action-inputs>
+      <action-outputs> 
+        <rjs type="string"/> 
+      </action-outputs>
+      <component-definition> 
+        <script><![CDATA[var rjs="erro";
+	if(SENHAANTIGA != senha){
+		rjs = "caso1";
+	}else if(SENHANOVA1 != SENHANOVA2){
+		rjs = "caso2";
+	}else{
+		rjs = "sucesso";
+	}]]></script> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>SQLExecute</component-name>
+      <action-type>SQL Commands</action-type>
+      <action-inputs> 
+        <SENHANOVA1 type="string"/>  
+        <usuario type="string"/>  
+        <senha type="string"/>
+        <SENHAANTIGA type="string"/>
+      </action-inputs>
+      <action-outputs/>
+      <component-definition> 
+        <jndi><![CDATA[Hibernate]]></jndi>  
+        <query><![CDATA[update USERS set PASSWORD = '{SENHANOVA1}' where USERNAME='{usuario}'
+AND '{SENHAANTIGA}'='{senha}']]></query>  
+        <force_single_statement><![CDATA[false]]></force_single_statement>  
+        <multi_statement_separator><![CDATA[;]]></multi_statement_separator>
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>TemplateComponent</component-name>
+      <action-type>Message Template</action-type>
+      <action-inputs> 
+        <rjs type="string"/> 
+      </action-inputs>
+      <action-outputs> 
+        <output-message type="string" mapping="mess"/> 
+      </action-outputs>
+      <component-definition> 
+        <template><![CDATA[<script language="javascript">
+	resultadoAlteracao('{rjs}');
+</script>]]></template> 
+      </component-definition> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>

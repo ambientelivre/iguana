@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<action-sequence> 
+  <title/>
+  <version>1</version>
+  <logging-level>ERROR</logging-level>
+  <documentation> 
+    <author>www.oncase.com.br</author>  
+    <description>Empty blank action sequence document</description>  
+    <help/>  
+    <result-type>none</result-type>  
+    <icon/> 
+  </documentation>
+
+  <inputs> 
+    <usuario type="string"> 
+      <sources> 
+        <security>principalName</security> 
+      </sources>  
+      <default-value><![CDATA[ ]]></default-value> 
+    </usuario> 
+  </inputs>
+
+  <outputs> 
+    <saidaJS type="string"/> 
+  </outputs>
+
+  <resources/>
+  
+  <actions> 
+    <action-definition> 
+      <component-name>SQLLookupRule</component-name>
+      <action-type>hibernate</action-type>
+      <action-inputs> 
+        <usuario type="string"/> 
+      </action-inputs>
+      <action-outputs> 
+        <query-result type="result-set" mapping="resultado"/>  
+        <password type="string"/> 
+      </action-outputs>
+      <component-definition> 
+        <jndi><![CDATA[Hibernate]]></jndi>  
+        <query><![CDATA[SELECT PASSWORD FROM USERS WHERE USERNAME={PREPARE:usuario}]]></query>  
+        <live><![CDATA[true]]></live> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>JavascriptRule</component-name>
+      <action-type>JavaScript</action-type>
+      <action-inputs> 
+        <resultado type="result-set"/> 
+      </action-inputs>
+      <action-outputs> 
+        <senha type="string"/> 
+      </action-outputs>
+      <component-definition> 
+        <script><![CDATA[var quantidade = resultado.getRowCount();
+var senha = "erro";
+
+if(quantidade>0){
+	
+	senha = resultado.getValueAt(0,0);
+	
+}]]></script> 
+      </component-definition> 
+    </action-definition>
+  
+    <action-definition> 
+      <component-name>TemplateComponent</component-name>
+      <action-type>Message Template</action-type>
+      <action-inputs> 
+        <senha type="string"/> 
+      </action-inputs>
+      <action-outputs> 
+        <output-message type="string" mapping="saidaJS"/> 
+      </action-outputs>
+      <component-definition> 
+        <template><![CDATA[<script language="javascript">
+	
+	X= '{senha}';
+
+</script>]]></template> 
+      </component-definition> 
+    </action-definition>
+ 
+  </actions> 
+</action-sequence>
