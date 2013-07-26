@@ -69,13 +69,13 @@
   </notepads>
   <connection>
     <name>dotproject</name>
-    <server>mysql34.ambientelivre.com.br</server>
+    <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>ambientelivre41</database>
+    <database>dotproject</database>
     <port>3306</port>
-    <username>ambientelivre41</username>
-    <password>Encrypted 2be98afa71ac29c88a20fbc758cc2ff8e</password>
+    <username>dotproject</username>
+    <password>Encrypted 2be98afc86aa7968bbf09bc7fd497acce</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -94,13 +94,13 @@
   </connection>
   <connection>
     <name>sugarcrm</name>
-    <server>187.45.196.210</server>
+    <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>ambientelivre35</database>
+    <database>sugarcrm</database>
     <port>3306</port>
-    <username>ambientelivre35</username>
-    <password>Encrypted 2be98afc86aca9892f94efc25d89bbcd6</password>
+    <username>sugarcrm</username>
+    <password>Encrypted 2be98afc86aa7f2e4b80ca971cc91bdd7</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>

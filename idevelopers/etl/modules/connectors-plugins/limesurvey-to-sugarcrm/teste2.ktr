@@ -126,38 +126,6 @@
   <order>
   <hop> <from>Contatos (CRM)</from><to>email_addr_bean_rel</to><enabled>Y</enabled> </hop>  <hop> <from>email_addr_bean_rel</from><to>Contacts</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Contatos (CRM)</to><enabled>Y</enabled> </hop>  <hop> <from>Surveys</from><to>nome tabela</to><enabled>Y</enabled> </hop>  <hop> <from>nome tabela</from><to>Split Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Split Fields</from><to>sql questions</to><enabled>Y</enabled> </hop>  <hop> <from>sql questions</from><to>Dynamic SQL questions</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL questions</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>fieldname response</to><enabled>Y</enabled> </hop>  <hop> <from>fieldname response</from><to>Dynamic SQL row 2</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row 2</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Contacts</from><to>gera URL Respostas</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2 2</from><to>Table output 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>gera URL Respostas</from><to>sql title</to><enabled>Y</enabled> </hop>  <hop> <from>sql title</from><to>Dynamic SQL row</to><enabled>Y</enabled> </hop>  </order>
   <step>
-    <name>Surveys</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>N</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>limesurvey</connection>
-    <sql>SHOW tables
-FROM  limesurvey190
-WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
-  AND Tables_in_limesurvey190  != &apos;lime_survey_permissions&apos;
-  AND Tables_in_limesurvey190  != &apos;lime_surveys_languagesettings&apos;
-  AND Tables_in_limesurvey190  != &apos;lime_surveys&apos;
-  AND Tables_in_limesurvey190  != &apos;lime_surveys_rights&apos;
-</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>Y</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>19</xloc>
-      <yloc>26</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Add constants</name>
     <type>Constant</type>
     <description/>
@@ -350,8 +318,8 @@ WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
     </step>
 
   <step>
-    <name>email_addr_bean_rel</name>
-    <type>DBLookup</type>
+    <name>Dynamic SQL questions</name>
+    <type>DynamicSQLRow</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -359,52 +327,82 @@ WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>sugarcrm</connection>
-    <cache>N</cache>
-    <cache_load_all>N</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>email_addr_bean_rel</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>N</eat_row_on_failure>
-      <key>
-        <name>id_email_addresses</name>
-        <field>email_address_id</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>module</name>
-        <field>bean_module</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <key>
-        <name>deleted</name>
-        <field>deleted</field>
-        <condition>=</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>bean_id</name>
-        <rename>bean_id</rename>
-        <default/>
-        <type>String</type>
-      </value>
-    </lookup>
+    <connection>limesurvey</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT gid, qid,title
+FROM lime_questions
+WHERE sid = 1
+  AND title = &apos;email&apos;</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <sql_fieldname>sqlquestions</sql_fieldname>
+    <query_only_on_change>N</query_only_on_change>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>401</xloc>
+      <xloc>499</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dynamic SQL row</name>
+    <type>DynamicSQLRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>limesurvey</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT
+ ${dbprefix}surveys_languagesettings.surveyls_title
+FROM ${dbprefix}surveys, ${dbprefix}surveys_languagesettings
+WHERE ${dbprefix}surveys.language = ${dbprefix}surveys_languagesettings.surveyls_language
+AND ${dbprefix}surveys.sid = surveyls_survey_id
+AND ${dbprefix}surveys.sid = 1 </sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <sql_fieldname>sqltitle</sql_fieldname>
+    <query_only_on_change>N</query_only_on_change>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>547</xloc>
+      <yloc>283</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dynamic SQL row 2</name>
+    <type>DynamicSQLRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>limesurvey</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT sid as id, &apos;teste@teste.com.br&apos;  as email FROM ${dbprefix}surveys</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <sql_fieldname>sqlresponse</sql_fieldname>
+    <query_only_on_change>N</query_only_on_change>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>766</xloc>
       <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>gera URL Respostas</name>
-    <type>Calculator</type>
+    <name>Select values</name>
+    <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -412,38 +410,141 @@ WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
            <method>none</method>
            <schema_name/>
            </partitioning>
-       <calculation><field_name>_lasturl</field_name>
-<calc_type>ADD3</calc_type>
-<field_a>url</field_a>
-<field_b>sSid</field_b>
-<field_c>sid</field_c>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>Y</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>lasturl</field_name>
-<calc_type>ADD3</calc_type>
-<field_a>_lasturl</field_a>
-<field_b>subaction</field_b>
-<field_c>id</field_c>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>sid</name>
+        <rename>sid</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>gid</name>
+        <rename>gid</rename>
+        <type>String</type>
+        <length>9</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>qid</name>
+        <rename>qid</rename>
+        <type>String</type>
+        <length>9</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>704</xloc>
-      <yloc>187</yloc>
+      <xloc>624</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>surveyls_title</name>
+        <rename>name</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>created_by</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>deleted</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>lasturl</name>
+        <rename>linkrespostas</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>id_contact</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>365</xloc>
+      <yloc>262</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>      <field>        <name>id</name>
+        <rename/>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>id_contact</name>
+        <rename>ltos_questions_contactscontacts_ida</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>      <field>        <name>id</name>
+        <rename>ltos_questions_contactsltos_questions_idb</rename>
+        <length>-2</length>
+        <precision>-2</precision>
+      </field>        <select_unspecified>N</select_unspecified>
+    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>273</xloc>
+      <yloc>328</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 3</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>id_contact</name>
+      </remove>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>260</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -493,149 +594,160 @@ WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
     </step>
 
   <step>
-    <name>nome tabela</name>
-    <type>Calculator</type>
+    <name>Surveys</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>table</field_name>
-<calc_type>COPY_FIELD</calc_type>
-<field_a>Tables_in_limesurvey190</field_a>
-<field_b/>
-<field_c/>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>125</xloc>
-      <yloc>26</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>sql questions</name>
-    <type>Calculator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-       <calculation><field_name>temp1</field_name>
-<calc_type>CONSTANT</calc_type>
-<field_a>SELECT gid, qid,titleFROM </field_a>
-<field_b/>
-<field_c/>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>Y</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>temp2</field_name>
-<calc_type>CONSTANT</calc_type>
-<field_a>questionsWHERE sid = </field_a>
-<field_b/>
-<field_c/>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>Y</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>temp3</field_name>
-<calc_type>CONSTANT</calc_type>
-<field_a> AND title = &apos;email&apos;</field_a>
-<field_b/>
-<field_c/>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>Y</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>temp4</field_name>
-<calc_type>ADD3</calc_type>
-<field_a>temp1</field_a>
-<field_b>prefixo</field_b>
-<field_c>temp2</field_c>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>Y</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-       <calculation><field_name>sqlquestions</field_name>
-<calc_type>ADD3</calc_type>
-<field_a>temp4</field_a>
-<field_b>sid</field_b>
-<field_c>temp3</field_c>
-<value_type>String</value_type>
-<value_length>-1</value_length>
-<value_precision>-1</value_precision>
-<remove>N</remove>
-<conversion_mask/>
-<decimal_symbol/>
-<grouping_symbol/>
-<currency_symbol/>
-</calculation>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>346</xloc>
-      <yloc>26</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dynamic SQL questions</name>
-    <type>DynamicSQLRow</type>
-    <description/>
-    <distribute>Y</distribute>
+    <distribute>N</distribute>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
     <connection>limesurvey</connection>
-    <rowlimit>0</rowlimit>
-    <sql>SELECT gid, qid,title
-FROM lime_questions
-WHERE sid = 1
-  AND title = &apos;email&apos;</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>Y</replace_vars>
-    <sql_fieldname>sqlquestions</sql_fieldname>
-    <query_only_on_change>N</query_only_on_change>
+    <sql>SHOW tables
+FROM  limesurvey190
+WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_survey_permissions&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_surveys_languagesettings&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_surveys&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_surveys_rights&apos;
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>499</xloc>
+      <xloc>19</xloc>
       <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>sugarcrm</connection>
+    <schema/>
+    <table>ltos_questions</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>94</xloc>
+      <yloc>193</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table output 2</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>sugarcrm</connection>
+    <schema/>
+    <table>ltos_questions_contacts_c</table>
+    <commit>1000</commit>
+    <truncate>Y</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>N</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>97</xloc>
+      <yloc>328</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>email_addr_bean_rel</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>sugarcrm</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>email_addr_bean_rel</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>id_email_addresses</name>
+        <field>email_address_id</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>module</name>
+        <field>bean_module</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <key>
+        <name>deleted</name>
+        <field>deleted</field>
+        <condition>=</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>bean_id</name>
+        <rename>bean_id</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>401</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -757,8 +869,8 @@ WHERE sid = 1
     </step>
 
   <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
+    <name>gera URL Respostas</name>
+    <type>Calculator</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -766,54 +878,77 @@ WHERE sid = 1
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>sid</name>
-        <rename>sid</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>gid</name>
-        <rename>gid</rename>
-        <type>String</type>
-        <length>9</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>qid</name>
-        <rename>qid</rename>
-        <type>String</type>
-        <length>9</length>
-        <precision>0</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
+       <calculation><field_name>_lasturl</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>url</field_a>
+<field_b>sSid</field_b>
+<field_c>sid</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>lasturl</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>_lasturl</field_a>
+<field_b>subaction</field_b>
+<field_c>id</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>624</xloc>
+      <xloc>704</xloc>
+      <yloc>187</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nome tabela</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>table</field_name>
+<calc_type>COPY_FIELD</calc_type>
+<field_a>Tables_in_limesurvey190</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>125</xloc>
       <yloc>26</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Dynamic SQL row 2</name>
-    <type>DynamicSQLRow</type>
+    <name>sql questions</name>
+    <type>Calculator</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -821,215 +956,82 @@ WHERE sid = 1
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>limesurvey</connection>
-    <rowlimit>0</rowlimit>
-    <sql>SELECT sid as id, &apos;teste@teste.com.br&apos;  as email FROM ${dbprefix}surveys</sql>
-    <outer_join>N</outer_join>
-    <replace_vars>Y</replace_vars>
-    <sql_fieldname>sqlresponse</sql_fieldname>
-    <query_only_on_change>N</query_only_on_change>
+       <calculation><field_name>temp1</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>SELECT gid, qid,title
+FROM </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp2</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>questions
+WHERE sid = </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp3</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a> AND title = &apos;email&apos;</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp4</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp1</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp2</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>sqlquestions</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp4</field_a>
+<field_b>sid</field_b>
+<field_c>temp3</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>766</xloc>
-      <yloc>107</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>N</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>surveyls_title</name>
-        <rename>name</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>created_by</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>deleted</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>lasturl</name>
-        <rename>linkrespostas</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id_contact</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>365</xloc>
-      <yloc>262</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 2 2</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>      <field>        <name>id</name>
-        <rename/>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id_contact</name>
-        <rename>ltos_questions_contactscontacts_ida</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>      <field>        <name>id</name>
-        <rename>ltos_questions_contactsltos_questions_idb</rename>
-        <length>-2</length>
-        <precision>-2</precision>
-      </field>        <select_unspecified>N</select_unspecified>
-    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>273</xloc>
-      <yloc>328</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Select values 3</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <remove>        <name>id_contact</name>
-      </remove>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>260</xloc>
-      <yloc>193</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table output</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>sugarcrm</connection>
-    <schema/>
-    <table>ltos_questions</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>94</xloc>
-      <yloc>193</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Table output 2</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>sugarcrm</connection>
-    <schema/>
-    <table>ltos_questions_contacts_c</table>
-    <commit>1000</commit>
-    <truncate>Y</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>N</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>97</xloc>
-      <yloc>328</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dynamic SQL row</name>
-    <type>DynamicSQLRow</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>limesurvey</connection>
-    <rowlimit>0</rowlimit>
-    <sql>SELECT
- ${dbprefix}surveys_languagesettings.surveyls_title
-FROM ${dbprefix}surveys, ${dbprefix}surveys_languagesettings
-WHERE ${dbprefix}surveys.language = ${dbprefix}surveys_languagesettings.surveyls_language
-AND ${dbprefix}surveys.sid = surveyls_survey_id
-AND ${dbprefix}surveys.sid = 1 </sql>
-    <outer_join>N</outer_join>
-    <replace_vars>Y</replace_vars>
-    <sql_fieldname>sqltitle</sql_fieldname>
-    <query_only_on_change>N</query_only_on_change>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>547</xloc>
-      <yloc>283</yloc>
+      <xloc>346</xloc>
+      <yloc>26</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

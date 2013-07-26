@@ -69,13 +69,13 @@
   </notepads>
   <connection>
     <name>sugarcrm</name>
-    <server>mysql05.magicel.hospedagemdesites.ws</server>
+    <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>magicel4</database>
+    <database>sugarcrm</database>
     <port>3306</port>
-    <username>magicel4</username>
-    <password>Encrypted 2be98afc819c28691bb17ab6488c2fe89</password>
+    <username>sugarcrm</username>
+    <password>Encrypted 2be98afc86aa7f2e4b80ca971cc91bdd7</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -92,18 +92,25 @@
   </connection>
   <connection>
     <name>Virtual</name>
-    <server>10.0.0.240</server>
+    <server>localhost</server>
     <type>MSSQL</type>
     <access>Native</access>
     <database>VirtualDadosSafety</database>
     <port>1433</port>
     <username>sa</username>
-    <password>Encrypted 2be98afc839c29591b916bd218fc0f69b</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce64db81bbdf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>1433</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
   <order>
