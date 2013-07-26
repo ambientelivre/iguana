@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<title>Create New Report - Select Data Source</title>
+
+<head>
+  <meta name="helpTopic" content="CV/Business_User/creating_a_new_report.html#choosing_an_analysis_area"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" media="all" href="styles/common.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="styles/content.css"/>
+  <link rel="stylesheet" type="text/css" media="all" href="styles/report/selectArea.css"/>
+  <link rel="stylesheet" href="../data-access/resources/gwt/datasourceEditorDialog.css">
+  <link rel="stylesheet" href="../data-access/resources/gwt/Widgets.css">
+  <link rel="stylesheet" type="text/css" media="only screen and (max-device-width: 1024px)" href="styles/ipad.css" />
+
+  <script language="javascript" type="text/javascript" src="../common-ui/resources/web/dojo/djConfig.js"></script>
+  <script type="text/javascript">
+
+    // Collect an array of Visualization plugin AMD modules to load, plugins add to this array through webcontext.js
+    var analyzerVizPlugins = [];
+
+    djConfig["modulePaths"] = {
+      "pentaho.common": "../../../../common-ui/resources/web/dojo/pentaho/common"
+    };
+    djConfig["baseUrl"] = "scripts/dojo/dojo/";
+    var cv = {};
+  </script>
+
+  <script language="javascript" type="text/javascript" src="webcontext.js?context=analyzer"></script>
+  <script type="text/javascript" src="scripts/dojo/dojo/dojo-analyzer.js"></script>
+  <script type="text/javascript">
+
+    pen.require(["analyzer/analyzer-selectSchema"], function(){});
+  </script>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+  cv.contextPath = "";
+  var console_enabled = false;
+  try{
+    console_enabled = window.parent && window.parent.mantle_initialized;
+  } catch(ignored){/*XSS*/}
+  if (!window.parent || !window.parent.openDatasourceEditorIFrameProxy) {
+    document.write("<script language='javascript' src='../data-access/resources/gwt/DatasourceEditor.nocache.js'></" + "script>");
+  }
+</script>
+
+<div style="height:75px; clear:both"></div>
+
+<div class="selectAreaWizard pentaho-dialog" style="position: relative;">
+  <div style="cursor:default;" class="Caption">@{selectSchemaTitle}</div>
+  <div class="dialog-content" style="padding-bottom: 8px">
+    <div class="analysisArea clearfix">
+      @{selectSchemaDesc}
+      <img id="helpArea" class="helpIcon" title="Help on selecting data sources" src="images/help_link.png"
+           onclick="cv.util.getHelp('CV/Business_User/creating_a_new_report.html#choosing_an_analysis_area')">
+    </div>
+    <div id="description" class="analysisArea clearfix">
+      <table>
+        <tr>
+          <td width="100%">@{selectSchemaDataSource}:</td>
+          <td><img id="editDS" src="../common-ui/resources/web/dojo/pentaho/common/images/spacer.gif"
+                   class="pentaho-editbutton pentaho-imagebutton-disabled" title="@{selectSchemaEditDS}"></td>
+          <td style="padding-right:2px"><img id="addDS"
+                                             src="../common-ui/resources/web/dojo/pentaho/common/images/spacer.gif"
+                                             class="pentaho-addbutton pentaho-imagebutton-disabled"
+                                             title="@{selectSchemaNewDS}"></td>
+          <td><img id="deleteDS" src="../common-ui/resources/web/dojo/pentaho/common/images/spacer.gif"
+                   class="pentaho-deletebutton pentaho-imagebutton-disabled" title="@{selectSchemaDeleteDS}"></td>
+        </tr>
+      </table>
+      <table style="padding-bottom: 5px;" width="100%">
+        <tr>
+          <td><select id="datasources" name="datasource" size="8" style="width:100%"></select></td>
+        </tr>
+      </table>
+    </div>
+    <input id="inputAutoRefresh" type="checkbox" @{selectSchemaBean.autoRefresh}
+    style="vertical-align: middle;margin-left: 21px; margin-right: 5px;"><label for="inputAutoRefresh">@{selectSchemaAutoRefresh}</label>
+  </div>
+
+  <div class="controls clearfix">
+    <div class="buttons">
+      <button id="btnNext" class="pentaho-button">@{btnLabelOK}</button>
+      <button id="btnCancel" class="pentaho-button hidden">@{btnLabelCancel}</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var catalogs = @{selectSchemaBean.catalogs};
+var datasourceSelect = document.getElementById("datasources");
+var datasources = [];
+
+function sortDatasources(a, b) {
+  var aLabel = a.catalog.toUpperCase() + ": " + a.cube.toUpperCase();
+  var bLabel = b.catalog.toUpperCase() + ": " + b.cube.toUpperCase();
+  if (aLabel < bLabel)
+    return -1;
+  if (aLabel > bLabel)
+    return 1;
+  return 0;
+}
+
+dojo.addOnLoad(function() {
+
+  // Flatten catalogs and cubes into an array of datasources
+  for (var i = 0; i < catalogs.length; i++) {
+    var cubes = catalogs[i].schema.cubes;
+    for (var j = 0; j < cubes.length; j++) {
+      var id = cubes[j].name;
+      if (typeof cubes[j].id != "undefined") {
+        id = cubes[j].id;
+      }
+      datasources.push({"catalog":catalogs[i].name, "cube":cubes[j].name, "cube_id":id});
+    }
+  }
+
+  // Sort datasources
+  datasources.sort(sortDatasources);
+  buildList();
+  // Show the cancel button in PUC which on click will close the current tab
+  if (console_enabled && window.parent.closeTab) {
+    dojo.removeClass(dojo.byId('btnCancel'), "hidden");
+    dojo.connect(dojo.byId("btnCancel"), "onclick", function() {
+      window.parent.closeTab();
+    });
+  }
+  //Show the cancel button in Mobile which on click will close the current tab
+  if (window.parent && window.parent.PentahoMobile) {
+    dojo.removeClass(dojo.byId('btnCancel'), "hidden");
+    dojo.connect(dojo.byId("btnCancel"), "onclick", function() {
+      window.parent.PentahoMobile.OpenPanel.closeActive();
+    });
+  }
+
+});
+
+/*
+ * window.location.href with relative URLs is problematic when called from scripts operating in
+ * different window scopes (GWT iframes). The proper window is worked on but the url is crafted
+ * with the location of the inner scope.
+ */
+function openLocation(loc) {
+  if(console_enabled){
+    window.parent.executeCommand("CollapseBrowserCommand")
+  }
+  window.location.href = loc;
+}
+
+function initDataAccess(hasDataAccess) {
+  if (hasDataAccess) {
+    dojo.removeClass(dojo.byId("addDS"), "pentaho-imagebutton-disabled");
+    dojo.connect(dojo.byId("addDS"), "onclick", "onAddDS");
+  }
+}
+
+// This is the callback function that PUC will call when creating a new datasource.
+function openDatasourceEditorCallback(bool, transport) {
+  openLocation(window.location.href.substring(0, window.location.href.indexOf("selectSchema")) + "editor?command=new&showFieldList=true&showFieldLayout=true&catalog=" + (transport.schemaName ? transport.schemaName : transport.categoryId) + "&cube=" + (transport.schemaName ? transport.schemaName : transport.categoryId));
+}
+
+function onAddDS() {
+  var funct = (console_enabled && window.parent.pho && window.parent.pho.openDatasourceEditor) ? window.parent.pho.openDatasourceEditor : pho.openDatasourceEditor;
+
+  funct(new function() {
+    this.onError = function(err) {
+      alert(err);
+    }
+    this.onCancel = function() {
+    }
+    this.onReady = function() {
+    }
+    this.onFinish = function(bool, transport) {
+      document.location.reload();
+    }
+  }, false);
+}
+
+function buildList() {
+
+  var datasourceOptions = datasourceSelect.options;
+  while (datasourceOptions.length > 0) {
+    datasourceOptions[datasourceOptions.length - 1] = null;
+  }
+  var listIdx = 0;
+  for (var i = 0; i < datasources.length; i++,listIdx++) {
+    var opt = new Option(datasources[i].catalog + ': ' + datasources[i].cube, i);
+    datasourceOptions[listIdx] = opt;
+  }
+  datasourceSelect.selectedIndex = 0;
+  dojo.connect(dojo.byId("datasources"), "onclick", "cubeSelected");
+  dojo.connect(dojo.byId("datasources"), "ondblclick", "createReport");
+  dojo.connect(dojo.byId("btnNext"), "onclick", "createReport");
+}
+
+function createReport() {
+  var catalog = datasources[datasourceSelect.value].catalog;
+  var cube = datasources[datasourceSelect.value].cube_id;
+  var input = dojo.byId("inputAutoRefresh");
+  openLocation("editor?command=new&showFieldList=true&showFieldLayout=true&catalog=" + catalog + "&cube=" + cube + "&autoRefresh=" + input.checked);
+}
+
+function cubeSelected() {
+
+  dojo.addClass(dojo.byId("editDS"), "pentaho-imagebutton-disabled");
+  if(window.editHandle)
+    dojo.disconnect(editHandle);
+
+  dojo.addClass(dojo.byId("deleteDS"), "pentaho-imagebutton-disabled");
+  if(window.deleteHandle)
+    dojo.disconnect(deleteHandle);
+
+  ajaxLoad("ajax/lookupXmiId", {catalog:datasources[datasourceSelect.value].catalog,cube:datasources[datasourceSelect.value].cube}, false, function(data) {
+    if (data) {
+      window.catalogId = data;
+
+      dojo.removeClass(dojo.byId("editDS"), "pentaho-imagebutton-disabled");
+      editHandle = dojo.connect(dojo.byId("editDS"), "onclick", "onEditDs");
+
+      dojo.removeClass(dojo.byId("deleteDS"), "pentaho-imagebutton-disabled");
+      deleteHandle = dojo.connect(dojo.byId("deleteDS"), "onclick", "onDeleteDs");
+
+    }
+  });
+
+
+}
+function ajaxLoad(cmd, param, sync, /*optional*/callback) {
+  var _data = null;
+  param.stok = cv.securityToken;
+
+  dojo.xhrPost({
+    url: cv.contextPath + cmd,
+    content: param,
+    load: function(data) {
+      if (sync) {
+        _data = data;
+      } else {
+        callback(data);
+      }
+    },
+    method: "POST",
+    mimetype: "text/plain",
+    sync: sync, // blocking UI or not
+    headers: {"Content-Encoding": "utf8"}
+  });
+  if (sync)
+    return _data;
+}
+
+function onEditDs() {
+  var openFunct = console_enabled && window.parent.pho && window.parent.pho.openEditDatasourceEditor
+      ? window.parent.pho.openEditDatasourceEditor
+      : window.pho.openEditDatasourceEditor;
+
+  var callback = new function() {
+    this.onOk = function(json, mqlStr) {
+      alert(json + "\n\n\n" + mqlStr);
+    }
+    this.onError = function(err) {
+      alert(err);
+    }
+    this.onCancel = function() {
+      alert("Canceled");
+    }
+    this.onReady = function() {
+    }
+    this.onFinish = function(status) {
+
+    }
+    this.onFinish = function(status, transport) {
+
+    }
+  };
+
+  try {
+    openFunct(catalogId, "", callback, "ANALYSIS");
+  } catch (err) {
+    // backward compatibility safety net
+    openFunct(catalogId, "", callback);
+  }
+}
+
+function onDeleteDs() {
+  var funct = console_enabled && window.parent.pho && window.parent.pho.deleteModel
+      ? window.parent.pho.deleteModel
+      : window.pho.deleteModel;
+
+  var callback = new function() {
+    this.onOk = function(json, mqlStr) {
+      alert(json + "\n\n\n" + mqlStr);
+    }
+    this.onError = function(err) {
+      alert(err);
+    }
+    this.onCancel = function() {
+      alert("Canceled");
+    }
+    this.onReady = function() {
+    }
+    this.onFinish = function(status) {
+      document.location.reload();
+    }
+    this.onFinish = function(status, transport) {
+      document.location.reload();
+    }
+  };
+
+  funct(catalogId, catalogId, callback);
+
+}
+
+if (console_enabled && window.parent.dataAccessAvailable) {
+  dojo.removeClass(dojo.byId("addDS"), "pentaho-imagebutton-disabled");
+  dojo.connect(dojo.byId("addDS"), "onclick", "onAddDS");
+}
+
+</script>
+
+</body>
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       

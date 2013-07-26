@@ -1,0 +1,102 @@
+/* Specify iPad specific CSS that should override existing CSS */
+
+#fieldList #fieldListTop #searchField {
+  font-size: .6em;
+  width: 93%;
+}
+
+.reportArea .reportEmpty {
+  font-size: 1.2em;
+}
+
+.reportMain {
+  font-size: .85em;
+}
+
+
+#standardDialog .selectableList {
+  width: 215px;
+  height: 180px;
+  border: 1px solid #c8c8c8;
+  background-color: white;
+  margin-top: 2px;
+  overflow: auto;
+  cursor: pointer;
+}
+
+@media all and (orientation:portrait) {
+  #borderContainer, #reportMain, #reportContainer, #reportContainerWrapper {
+    width: 768px !important;
+  }
+}
+
+@media all and (orientation:landscape) {
+  #borderContainer, #reportMain, #reportContainer, #reportContainerWrapper{
+    width: 1024px !important;
+  }
+}
+
+/* Toolbar CSS **/
+
+#reportBtns {
+  height: 30px;
+  padding: 8px;
+}
+
+#main_toolbar .reportBtn
+{
+  margin-right: 10px;
+}
+
+#main_toolbar .separator {
+  height: 30px;
+  margin-right: 13px;
+}
+
+#main_toolbar .reportBtn IMG {
+  width: 24px;
+  height: 24px; 
+}
+
+#main_toolbar .reportDisplayFormat {
+  margin-right: 6px;
+  margin-top: 1px;
+  padding: 2px;
+  cursor:pointer;
+}
+
+/* Used in the hyperlink dialog */
+#AL_fileLabel {
+  width: 250px;	
+}
+
+#AL_linkParamsTable INPUT {
+	width: 150px;
+}
+
+#MT_Table .dialogLabel {
+  width:150px;
+}
+
+.cmdActionsBtn {
+	width: 83px;
+}
+
+/* hide datasource buttons */
+#description > table:first-child{
+  display:none;
+}
+
+
+.gwt-Label{
+  font-size:1.1em !important;
+}
+
+.fileChooserHeader, .fileChooserCell {
+  font-size:1.1em;
+}
+
+.fileChooserCell img{
+  margin-top: 3px;
+  margin-right: 4px;
+}

@@ -1,0 +1,145 @@
+<html>
+<head>
+
+  <title>Print Map</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <style type="text/css">
+    .olControlLayerSwitcher {
+      display: none;
+    }
+
+    #vizdiv #hover {
+      display: none !important;
+    }
+
+    /* ANALYZER-1162 - hide the nav controls when exporting */
+    #wrapper_map_control {
+      display: none !important;
+    }
+
+    .olLayerGoogleCopyright {
+      display: none;
+    }
+  </style>
+
+  <link rel="stylesheet" href="pentaho-geo/resources/web/openlayers/theme/default/style.css" type="text/css">
+
+  <script language="javascript" type="text/javascript" src="common-ui/resources/web/vizapi/DataTable.js"></script>
+  <script language="javascript" type="text/javascript" src="common-ui/resources/web/vizapi/Events.js"></script>
+
+  <script language="javascript" src="common-ui/resources/web/repo/pentaho-ajax.js" type="text/javascript"></script>
+
+  <script language="javascript" type="text/javascript" src="common-ui/resources/web/dojo/djConfig.js"></script>
+
+  <script type="text/javascript">
+    var analyzerVizPlugins = [];
+
+    djConfig["modulePaths"] = {
+      "pentaho.common": "../../../../../../common-ui/resources/web/dojo/pentaho/common",
+      "pentaho.geo": "../../../../../../pentaho-geo/resources/web",
+      "geo": "../../../../../../pentaho-geo/resources/web"
+    };
+    djConfig["baseUrl"] = "common-ui/resources/web/dojo/dojo";
+    var pentaho_geo_cache_on = false;
+
+  </script>
+
+<script language="javascript" type="text/javascript" src="webcontext.js?context=analyzer"></script>
+
+<script language="javascript" src="common-ui/resources/web/dojo/dojo/dojo-all.js.uncompressed.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    dojo.addOnLoad(
+      function(){
+        // Notify amd script waiting for dojo that it's available see: https://github.com/jganoff/localjs
+        pen.require(['common-ui/util/local'], function(local) {
+          local.define('dojo', function() {
+            return dojo;
+          });
+        });
+      });
+
+  </script>
+<script type="text/javascript">
+    var deps = analyzerVizPlugins;
+    pen.require(deps, function() {});
+</script>
+
+  <script language="javascript" src="common-ui/resources/web/cache/LocalCache.js" type="text/javascript"></script>
+
+
+  <script type="text/javascript">
+    var vizController = null;
+    pen.require(["geo/openlayers_wrapper"], function() {
+      vizController = new pentaho.VizController();
+    });
+
+    function loaded() {
+
+      var div = document.getElementById('vizdiv');
+      pen.require(["geo/openlayers_wrapper"], function() {
+        vizController.setDomNode(div);
+        resetData();
+      });
+
+    }
+
+    function updateDisplay(json) {
+      //for testing
+      if(json == undefined || json == null) {
+        json = createData();
+      }
+
+      var data = eval( '(' + json + ')' );
+      var dataTable = new pentaho.DataTable( data );
+
+      viz = pentaho.visualizations[0];
+
+      for( var colNo=0; colNo<dataTable.getNumberOfColumns(); colNo++) {
+        var role = dataTable.getColumnProperty(colNo, "geoRole");
+        if(role) {
+          if(role == 'country') {
+            role = 'Country';
+          }
+          else if(role == 'state') {
+            role = 'CountrySubdivision';
+          }
+          else if(role == 'city') {
+            role = 'Municipality';
+          }
+          dataTable.setColumnProperty(colNo,'geoRole',role);
+        }
+      }
+
+      vizController.setDataTable( dataTable );
+      if( vizController.setVisualization(viz) ) {
+        // set the state of the visualization here
+        var pluginData = '@inject_plugin_data_here';
+        var pluginArray = eval( '(' + pluginData + ')' );
+        if(pluginArray.length > 0) {
+          vizController.setState(pluginArray[0]);
+        }
+      }
+    }
+
+    function resetData() {
+      drillItem = null;
+      vizController.clearSelections();
+
+      var json = @inject_json_here;
+
+      var jsonString = JSON.stringify(json);
+      updateDisplay(jsonString);
+    }
+
+  </script>
+
+</head>
+
+<body onload="loaded()">
+
+<div id="vizdiv" style="width:@width; height:@height;"></div>
+
+</body>
+
+</html>
