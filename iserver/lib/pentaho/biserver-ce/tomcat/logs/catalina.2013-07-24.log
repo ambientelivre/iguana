@@ -623,3 +623,206 @@ java.lang.IllegalStateException
 
 Jul 24, 2013 5:59:01 PM org.apache.catalina.loader.WebappClassLoader findResourceInternal
 INFO: Illegal access: this web application instance has been stopped already.  Could not load mondrian/resource/MondrianResource_pt_BR.properties.  The eventual following stack trace is caused by an error thrown for debugging purposes as well as to attempt to terminate the thread which caused the illegal access, and has no functional impact.
+Jul 24, 2013 10:45:57 PM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/jni:/lib:/usr/lib
+Jul 24, 2013 10:45:57 PM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Jul 24, 2013 10:45:57 PM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1005 ms
+Jul 24, 2013 10:45:57 PM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Jul 24, 2013 10:45:57 PM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+Jul 24, 2013 10:45:57 PM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor pentaho.xml
+Jul 24, 2013 10:46:00 PM org.apache.catalina.startup.ContextConfig validateSecurityRoles
+INFO: WARNING: Security role name PENTAHO_ADMIN used in an <auth-constraint> without being defined in a <security-role>
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+INFO: OrientDB Server v1.0.1 is starting up...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+INFO: -> Loaded memory database 'temp'
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file default.0.oda was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/default.odh was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file internal.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/internal.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/database.ocf was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file index.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/index.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file default.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:18 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/default.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file orole.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/orole.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file ouser.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/ouser.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file orids.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/orids.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file query.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/query.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file testresult.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/testresult.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file alert.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/alert.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file cdaevent.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/cdaevent.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file test.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/test.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: segment file cdaevent_queryinfo.0.ocl was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: OK
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/cdaevent_queryinfo.och was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+WARNING: file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/txlog.otx was not closed correctly last time. Checking segments...
+Jul 24, 2013 10:46:19 PM com.orientechnologies.common.log.OLogManager log
+INFO: -> Loaded local database 'webdetails'
+Jul 24, 2013 10:46:24 PM com.orientechnologies.common.log.OLogManager log
+INFO: Listening binary connections on 0.0.0.0:2424
+Jul 24, 2013 10:46:24 PM com.orientechnologies.common.log.OLogManager log
+INFO: Listening http connections on localhost:2480
+Jul 24, 2013 10:46:24 PM com.orientechnologies.common.log.OLogManager log
+INFO: OrientDB Server v1.0.1 is active.
+Jul 24, 2013 10:46:26 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  org.saiku.web
+Jul 24, 2013 10:46:26 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class org.saiku.web.rest.resources.BasicRepositoryResource2
+  class org.saiku.web.rest.resources.QueryResource
+  class org.saiku.web.rest.resources.DataSourceResource
+  class org.saiku.web.rest.resources.SessionResource
+  class org.saiku.web.rest.resources.BasicTagRepositoryResource
+  class org.saiku.web.rest.resources.BasicRepositoryResource
+  class org.saiku.web.rest.resources.OlapDiscoverResource
+Jul 24, 2013 10:46:26 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jul 24, 2013 10:46:26 PM org.codehaus.enunciate.modules.jersey.EnunciateJerseyServletContainer configure
+INFO: org.codehaus.enunciate.modules.amf.JAXRSProvider not found.
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, datasourceResourceBean, of type org.saiku.web.rest.resources.DataSourceResource as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, olapDiscoverBean, of type org.saiku.web.rest.resources.OlapDiscoverResource as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, queryResource, of type org.saiku.web.rest.resources.QueryResource as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, sessionResource, of type org.saiku.web.rest.resources.SessionResource as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, repositoryBean, of type org.saiku.plugin.resources.PentahoRepositoryResource as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, repositoryBean2, of type org.saiku.plugin.resources.PentahoRepositoryResource2 as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, pluginResource, of type org.saiku.plugin.resources.PluginResource as a root resource class
+Jul 24, 2013 10:46:26 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.11 12/09/2011 10:27 AM'
+Jul 24, 2013 10:46:28 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  org.saiku.adhoc.rest
+Jul 24, 2013 10:46:28 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class org.saiku.adhoc.rest.MetadataDiscoverResource
+  class org.saiku.adhoc.rest.QueryResource
+  class org.saiku.adhoc.rest.StandaloneCdaResource
+  class org.saiku.adhoc.rest.PentahoRepositoryResource
+  class org.saiku.adhoc.rest.ExportResource
+Jul 24, 2013 10:46:28 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jul 24, 2013 10:46:28 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, metadataResource, of type org.saiku.adhoc.rest.MetadataDiscoverResource as a root resource class
+Jul 24, 2013 10:46:28 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, pentahoRepositoryResource, of type org.saiku.adhoc.rest.PentahoRepositoryResource as a root resource class
+Jul 24, 2013 10:46:28 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, queryResource, of type org.saiku.adhoc.rest.QueryResource as a root resource class
+Jul 24, 2013 10:46:28 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, exportResource, of type org.saiku.adhoc.rest.ExportResource as a root resource class
+Jul 24, 2013 10:46:28 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.6 03/25/2011 01:14 PM'
+Jul 24, 2013 10:46:37 PM com.sun.jersey.api.core.PackagesResourceConfig init
+INFO: Scanning for root resource and provider classes in the packages:
+  org.openi.web.rest
+Jul 24, 2013 10:46:37 PM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class org.openi.web.rest.QueryResource
+  class org.openi.web.rest.OlapDiscoverResource
+  class org.openi.web.rest.ExploreDataResource
+  class org.openi.web.rest.AnalysisResource
+  class org.openi.web.rest.WCFComponentResource
+  class org.openi.web.rest.DatasourceResource
+Jul 24, 2013 10:46:37 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Jul 24, 2013 10:46:38 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, org.openi.web.rest.WCFComponentResource#0, of type org.openi.web.rest.WCFComponentResource as a root resource class
+Jul 24, 2013 10:46:38 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, org.openi.web.rest.QueryResource#0, of type org.openi.web.rest.QueryResource as a root resource class
+Jul 24, 2013 10:46:38 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, org.openi.web.rest.DatasourceResource#0, of type org.openi.web.rest.DatasourceResource as a root resource class
+Jul 24, 2013 10:46:38 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, org.openi.web.rest.AnalysisResource#0, of type org.openi.web.rest.AnalysisResource as a root resource class
+Jul 24, 2013 10:46:38 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, org.openi.web.rest.OlapDiscoverResource#0, of type org.openi.web.rest.OlapDiscoverResource as a root resource class
+Jul 24, 2013 10:46:38 PM com.sun.jersey.spi.spring.container.SpringComponentProviderFactory registerSpringBeans
+INFO: Registering Spring bean, org.openi.web.rest.ExploreDataResource#0, of type org.openi.web.rest.ExploreDataResource as a root resource class
+Jul 24, 2013 10:46:38 PM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
+INFO: Initiating Jersey application, version 'Jersey: 1.8 06/24/2011 12:17 PM'
+Jul 24, 2013 10:46:43 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory pentaho-style
+Jul 24, 2013 10:46:43 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory ROOT
+Jul 24, 2013 10:46:43 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory sw-style
+Jul 24, 2013 10:46:43 PM org.apache.coyote.http11.Http11Protocol start
+INFO: Starting Coyote HTTP/1.1 on http-8080
+Jul 24, 2013 10:46:44 PM org.apache.jk.common.ChannelSocket init
+INFO: JK: ajp13 listening on /0.0.0.0:8009
+Jul 24, 2013 10:46:44 PM org.apache.jk.server.JkMain start
+INFO: Jk running ID=0 time=0/175  config=null
+Jul 24, 2013 10:46:44 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 46715 ms
