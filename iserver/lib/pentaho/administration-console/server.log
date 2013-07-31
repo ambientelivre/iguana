@@ -1,8 +1,18 @@
-2013-07-25 20:14:14,141 INFO  [/] org.pentaho.pac.server.common.HibernateConfigurationServiceImpl-2046606361: destroy
-2013-07-25 20:14:14,142 INFO  [/] org.pentaho.pac.server.common.JdbcDriverDiscoveryServiceImpl-1454641192: destroy
-2013-07-25 20:14:14,142 INFO  [/] org.pentaho.pac.server.SolutionRepositoryServiceImpl-1811471497: destroy
-2013-07-25 20:14:14,145 INFO  [/] org.pentaho.pac.server.SubscriptionServiceImpl-1807233934: destroy
-2013-07-25 20:14:14,146 INFO  [/] org.pentaho.pac.server.SchedulerServiceImpl-1862912448: destroy
-2013-07-25 20:14:14,146 INFO  [/] org.pentaho.pac.server.PacServiceImpl-482539870: destroy
-2013-07-25 20:14:14,146 INFO  [/] org.pentaho.pac.server.BrowserLocaleServlet-447671000: destroy
-2013-07-25 20:14:14,146 INFO  [/] org.pentaho.pac.server.DefaultConsoleServlet-571013302: destroy
+2013-07-26 13:43:03,051 INFO  [org.pentaho.pac.server.JettyServer] Console is starting
+2013-07-26 13:43:03,094 INFO  [/] org.pentaho.pac.server.BrowserLocaleServlet-447671000: init
+2013-07-26 13:43:03,095 INFO  [/] org.pentaho.pac.server.DefaultConsoleServlet-571013302: init
+2013-07-26 13:43:03,096 INFO  [/] org.pentaho.pac.server.PacServiceImpl-482539870: init
+2013-07-26 13:43:03,096 INFO  [/] org.pentaho.pac.server.SchedulerServiceImpl-1862912448: init
+2013-07-26 13:43:03,096 INFO  [/] org.pentaho.pac.server.SolutionRepositoryServiceImpl-1811471497: init
+2013-07-26 13:43:03,096 INFO  [/] org.pentaho.pac.server.SubscriptionServiceImpl-1807233934: init
+2013-07-26 13:43:03,096 INFO  [/] org.pentaho.pac.server.common.HibernateConfigurationServiceImpl-2046606361: init
+2013-07-26 13:43:03,096 INFO  [/] org.pentaho.pac.server.common.JdbcDriverDiscoveryServiceImpl-1454641192: init
+2013-07-26 13:43:03,120 INFO  [org.pentaho.pac.server.JettyServer] Console is now started. It can be accessed using http://jabuti-piranga:8099 or http://127.0.1.1:8099
+2013-07-26 17:25:54,293 INFO  [/] org.pentaho.pac.server.common.HibernateConfigurationServiceImpl-2046606361: destroy
+2013-07-26 17:25:54,294 INFO  [/] org.pentaho.pac.server.common.JdbcDriverDiscoveryServiceImpl-1454641192: destroy
+2013-07-26 17:25:54,294 INFO  [/] org.pentaho.pac.server.SolutionRepositoryServiceImpl-1811471497: destroy
+2013-07-26 17:25:54,295 INFO  [/] org.pentaho.pac.server.SubscriptionServiceImpl-1807233934: destroy
+2013-07-26 17:25:54,295 INFO  [/] org.pentaho.pac.server.SchedulerServiceImpl-1862912448: destroy
+2013-07-26 17:25:54,295 INFO  [/] org.pentaho.pac.server.PacServiceImpl-482539870: destroy
+2013-07-26 17:25:54,295 INFO  [/] org.pentaho.pac.server.BrowserLocaleServlet-447671000: destroy
+2013-07-26 17:25:54,296 INFO  [/] org.pentaho.pac.server.DefaultConsoleServlet-571013302: destroy
