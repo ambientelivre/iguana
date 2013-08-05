@@ -1,0 +1,14 @@
+# Config Your Migration 
+# Copyrights:  Iguana Project 2013
+#
+# Marcio Junior Vieira
+# marcio at ambientelivre.com.br 
+# 
+# Ambiente Livre Tecnologia
+# http://www.ambientelivre.com.br 
+
+database_hsqldb=localhost
+user_hsqldb=hibuser
+database_pgsql=localhost
+user_pgsql=hibuser
+
