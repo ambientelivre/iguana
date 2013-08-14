@@ -101,7 +101,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>39</xloc>
-      <yloc>43</yloc>
+      <yloc>42</yloc>
       </entry>
     <entry>
       <name>Set variable</name>
@@ -132,8 +132,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>143</xloc>
-      <yloc>233</yloc>
+      <xloc>43</xloc>
+      <yloc>152</yloc>
       </entry>
     <entry>
       <name>Load Questions</name>
@@ -164,8 +164,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>570</xloc>
-      <yloc>65</yloc>
+      <xloc>466</xloc>
+      <yloc>44</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -174,8 +174,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>805</xloc>
-      <yloc>68</yloc>
+      <xloc>617</xloc>
+      <yloc>45</yloc>
       </entry>
     <entry>
       <name>surveys_table_name</name>
@@ -239,7 +239,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>329</xloc>
-      <yloc>44</yloc>
+      <yloc>42</yloc>
       </entry>
   </entries>
   <hops>

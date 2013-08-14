@@ -283,8 +283,8 @@ WHERE Tables_in_limesurvey05 LIKE &apos;lime_survey_%&apos;
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>442</xloc>
-      <yloc>25</yloc>
+      <xloc>402</xloc>
+      <yloc>33</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

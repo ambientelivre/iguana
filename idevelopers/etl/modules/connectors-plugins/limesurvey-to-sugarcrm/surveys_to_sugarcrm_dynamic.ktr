@@ -611,6 +611,8 @@ WHERE Tables_in_limesurvey  LIKE &apos;lime_survey_%&apos;
   AND Tables_in_limesurvey  != &apos;lime_surveys_languagesettings&apos;
   AND Tables_in_limesurvey  != &apos;lime_surveys&apos;
   AND Tables_in_limesurvey  != &apos;lime_surveys_rights&apos;
+  AND Tables_in_limesurvey  != &apos;lime_survey_links&apos;
+
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -620,7 +622,7 @@ WHERE Tables_in_limesurvey  LIKE &apos;lime_survey_%&apos;
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>19</xloc>
-      <yloc>26</yloc>
+      <yloc>25</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
