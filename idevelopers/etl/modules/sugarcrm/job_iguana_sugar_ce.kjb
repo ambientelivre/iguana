@@ -445,7 +445,7 @@
       <description/>
       <type>SQL</type>
       <sql>delete from sugarcrm_ce_dimen_account where pk_id_accounts = &apos;-1&apos; ;
-insert into sugarcrm_ce_dimen_account VALUES ( &apos;-1&apos; , &apos;Cliente não Informado&apos;, &apos;Customer&apos;, &apos;0&apos;);
+insert into sugarcrm_ce_dimen_account VALUES ( &apos;-1&apos; , &apos;Cliente não Informado&apos;, &apos;Customer&apos;, &apos;0&apos;, &apos;&apos;);
 delete from sugarcrm_ce_dimen_user where pk_id_user = &apos;-1&apos;;
 insert into sugarcrm_ce_dimen_user VALUES (&apos;-1&apos;,&apos;Usuário Não Informado&apos;,&apos;Usuário Não Informado&apos;);
 
