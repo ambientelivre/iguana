@@ -1,0 +1,617 @@
+Set 10, 2013 4:16:14 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib/jni:/lib:/usr/lib
+Set 10, 2013 4:16:15 AM org.apache.coyote.http11.Http11Protocol init
+INFO: Initializing Coyote HTTP/1.1 on http-8080
+Set 10, 2013 4:16:15 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 918 ms
+Set 10, 2013 4:16:15 AM org.apache.catalina.core.StandardService start
+INFO: Starting service Catalina
+Set 10, 2013 4:16:15 AM org.apache.catalina.core.StandardEngine start
+INFO: Starting Servlet Engine: Apache Tomcat/6.0.29
+Set 10, 2013 4:16:15 AM org.apache.catalina.startup.HostConfig deployDescriptor
+INFO: Deploying configuration descriptor pentaho.xml
+Set 10, 2013 4:16:17 AM org.apache.catalina.startup.ContextConfig validateSecurityRoles
+INFO: WARNING: Security role name PENTAHO_ADMIN used in an <auth-constraint> without being defined in a <security-role>
+[Server@1abf3adc]: [Thread[main,5,main]]: checkRunning(false) entered
+[Server@1abf3adc]: [Thread[main,5,main]]: checkRunning(false) exited
+[Server@1abf3adc]: Initiating startup sequence...
+[Server@1abf3adc]: Server socket opened successfully in 1 ms.
+[Server@1abf3adc]: Database [index=0, id=0, db=file:../../data/hsqldb/sampledata, alias=sampledata] opened sucessfully in 1627 ms.
+[Server@1abf3adc]: Database [index=1, id=1, db=file:../../data/hsqldb/hibernate, alias=hibernate] opened sucessfully in 199 ms.
+[Server@1abf3adc]: Database [index=2, id=2, db=file:../../data/hsqldb/quartz, alias=quartz] opened sucessfully in 99 ms.
+[Server@1abf3adc]: Startup sequence completed in 1927 ms.
+[Server@1abf3adc]: 2013-09-10 04:16:20.602 HSQLDB server 1.8.0 is online
+[Server@1abf3adc]: To close normally, connect and execute SHUTDOWN SQL
+[Server@1abf3adc]: From command line, use [Ctrl]+[C] to abort abruptly
+04:16:27,535 WARN  [HadoopConfigurationLocator] Unable to load Hadoop Configuration from "file:///opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/kettle/plugins/pentaho-big-data-plugin/hadoop-configurations/mapr". For more information enable debug logging.
+04:16:31,802 WARN  [PackageManager] Unresolved dependency for package: org.pentaho.reporting.engine.classic.extensions.datasources.cda.CdaModule
+04:16:31,825 WARN  [PackageSorter] A dependent module was not found in the list of known modules.
+04:16:36,461 ERROR [PojoComponent] Error Start: Pentaho Pentaho Platform Engine Core 4.8.0-stable.51169
+04:16:36,463 ERROR [PojoComponent] eda04ebf-19e8-11e3-a21f-03d17c74599c:COMPONENT:context-477803745-1378797396189:backupScheduler.xactionCould not load bean class
+java.lang.ClassNotFoundException: CdaScheduler
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1645)
+	at org.apache.catalina.loader.WebappClassLoader.loadClass(WebappClassLoader.java:1491)
+	at org.pentaho.platform.engine.services.solution.PojoComponent.validateAction(PojoComponent.java:515)
+	at org.pentaho.platform.engine.services.solution.ComponentBase.validate(ComponentBase.java:239)
+	at org.pentaho.platform.engine.services.runtime.RuntimeContext.validateComponents(RuntimeContext.java:559)
+	at org.pentaho.platform.engine.services.runtime.RuntimeContext.validateSequence(RuntimeContext.java:508)
+	at org.pentaho.platform.engine.services.solution.SolutionEngine.executeInternal(SolutionEngine.java:397)
+	at org.pentaho.platform.engine.services.solution.SolutionEngine.execute(SolutionEngine.java:317)
+	at org.pentaho.platform.engine.services.solution.SolutionEngine.execute(SolutionEngine.java:193)
+	at org.pentaho.platform.engine.services.BaseRequestHandler.handleActionRequest(BaseRequestHandler.java:159)
+	at org.pentaho.platform.scheduler.QuartzExecute.execute(QuartzExecute.java:198)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:203)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:520)
+04:16:36,467 ERROR [PojoComponent] Error end:
+04:16:36,475 ERROR [SolutionEngine] eda04ebf-19e8-11e3-a21f-03d17c74599c:SOLUTION-ENGINE:backupScheduler.xaction: Action Sequence execution failed, see details below
+| Error Time: Terça-feira, 10 de Setembro de 2013 04h16min36s BRT
+| Session ID: backupScheduler.xaction
+| Instance Id: eda04ebf-19e8-11e3-a21f-03d17c74599c
+| Action Sequence: backupScheduler.xaction
+| Execution Stack:
+EXECUTING ACTION: Scheduler (org.pentaho.platform.engine.services.solution.PojoComponent)
+| Action Class: org.pentaho.platform.engine.services.solution.PojoComponent
+| Action Desc: Scheduler
+| Loop Index (1-based): N/A
+Stack Trace:org.pentaho.platform.api.engine.ActionValidationException: RuntimeContext.ERROR_0035 - Action validation failed.
+	at org.pentaho.platform.engine.services.runtime.RuntimeContext.validateComponents(RuntimeContext.java:576)
+	at org.pentaho.platform.engine.services.runtime.RuntimeContext.validateSequence(RuntimeContext.java:508)
+	at org.pentaho.platform.engine.services.solution.SolutionEngine.executeInternal(SolutionEngine.java:397)
+	at org.pentaho.platform.engine.services.solution.SolutionEngine.execute(SolutionEngine.java:317)
+	at org.pentaho.platform.engine.services.solution.SolutionEngine.execute(SolutionEngine.java:193)
+	at org.pentaho.platform.engine.services.BaseRequestHandler.handleActionRequest(BaseRequestHandler.java:159)
+	at org.pentaho.platform.scheduler.QuartzExecute.execute(QuartzExecute.java:198)
+	at org.quartz.core.JobRunShell.run(JobRunShell.java:203)
+	at org.quartz.simpl.SimpleThreadPool$WorkerThread.run(SimpleThreadPool.java:520)
+
+04:16:36,605 ERROR [Logger] misc-org.pentaho.platform.engine.services.connection.datasource.dbcp.PooledDatasourceSystemListener: PooledDatasourceSystemListener.ERROR_0003 - Unable to pool datasource object: sugarcrm-ce caused by com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown database 'sugarcrm'
+04:16:37,325 WARN  [PersistenceEngine] Falling back to built-in config
+
+2013-09-10 04:16:37:659 INFO OrientDB Server v1.0.1 is starting up... [OServer]04:16:38,063 WARN  [HttpMethodBase] Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+
+2013-09-10 04:16:38:152 INFO -> Loaded memory database 'temp' [OServer]
+2013-09-10 04:16:38:218 WARN segment file default.0.oda was not closed correctly last time. Checking segments... [ODataLocal]
+2013-09-10 04:16:38:219 WARN OK [ODataLocal]
+2013-09-10 04:16:38:284 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/default.odh was not closed correctly last time. Checking segments... [ODataLocalHole]
+2013-09-10 04:16:38:293 WARN segment file internal.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:38:294 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:38:295 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/internal.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:38:312 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/database.ocf was not closed correctly last time. Checking segments... [OSingleFileSegment]
+2013-09-10 04:16:38:326 WARN segment file index.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:38:327 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:38:329 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/index.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:38:336 WARN segment file default.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:38:337 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:38:338 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/default.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:38:992 WARN segment file orole.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:38:994 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:009 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/orole.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:022 WARN segment file ouser.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:023 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:030 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/ouser.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:044 WARN segment file orids.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:045 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:051 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/orids.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:065 WARN segment file query.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:066 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:072 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/query.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:076 WARN segment file testresult.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:077 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:083 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/testresult.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:086 WARN segment file alert.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:087 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:093 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/alert.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:106 WARN segment file cdaevent.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:107 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:115 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/cdaevent.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:129 WARN segment file test.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:130 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:133 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/test.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:144 WARN segment file cdaevent_queryinfo.0.ocl was not closed correctly last time. Checking segments... [OMultiFileSegment]
+2013-09-10 04:16:39:145 WARN OK [OMultiFileSegment]
+2013-09-10 04:16:39:158 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/cdaevent_queryinfo.och was not closed correctly last time. Checking segments... [OClusterLocalHole]
+2013-09-10 04:16:39:169 WARN file /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/.orient/webdetails.db/txlog.otx was not closed correctly last time. Checking segments... [OTxSegment]
+2013-09-10 04:16:39:184 INFO -> Loaded local database 'webdetails' [OServer]
+2013-09-10 04:16:44:227 INFO Listening binary connections on 0.0.0.0:2424 [OServerNetworkListener]
+2013-09-10 04:16:44:230 INFO Listening http connections on localhost:2480 [OServerNetworkListener]
+2013-09-10 04:16:44:236 INFO OrientDB Server v1.0.1 is active. [OServer]-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+-- listing properties --
+location=jdbc:mondrian:Provider=mondrian; Data...
+driver=mondrian.olap4j.MondrianOlap4jDriver
+datasource.processors=org.saiku.plugin.util.PentahoDatasour...
+name:sugarcrm
+driver:mondrian.olap4j.MondrianOlap4jDriver
+url:jdbc:mondrian:Provider=mondrian; DataSource=iguana;Catalog=file:/opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions//sugarcrm-ce/analysis/iguana_sugarcrm_opportunities.mondrian.xml;
+Catalogs:1
+mondrian.olap.MondrianException: Mondrian Error:Internal error: Virtual file is not readable: /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/steel-wheels/analysis/steelwheels.mondrian.xml
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:964)
+	at mondrian.olap.Util.newInternal(Util.java:2316)
+	at mondrian.olap.Util.newError(Util.java:2331)
+	at mondrian.olap.Util.readVirtualFile(Util.java:3269)
+	at mondrian.olap.Util.readVirtualFileAsString(Util.java:3290)
+	at mondrian.rolap.RolapSchemaPool.getSchemaContent(RolapSchemaPool.java:275)
+	at mondrian.rolap.RolapSchemaPool.get(RolapSchemaPool.java:127)
+	at mondrian.rolap.RolapSchemaPool.get(RolapSchemaPool.java:63)
+	at mondrian.rolap.RolapConnection.<init>(RolapConnection.java:160)
+	at mondrian.rolap.RolapConnection.<init>(RolapConnection.java:90)
+	at mondrian.olap.DriverManager.getConnection(DriverManager.java:112)
+	at mondrian.olap.DriverManager.getConnection(DriverManager.java:68)
+	at mondrian.olap4j.MondrianOlap4jConnection.<init>(MondrianOlap4jConnection.java:135)
+	at mondrian.olap4j.FactoryJdbc4Plus$AbstractConnection.<init>(FactoryJdbc4Plus.java:323)
+	at mondrian.olap4j.FactoryJdbc41Impl$MondrianOlap4jConnectionJdbc41.<init>(FactoryJdbc41Impl.java:118)
+	at mondrian.olap4j.FactoryJdbc41Impl.newConnection(FactoryJdbc41Impl.java:32)
+	at mondrian.olap4j.MondrianOlap4jDriver.connect(MondrianOlap4jDriver.java:132)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:215)
+	at org.saiku.datasources.connection.SaikuOlapConnection.connect(SaikuOlapConnection.java:70)
+	at org.saiku.datasources.connection.SaikuOlapConnection.connect(SaikuOlapConnection.java:46)
+	at org.saiku.datasources.connection.SaikuConnectionFactory.getConnection(SaikuConnectionFactory.java:29)
+	at org.saiku.plugin.PentahoSecurityAwareConnectionManager.connect(PentahoSecurityAwareConnectionManager.java:181)
+	at org.saiku.plugin.PentahoSecurityAwareConnectionManager.getInternalConnection(PentahoSecurityAwareConnectionManager.java:72)
+	at org.saiku.datasources.connection.AbstractConnectionManager.getConnection(AbstractConnectionManager.java:93)
+	at org.saiku.datasources.connection.AbstractConnectionManager.getAllConnections(AbstractConnectionManager.java:119)
+	at org.saiku.plugin.PentahoSecurityAwareConnectionManager.init(PentahoSecurityAwareConnectionManager.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1414)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:473)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:409)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:264)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:261)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:185)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:164)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:429)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:728)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:380)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:140)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:84)
+	at org.saiku.plugin.ServletAdapterContentGenerator$1.<init>(ServletAdapterContentGenerator.java:100)
+	at org.saiku.plugin.ServletAdapterContentGenerator.getSpringBeanFactory(ServletAdapterContentGenerator.java:100)
+	at org.saiku.plugin.ServletAdapterContentGenerator.<init>(ServletAdapterContentGenerator.java:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at java.lang.Class.newInstance(Class.java:374)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.createObject(StandaloneObjectFactory.java:129)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getLocalInstance(StandaloneObjectFactory.java:180)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getInstance(StandaloneObjectFactory.java:116)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.retreiveObject(StandaloneObjectFactory.java:86)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.get(StandaloneObjectFactory.java:44)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerContentGenerators(DefaultPluginManager.java:430)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerPlugin(DefaultPluginManager.java:203)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.reload(DefaultPluginManager.java:128)
+	at org.pentaho.platform.plugin.services.pluginmgr.PluginAdapter.startup(PluginAdapter.java:42)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:342)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:324)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:291)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:208)
+	at org.pentaho.platform.web.http.context.SolutionContextListener.contextInitialized(SolutionContextListener.java:137)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:546)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:637)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:519)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:581)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+name:Custom Magicel
+driver:mondrian.olap4j.MondrianOlap4jDriver
+url:jdbc:mondrian:Provider=mondrian; DataSource=iguana;Catalog=file:/opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions//sugarcrm-ce/analysis/magicel_custom_olap.mondrian.xml;
+Catalogs:1
+name:noosfero
+driver:mondrian.olap4j.MondrianOlap4jDriver
+url:jdbc:mondrian:Provider=mondrian; DataSource=iguana;Catalog=file:/opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions//noosfero/analysis/noosfero_articles_iguana.mondrian.xml;
+Catalogs:1
+name:joomla
+driver:mondrian.olap4j.MondrianOlap4jDriver
+url:jdbc:mondrian:Provider=mondrian; DataSource=iguana;Catalog=file:/opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions//joomla/analysis/iguana_joomla.mondrian.xml;
+Catalogs:1
+mondrian.olap.MondrianException: Mondrian Error:Internal error: Virtual file is not readable: /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/steel-wheels/analysis/SampleData.mondrian.xml
+	at mondrian.resource.MondrianResource$_Def0.ex(MondrianResource.java:964)
+	at mondrian.olap.Util.newInternal(Util.java:2316)
+	at mondrian.olap.Util.newError(Util.java:2331)
+	at mondrian.olap.Util.readVirtualFile(Util.java:3269)
+	at mondrian.olap.Util.readVirtualFileAsString(Util.java:3290)
+	at mondrian.rolap.RolapSchemaPool.getSchemaContent(RolapSchemaPool.java:275)
+	at mondrian.rolap.RolapSchemaPool.get(RolapSchemaPool.java:127)
+	at mondrian.rolap.RolapSchemaPool.get(RolapSchemaPool.java:63)
+	at mondrian.rolap.RolapConnection.<init>(RolapConnection.java:160)
+	at mondrian.rolap.RolapConnection.<init>(RolapConnection.java:90)
+	at mondrian.olap.DriverManager.getConnection(DriverManager.java:112)
+	at mondrian.olap.DriverManager.getConnection(DriverManager.java:68)
+	at mondrian.olap4j.MondrianOlap4jConnection.<init>(MondrianOlap4jConnection.java:135)
+	at mondrian.olap4j.FactoryJdbc4Plus$AbstractConnection.<init>(FactoryJdbc4Plus.java:323)
+	at mondrian.olap4j.FactoryJdbc41Impl$MondrianOlap4jConnectionJdbc41.<init>(FactoryJdbc41Impl.java:118)
+	at mondrian.olap4j.FactoryJdbc41Impl.newConnection(FactoryJdbc41Impl.java:32)
+	at mondrian.olap4j.MondrianOlap4jDriver.connect(MondrianOlap4jDriver.java:132)
+	at java.sql.DriverManager.getConnection(DriverManager.java:571)
+	at java.sql.DriverManager.getConnection(DriverManager.java:215)
+	at org.saiku.datasources.connection.SaikuOlapConnection.connect(SaikuOlapConnection.java:70)
+	at org.saiku.datasources.connection.SaikuOlapConnection.connect(SaikuOlapConnection.java:46)
+	at org.saiku.datasources.connection.SaikuConnectionFactory.getConnection(SaikuConnectionFactory.java:29)
+	at org.saiku.plugin.PentahoSecurityAwareConnectionManager.connect(PentahoSecurityAwareConnectionManager.java:181)
+	at org.saiku.plugin.PentahoSecurityAwareConnectionManager.getInternalConnection(PentahoSecurityAwareConnectionManager.java:72)
+	at org.saiku.datasources.connection.AbstractConnectionManager.getConnection(AbstractConnectionManager.java:93)
+	at org.saiku.datasources.connection.AbstractConnectionManager.getAllConnections(AbstractConnectionManager.java:119)
+	at org.saiku.plugin.PentahoSecurityAwareConnectionManager.init(PentahoSecurityAwareConnectionManager.java:51)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeCustomInitMethod(AbstractAutowireCapableBeanFactory.java:1414)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1375)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:473)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:409)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:264)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:261)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:185)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:164)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:429)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:728)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:380)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:140)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:84)
+	at org.saiku.plugin.ServletAdapterContentGenerator$1.<init>(ServletAdapterContentGenerator.java:100)
+	at org.saiku.plugin.ServletAdapterContentGenerator.getSpringBeanFactory(ServletAdapterContentGenerator.java:100)
+	at org.saiku.plugin.ServletAdapterContentGenerator.<init>(ServletAdapterContentGenerator.java:58)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at java.lang.Class.newInstance(Class.java:374)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.createObject(StandaloneObjectFactory.java:129)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getLocalInstance(StandaloneObjectFactory.java:180)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getInstance(StandaloneObjectFactory.java:116)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.retreiveObject(StandaloneObjectFactory.java:86)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.get(StandaloneObjectFactory.java:44)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerContentGenerators(DefaultPluginManager.java:430)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerPlugin(DefaultPluginManager.java:203)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.reload(DefaultPluginManager.java:128)
+	at org.pentaho.platform.plugin.services.pluginmgr.PluginAdapter.startup(PluginAdapter.java:42)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:342)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:324)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:291)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:208)
+	at org.pentaho.platform.web.http.context.SolutionContextListener.contextInitialized(SolutionContextListener.java:137)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:546)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:637)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:519)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:581)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Using tag repository path: file:/opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/saiku/saiku-repository
+
+2013-09-10 04:16:45:966 INFO Scanning for root resource and provider classes in the packages:
+  org.saiku.web [PackagesResourceConfig]
+2013-09-10 04:16:45:994 INFO Root resource classes found:
+  class org.saiku.web.rest.resources.QueryResource
+  class org.saiku.web.rest.resources.DataSourceResource
+  class org.saiku.web.rest.resources.SessionResource
+  class org.saiku.web.rest.resources.OlapDiscoverResource
+  class org.saiku.web.rest.resources.BasicTagRepositoryResource
+  class org.saiku.web.rest.resources.BasicRepositoryResource2
+  class org.saiku.web.rest.resources.BasicRepositoryResource [ScanningResourceConfig]
+2013-09-10 04:16:45:995 INFO No provider classes found. [ScanningResourceConfig]
+2013-09-10 04:16:46:052 INFO org.codehaus.enunciate.modules.amf.JAXRSProvider not found. [EnunciateJerseyServletContainer]
+2013-09-10 04:16:46:059 INFO Registering Spring bean, datasourceResourceBean, of type org.saiku.web.rest.resources.DataSourceResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:060 INFO Registering Spring bean, olapDiscoverBean, of type org.saiku.web.rest.resources.OlapDiscoverResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:060 INFO Registering Spring bean, queryResource, of type org.saiku.web.rest.resources.QueryResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:061 INFO Registering Spring bean, sessionResource, of type org.saiku.web.rest.resources.SessionResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:064 INFO Registering Spring bean, repositoryBean, of type org.saiku.plugin.resources.PentahoRepositoryResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:064 INFO Registering Spring bean, repositoryBean2, of type org.saiku.plugin.resources.PentahoRepositoryResource2 as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:065 INFO Registering Spring bean, pluginResource, of type org.saiku.plugin.resources.PluginResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:46:068 INFO Initiating Jersey application, version 'Jersey: 1.11 12/09/2011 10:27 AM' [WebApplicationImpl]04:16:46,914 WARN  [ServletAdapterContentGenerator] /opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/system/saiku-adhoc
+-- listing properties --
+saiku-adhoc.metadata.file=c:/TargetPlatforms/saiku-server/tomca...
+saiku-adhoc.default.template=saiku_small
+
+2013-09-10 04:16:47:232 INFO Scanning for root resource and provider classes in the packages:
+  org.saiku.adhoc.rest [PackagesResourceConfig]
+2013-09-10 04:16:47:258 INFO Root resource classes found:
+  class org.saiku.adhoc.rest.QueryResource
+  class org.saiku.adhoc.rest.StandaloneCdaResource
+  class org.saiku.adhoc.rest.ExportResource
+  class org.saiku.adhoc.rest.PentahoRepositoryResource
+  class org.saiku.adhoc.rest.MetadataDiscoverResource [ScanningResourceConfig]
+2013-09-10 04:16:47:258 INFO No provider classes found. [ScanningResourceConfig]
+2013-09-10 04:16:47:318 INFO Registering Spring bean, metadataResource, of type org.saiku.adhoc.rest.MetadataDiscoverResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:47:318 INFO Registering Spring bean, pentahoRepositoryResource, of type org.saiku.adhoc.rest.PentahoRepositoryResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:47:319 INFO Registering Spring bean, queryResource, of type org.saiku.adhoc.rest.QueryResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:47:319 INFO Registering Spring bean, exportResource, of type org.saiku.adhoc.rest.ExportResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:47:321 INFO Initiating Jersey application, version 'Jersey: 1.6 03/25/2011 01:14 PM' [WebApplicationImpl]04:16:48,121 WARN  [PersistenceEngine] Falling back to built-in config
+04:16:48,517 WARN  [RepositoryAccess] hasAccess: .xml extension not in acl-files.
+04:16:50,622 ERROR [MondrianCatalogHelper] MondrianCatalogHelper.ERROR_0013 - Failed to load schema solution:steel-wheels/analysis/steelwheels.mondrian.xml
+org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogServiceException: MondrianCatalogHelper.ERROR_0007 - file not found
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.docAtUrlToString(MondrianCatalogHelper.java:733)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.loadCatalogsIntoCache(MondrianCatalogHelper.java:638)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.init(MondrianCatalogHelper.java:226)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.listCatalogs(MondrianCatalogHelper.java:414)
+	at org.openi.util.olap.MondrianHelper.listAvailableMondrianCatalogs(MondrianHelper.java:45)
+	at org.openi.pentaho.plugin.DataSourceManager.loadMondrianDS(DataSourceManager.java:110)
+	at org.openi.pentaho.plugin.DataSourceManager.loadDS(DataSourceManager.java:61)
+	at org.openi.pentaho.plugin.DataSourceManager.<init>(DataSourceManager.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:100)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:61)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:877)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:839)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:440)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:409)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:264)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:261)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:185)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:164)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:429)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:728)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:380)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:140)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:84)
+	at org.openi.util.plugin.PluginUtils$1.<init>(PluginUtils.java:54)
+	at org.openi.util.plugin.PluginUtils.getSpringBeanFactory(PluginUtils.java:53)
+	at org.openi.pentaho.plugin.ServletAdapterContentGenerator.<init>(ServletAdapterContentGenerator.java:42)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at java.lang.Class.newInstance(Class.java:374)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.createObject(StandaloneObjectFactory.java:129)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getLocalInstance(StandaloneObjectFactory.java:180)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getInstance(StandaloneObjectFactory.java:116)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.retreiveObject(StandaloneObjectFactory.java:86)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.get(StandaloneObjectFactory.java:44)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerContentGenerators(DefaultPluginManager.java:430)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerPlugin(DefaultPluginManager.java:203)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.reload(DefaultPluginManager.java:128)
+	at org.pentaho.platform.plugin.services.pluginmgr.PluginAdapter.startup(PluginAdapter.java:42)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:342)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:324)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:291)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:208)
+	at org.pentaho.platform.web.http.context.SolutionContextListener.contextInitialized(SolutionContextListener.java:137)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:546)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:637)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:519)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:581)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.io.FileNotFoundException: [steel-wheels/analysis/steelwheels.mondrian.xml] can not be found or you do not have permission to access it.
+	at org.pentaho.platform.repository.solution.SolutionRepositoryBase.getResourceInputStream(SolutionRepositoryBase.java:285)
+	at org.pentaho.platform.repository.solution.SolutionRepositoryBase.getResourceInputStream(SolutionRepositoryBase.java:420)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.docAtUrlToString(MondrianCatalogHelper.java:726)
+	... 75 more
+04:16:50,628 ERROR [MondrianCatalogHelper] MondrianCatalogHelper.ERROR_0013 - Failed to load schema solution:steel-wheels/analysis/SampleData.mondrian.xml
+org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogServiceException: MondrianCatalogHelper.ERROR_0007 - file not found
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.docAtUrlToString(MondrianCatalogHelper.java:733)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.loadCatalogsIntoCache(MondrianCatalogHelper.java:638)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.init(MondrianCatalogHelper.java:226)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.listCatalogs(MondrianCatalogHelper.java:414)
+	at org.openi.util.olap.MondrianHelper.listAvailableMondrianCatalogs(MondrianHelper.java:45)
+	at org.openi.pentaho.plugin.DataSourceManager.loadMondrianDS(DataSourceManager.java:110)
+	at org.openi.pentaho.plugin.DataSourceManager.loadDS(DataSourceManager.java:61)
+	at org.openi.pentaho.plugin.DataSourceManager.<init>(DataSourceManager.java:57)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:100)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:61)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:877)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:839)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:440)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory$1.run(AbstractAutowireCapableBeanFactory.java:409)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:264)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:261)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:185)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:164)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:429)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:728)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:380)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:140)
+	at org.springframework.context.support.FileSystemXmlApplicationContext.<init>(FileSystemXmlApplicationContext.java:84)
+	at org.openi.util.plugin.PluginUtils$1.<init>(PluginUtils.java:54)
+	at org.openi.util.plugin.PluginUtils.getSpringBeanFactory(PluginUtils.java:53)
+	at org.openi.pentaho.plugin.ServletAdapterContentGenerator.<init>(ServletAdapterContentGenerator.java:42)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:57)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:526)
+	at java.lang.Class.newInstance(Class.java:374)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.createObject(StandaloneObjectFactory.java:129)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getLocalInstance(StandaloneObjectFactory.java:180)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory$ObjectCreator.getInstance(StandaloneObjectFactory.java:116)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.retreiveObject(StandaloneObjectFactory.java:86)
+	at org.pentaho.platform.engine.core.system.objfac.StandaloneObjectFactory.get(StandaloneObjectFactory.java:44)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerContentGenerators(DefaultPluginManager.java:430)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.registerPlugin(DefaultPluginManager.java:203)
+	at org.pentaho.platform.plugin.services.pluginmgr.DefaultPluginManager.reload(DefaultPluginManager.java:128)
+	at org.pentaho.platform.plugin.services.pluginmgr.PluginAdapter.startup(PluginAdapter.java:42)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:342)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.notifySystemListenersOfStartup(PentahoSystem.java:324)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:291)
+	at org.pentaho.platform.engine.core.system.PentahoSystem.init(PentahoSystem.java:208)
+	at org.pentaho.platform.web.http.context.SolutionContextListener.contextInitialized(SolutionContextListener.java:137)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4135)
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:4630)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:791)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:771)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:546)
+	at org.apache.catalina.startup.HostConfig.deployDescriptor(HostConfig.java:637)
+	at org.apache.catalina.startup.HostConfig.deployDescriptors(HostConfig.java:563)
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:498)
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:1277)
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:321)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1053)
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:785)
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1045)
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:445)
+	at org.apache.catalina.core.StandardService.start(StandardService.java:519)
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:581)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:289)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:414)
+Caused by: java.io.FileNotFoundException: [steel-wheels/analysis/SampleData.mondrian.xml] can not be found or you do not have permission to access it.
+	at org.pentaho.platform.repository.solution.SolutionRepositoryBase.getResourceInputStream(SolutionRepositoryBase.java:285)
+	at org.pentaho.platform.repository.solution.SolutionRepositoryBase.getResourceInputStream(SolutionRepositoryBase.java:420)
+	at org.pentaho.platform.plugin.action.mondrian.catalog.MondrianCatalogHelper.docAtUrlToString(MondrianCatalogHelper.java:726)
+	... 75 more
+
+2013-09-10 04:16:51:241 INFO Scanning for root resource and provider classes in the packages:
+  org.openi.web.rest [PackagesResourceConfig]
+2013-09-10 04:16:51:321 INFO Root resource classes found:
+  class org.openi.web.rest.WCFComponentResource
+  class org.openi.web.rest.DatasourceResource
+  class org.openi.web.rest.ExploreDataResource
+  class org.openi.web.rest.AnalysisResource
+  class org.openi.web.rest.QueryResource
+  class org.openi.web.rest.OlapDiscoverResource [ScanningResourceConfig]
+2013-09-10 04:16:51:322 INFO No provider classes found. [ScanningResourceConfig]
+2013-09-10 04:16:51:409 INFO Registering Spring bean, org.openi.web.rest.WCFComponentResource#0, of type org.openi.web.rest.WCFComponentResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:51:410 INFO Registering Spring bean, org.openi.web.rest.QueryResource#0, of type org.openi.web.rest.QueryResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:51:411 INFO Registering Spring bean, org.openi.web.rest.DatasourceResource#0, of type org.openi.web.rest.DatasourceResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:51:412 INFO Registering Spring bean, org.openi.web.rest.AnalysisResource#0, of type org.openi.web.rest.AnalysisResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:51:412 INFO Registering Spring bean, org.openi.web.rest.OlapDiscoverResource#0, of type org.openi.web.rest.OlapDiscoverResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:51:413 INFO Registering Spring bean, org.openi.web.rest.ExploreDataResource#0, of type org.openi.web.rest.ExploreDataResource as a root resource class [SpringComponentProviderFactory]
+2013-09-10 04:16:51:416 INFO Initiating Jersey application, version 'Jersey: 1.8 06/24/2011 12:17 PM' [WebApplicationImpl]04:16:53,451 WARN  [DefaultSchemaGenerator] We don't support method overloading. Ignoring [public java.lang.String serializeModels(org.pentaho.metadata.model.Domain,java.lang.String,boolean) throws java.lang.Exception]
+04:16:53,821 ERROR [SolutionEngine] f82ecab3-19e8-11e3-a21f-03d17c74599c:SOLUTION-ENGINE:global-department-list.xaction: SolutionEngine.ERROR_0007 - [pt_27] Action sequence execution failed
+[pt_47] Pentaho BI Platform server is ready.
+
+2013-09-10 04:16:53:891 INFO Deploying web application directory pentaho-style [HostConfig]
+2013-09-10 04:16:53:956 INFO Deploying web application directory ROOT [HostConfig]
+2013-09-10 04:16:54:017 INFO Deploying web application directory sw-style [HostConfig]
+2013-09-10 04:16:54:082 INFO Starting Coyote HTTP/1.1 on http-8080 [Http11Protocol]
+2013-09-10 04:16:54:280 INFO JK: ajp13 listening on /0.0.0.0:8009 [ChannelSocket]
+2013-09-10 04:16:54:296 INFO Jk running ID=0 time=0/93  config=null [JkMain]
+2013-09-10 04:16:54:322 INFO Server startup in 39066 ms [Catalina]Attempting to load ESAPI.properties via file io.
+Attempting to load ESAPI.properties via file io.
+Not found in 'org.owasp.esapi.resources' directory or file not readable: /opt/iguana/iserver/lib/pentaho/biserver-ce/tomcat/bin/ESAPI.properties
+Not found in SystemResource Directory/resourceDirectory: .esapi/ESAPI.properties
+Not found in 'user.home' directory: /home/marcio/.esapi/ESAPI.properties
+Loading ESAPI.properties via file io failed.
+Attempting to load ESAPI.properties via the classpath.
+Successfully loaded ESAPI.properties via the classpath! BOO-YA!
+Successfully loaded ESAPI.properties via the classpath! BOO-YA!
+SecurityConfiguration for Validator.ConfigurationFile not found in ESAPI.properties. Using default: validation.properties
+Attempting to load validation.properties via file io.
+Attempting to load validation.properties via file io.
+Not found in 'org.owasp.esapi.resources' directory or file not readable: /opt/iguana/iserver/lib/pentaho/biserver-ce/tomcat/bin/validation.properties
+Not found in SystemResource Directory/resourceDirectory: .esapi/validation.properties
+Not found in 'user.home' directory: /home/marcio/.esapi/validation.properties
+Loading validation.properties via file io failed.
+Attempting to load validation.properties via the classpath.
+validation.properties could not be loaded by any means. fail.
+SecurityConfiguration for ESAPI.printProperties not found in ESAPI.properties. Using default: false
+SecurityConfiguration for Encryptor.CipherTransformation not found in ESAPI.properties. Using default: AES/CBC/PKCS5Padding
+SecurityConfiguration for ESAPI.Encoder not found in ESAPI.properties. Using default: org.owasp.esapi.reference.DefaultEncoder
+SecurityConfiguration for ESAPI.Logger not found in ESAPI.properties. Using default: org.owasp.esapi.reference.JavaLogFactory
+SecurityConfiguration for Logger.LogApplicationName not found in ESAPI.properties. Using default: true
+SecurityConfiguration for Logger.LogServerIP not found in ESAPI.properties. Using default: true
+SecurityConfiguration for Logger.ApplicationName not found in ESAPI.properties. Using default: DefaultName
+04:17:04,560 ERROR [SolutionEngine] fe9595f4-19e8-11e3-a21f-03d17c74599c:SOLUTION-ENGINE:session-region-list.xaction: SolutionEngine.ERROR_0007 - [pt_27] Action sequence execution failed
+04:17:06,051 WARN  [CdvContentGenerator] couldn't locate method: lang
+04:17:06,070 ERROR [GenericServlet] GenericServlet.ERROR_0004 - Resource /openianalysis/ui/openi_supported_languages.properties not found in plugin openi
+04:17:06,076 ERROR [GenericServlet] GenericServlet.ERROR_0004 - Resource /saiku-adhoc/web/saiku-adhoc_supported_languages.properties not found in plugin Saiku-Adhoc
+04:17:06,103 WARN  [CdvContentGenerator] couldn't locate method: lang
+04:17:06,197 ERROR [GenericServlet] GenericServlet.ERROR_0004 - Resource /saiku-adhoc/web/saiku-adhoc.properties not found in plugin Saiku-Adhoc
+04:19:29,936 WARN  [CdeSettings] Components directory '/opt/iguana/iserver/lib/pentaho/biserver-ce/pentaho-solutions/cde/components' was not found.
+04:20:02,700 WARN  [RepositoryAccess] hasAccess: .wcdf extension not in acl-files.
