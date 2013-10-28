@@ -12,7 +12,7 @@
         <parameter>
             <name>dbprefix</name>
             <default_value>lime_</default_value>
-            <description>Prefix database tables limesurvey</description>
+            <description/>
         </parameter>
     </parameters>
     <log>
@@ -67,9 +67,9 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2012&#47;09&#47;26 15:01:10.538</created_date>
+  <created_date>2012&#47;10&#47;30 13:06:01.576</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2012&#47;09&#47;26 15:01:10.538</modified_date>
+  <modified_date>2012&#47;10&#47;30 13:06:01.576</modified_date>
   </info>
   <notepads>
   </notepads>
@@ -78,10 +78,10 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>limesurvey</database>
+    <database>limesurvey190</database>
     <port>3306</port>
-    <username>ambientelivre</username>
-    <password>Encrypted 2be98afc86ad48783aa0bbd61d2c3fd89</password>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f297ae13af7cd784bddf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -103,10 +103,10 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>sugarcrm</database>
+    <database>sugarcrm652</database>
     <port>3306</port>
-    <username>ambientelivre</username>
-    <password>Encrypted 2be98afc86ad48783aa0bbd61d2c3fd89</password>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f297ae13af7cd784bddf</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -124,7 +124,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>email_addr_bean_rel</from><to>Contacts</to><enabled>Y</enabled> </hop>  <hop> <from>Survey X Tokens</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Contatos (CRM)</to><enabled>Y</enabled> </hop>  <hop> <from>Contatos (CRM)</from><to>email_addr_bean_rel</to><enabled>Y</enabled> </hop>  <hop> <from>Get Variables</from><to>gera URL Respostas</to><enabled>Y</enabled> </hop>  <hop> <from>Contacts</from><to>Get Variables</to><enabled>Y</enabled> </hop>  <hop> <from>gera URL Respostas</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Table output 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Contatos (CRM)</from><to>email_addr_bean_rel</to><enabled>Y</enabled> </hop>  <hop> <from>email_addr_bean_rel</from><to>Contacts</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Contatos (CRM)</to><enabled>Y</enabled> </hop>  <hop> <from>Surveys</from><to>nome tabela</to><enabled>Y</enabled> </hop>  <hop> <from>nome tabela</from><to>Split Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Split Fields</from><to>sql questions</to><enabled>Y</enabled> </hop>  <hop> <from>sql questions</from><to>Dynamic SQL questions</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL questions</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>fieldname response</to><enabled>Y</enabled> </hop>  <hop> <from>fieldname response</from><to>Dynamic SQL row 2</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row 2</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Contacts</from><to>gera URL Respostas</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2 2</from><to>Table output 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>gera URL Respostas</from><to>sql title</to><enabled>Y</enabled> </hop>  <hop> <from>sql title</from><to>Dynamic SQL row</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Add constants</name>
     <type>Constant</type>
@@ -165,7 +165,7 @@
         <currency/>
         <decimal/>
         <group/>
-        <nullif>http:&#47;&#47;sugar.tecpar.br&#47;limesurvey&#47;admin&#47;admin.php?action=browse&amp;</nullif>
+        <nullif>http:&#47;&#47;localhost&#47;limesurvey&#47;admin&#47;admin.php?action=browse&amp;</nullif>
         <length>-1</length>
         <precision>-1</precision>
       </field>
@@ -205,8 +205,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>412</xloc>
-      <yloc>17</yloc>
+      <xloc>648</xloc>
+      <yloc>110</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -264,8 +264,8 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>709</xloc>
-      <yloc>105</yloc>
+      <xloc>401</xloc>
+      <yloc>187</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -311,15 +311,15 @@
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>522</xloc>
-      <yloc>17</yloc>
+      <xloc>543</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Get Variables</name>
-    <type>GetVariable</type>
+    <name>Dynamic SQL questions</name>
+    <type>DynamicSQLRow</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -327,42 +327,136 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>
-      <field>
-        <name>sid_string</name>
-        <variable>${varsid}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>title</name>
-        <variable>${title_survey}</variable>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
+    <connection>limesurvey</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT gid, qid,title
+FROM lime_questions
+WHERE sid = 1
+  AND title = &apos;email&apos;</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <sql_fieldname>sqlquestions</sql_fieldname>
+    <query_only_on_change>N</query_only_on_change>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>712</xloc>
-      <yloc>201</yloc>
+      <xloc>499</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dynamic SQL row</name>
+    <type>DynamicSQLRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>limesurvey</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT
+ ${dbprefix}surveys_languagesettings.surveyls_title
+FROM ${dbprefix}surveys, ${dbprefix}surveys_languagesettings
+WHERE ${dbprefix}surveys.language = ${dbprefix}surveys_languagesettings.surveyls_language
+AND ${dbprefix}surveys.sid = surveyls_survey_id
+AND ${dbprefix}surveys.sid = 1 </sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <sql_fieldname>sqltitle</sql_fieldname>
+    <query_only_on_change>N</query_only_on_change>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>547</xloc>
+      <yloc>283</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dynamic SQL row 2</name>
+    <type>DynamicSQLRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>limesurvey</connection>
+    <rowlimit>0</rowlimit>
+    <sql>SELECT sid as id, &apos;teste@teste.com.br&apos;  as email FROM ${dbprefix}surveys</sql>
+    <outer_join>N</outer_join>
+    <replace_vars>Y</replace_vars>
+    <sql_fieldname>sqlresponse</sql_fieldname>
+    <query_only_on_change>N</query_only_on_change>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>766</xloc>
+      <yloc>107</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
     <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>sid</name>
+        <rename>sid</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>gid</name>
+        <rename>gid</rename>
+        <type>String</type>
+        <length>9</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>qid</name>
+        <rename>qid</rename>
+        <type>String</type>
+        <length>9</length>
+        <precision>0</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>624</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values 2</name>
     <type>SelectValues</type>
     <description/>
     <distribute>N</distribute>
@@ -375,7 +469,7 @@
         <rename/>
         <length>-2</length>
         <precision>-2</precision>
-      </field>      <field>        <name>title</name>
+      </field>      <field>        <name>surveyls_title</name>
         <rename>name</rename>
         <length>-2</length>
         <precision>-2</precision>
@@ -398,14 +492,14 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>430</xloc>
-      <yloc>207</yloc>
+      <xloc>365</xloc>
+      <yloc>262</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Select values 2</name>
+    <name>Select values 2 2</name>
     <type>SelectValues</type>
     <description/>
     <distribute>Y</distribute>
@@ -429,8 +523,8 @@
       </field>        <select_unspecified>N</select_unspecified>
     </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>283</xloc>
-      <yloc>278</yloc>
+      <xloc>273</xloc>
+      <yloc>328</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -449,15 +543,15 @@
       <remove>        <name>id_contact</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>270</xloc>
-      <yloc>143</yloc>
+      <xloc>260</xloc>
+      <yloc>193</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Survey X Tokens</name>
-    <type>TableInput</type>
+    <name>Split Fields</name>
+    <type>FieldSplitter</type>
     <description/>
     <distribute>Y</distribute>
     <copies>1</copies>
@@ -465,13 +559,58 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>limesurvey</connection>
-    <sql>SELECT
-  ${dbprefix}survey_${varsid}.id
-, ${dbprefix}tokens_${varsid}.email
-FROM ${dbprefix}survey_${varsid},${dbprefix}tokens_${varsid}
-WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}.email
+   <splitfield>Tables_in_limesurvey190</splitfield>
+   <delimiter>survey_</delimiter>
+    <fields>      <field>        <name>prefixo</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>String</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>      <field>        <name>sid</name>
+        <id/>
+        <idrem>N</idrem>
+        <type>Integer</type>
+        <format/>
+        <group/>
+        <decimal/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <nullif/>
+        <ifnull/>
+        <trimtype>none</trimtype>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>229</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
 
+  <step>
+    <name>Surveys</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>limesurvey</connection>
+    <sql>SHOW tables
+FROM  limesurvey190
+WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_survey_permissions&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_surveys_languagesettings&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_surveys&apos;
+  AND Tables_in_limesurvey190  != &apos;lime_surveys_rights&apos;
 </sql>
     <limit>0</limit>
     <lookup/>
@@ -480,8 +619,8 @@ WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>212</xloc>
-      <yloc>17</yloc>
+      <xloc>19</xloc>
+      <yloc>26</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -517,8 +656,8 @@ WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>104</xloc>
-      <yloc>143</yloc>
+      <xloc>94</xloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -554,8 +693,8 @@ WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>107</xloc>
-      <yloc>278</yloc>
+      <xloc>97</xloc>
+      <yloc>328</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -607,8 +746,124 @@ WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}
     </lookup>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>708</xloc>
-      <yloc>18</yloc>
+      <xloc>401</xloc>
+      <yloc>107</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>fieldname response</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>varX</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>X</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>limefieldname_</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>sid</field_a>
+<field_b>varX</field_b>
+<field_c>gid</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>limefieldname</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>limefieldname_</field_a>
+<field_b>varX</field_b>
+<field_c>qid</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp1</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>SELECT id,</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp2</field_name>
+<calc_type>ADD</calc_type>
+<field_a>temp1</field_a>
+<field_b>limefieldname</field_b>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp3</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a> as email FROM </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>sqlresponse</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp2</field_a>
+<field_b>temp3</field_b>
+<field_c>table</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>766</xloc>
+      <yloc>26</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -627,11 +882,11 @@ WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}
 <calc_type>ADD3</calc_type>
 <field_a>url</field_a>
 <field_b>sSid</field_b>
-<field_c>sid_string</field_c>
+<field_c>sid</field_c>
 <value_type>String</value_type>
 <value_length>-1</value_length>
 <value_precision>-1</value_precision>
-<remove>N</remove>
+<remove>Y</remove>
 <conversion_mask/>
 <decimal_symbol/>
 <grouping_symbol/>
@@ -653,8 +908,386 @@ WHERE ${dbprefix}survey_${varsid}.${varsid}X39X255 = ${dbprefix}tokens_${varsid}
 </calculation>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>575</xloc>
-      <yloc>202</yloc>
+      <xloc>704</xloc>
+      <yloc>187</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>nome tabela</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>table</field_name>
+<calc_type>COPY_FIELD</calc_type>
+<field_a>Tables_in_limesurvey190</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>125</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sql questions</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>temp1</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>SELECT gid, qid,title
+FROM </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp2</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>questions
+WHERE sid = </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp3</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a> AND title = &apos;email&apos;</field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp4</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp1</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp2</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>sqlquestions</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp4</field_a>
+<field_b>sid</field_b>
+<field_c>temp3</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>346</xloc>
+      <yloc>26</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>sql title</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>temp1</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>SELECT </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp2</field_name>
+<calc_type>ADD</calc_type>
+<field_a>temp1</field_a>
+<field_b>prefixo</field_b>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp3</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys_languagesettings.surveyls_title FROM </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>trmp4</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys, </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp5x</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp2</field_a>
+<field_b>temp3</field_b>
+<field_c>prefixo</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp5</field_name>
+<calc_type>ADD</calc_type>
+<field_a>temp5x</field_a>
+<field_b>trmp4</field_b>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp6</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys_languagesettings WHERE </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp7</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp5</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp6</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp8</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys.language = </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp9</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp7</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp8</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp10</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys_languagesettings.surveyls_language AND </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp11</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp9</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp10</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp12</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys.sid = surveyls_survey_id  AND </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp13</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp11</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp12</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>Y</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp15</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>surveys.sid  = </field_a>
+<field_b/>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>temp16</field_name>
+<calc_type>ADD3</calc_type>
+<field_a>temp13</field_a>
+<field_b>prefixo</field_b>
+<field_c>temp15</field_c>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+       <calculation><field_name>sqltitle</field_name>
+<calc_type>ADD</calc_type>
+<field_a>temp16</field_a>
+<field_b>sid</field_b>
+<field_c/>
+<value_type>String</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>712</xloc>
+      <yloc>298</yloc>
       <draw>Y</draw>
       </GUI>
     </step>

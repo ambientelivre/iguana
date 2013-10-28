@@ -165,7 +165,7 @@
       <draw>Y</draw>
       <nr>0</nr>
       <xloc>466</xloc>
-      <yloc>44</yloc>
+      <yloc>45</yloc>
       </entry>
     <entry>
       <name>Success</name>
@@ -206,8 +206,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>177</xloc>
-      <yloc>42</yloc>
+      <xloc>265</xloc>
+      <yloc>43</yloc>
       </entry>
   </entries>
   <hops>

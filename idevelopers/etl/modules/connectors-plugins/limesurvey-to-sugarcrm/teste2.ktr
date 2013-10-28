@@ -657,7 +657,7 @@ WHERE Tables_in_limesurvey190  LIKE &apos;lime_survey_%&apos;
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>94</xloc>
-      <yloc>193</yloc>
+      <yloc>194</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
