@@ -95,8 +95,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>58</xloc>
-      <yloc>235</yloc>
+      <xloc>29</xloc>
+      <yloc>30</yloc>
       </entry>
     <entry>
       <name>DATASOURCE</name>
@@ -127,8 +127,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>214</xloc>
-      <yloc>50</yloc>
+      <xloc>237</xloc>
+      <yloc>29</yloc>
       </entry>
     <entry>
       <name>BDPARAMS</name>
@@ -457,8 +457,8 @@
       </parameters>      <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>107</xloc>
-      <yloc>121</yloc>
+      <xloc>117</xloc>
+      <yloc>30</yloc>
       </entry>
   </entries>
   <hops>
@@ -575,7 +575,7 @@
     <notepad>
       <note>Se ja tiver dados na tabela PRO_FILES 
 
-Elimitar as constraints via PostGRESQL ( pgAdmin ) e depois executar este scrtpt abaixo para recriar .
+Elimitar as constraints via PostGRESQL ( pgAdmin ) e depois executar este script abaixo para recriar .
 na proxima migração vamos imcorporar isso ao ETL
 
 -- Foreign Key: fk94a87e2569fabf5e
@@ -639,10 +639,10 @@ ALTER TABLE pro_files
 </note>
       <xloc>47</xloc>
       <yloc>419</yloc>
-      <width>672</width>
+      <width>671</width>
       <heigth>1098</heigth>
-      <fontname/>
-      <fontsize>-1</fontsize>
+      <fontname>Ariel</fontname>
+      <fontsize>10</fontsize>
       <fontbold>N</fontbold>
       <fontitalic>N</fontitalic>
       <fontcolorred>0</fontcolorred>

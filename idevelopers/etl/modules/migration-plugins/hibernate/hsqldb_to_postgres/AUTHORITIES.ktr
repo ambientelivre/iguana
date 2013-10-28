@@ -92,13 +92,13 @@
   </connection>
   <connection>
     <name>hibernate - PostgreSQL</name>
-    <server>128.90.6.57</server>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>hibernate216</database>
+    <database>hibernate</database>
     <port>5432</port>
     <username>hibuser</username>
-    <password>Encrypted 2be98afc86aa7f2e4bb18bd63c99dbdde</password>
+    <password>Encrypted 2be98afc86aa7f2e4cb11a772cb81aac8</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
