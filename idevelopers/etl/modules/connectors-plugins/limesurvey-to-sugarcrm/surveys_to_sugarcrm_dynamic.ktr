@@ -72,39 +72,28 @@
   <modified_date>2012&#47;10&#47;30 13:06:01.576</modified_date>
   </info>
   <notepads>
+    <notepad>
+      <note>Cria Registro em Modulo Personalizado do SugarCRM que ralaciona Pesquisas do Limesurvey com SugarCRM </note>
+      <xloc>97</xloc>
+      <yloc>418</yloc>
+      <width>724</width>
+      <heigth>27</heigth>
+      <fontname>Ariel</fontname>
+      <fontsize>10</fontsize>
+      <fontbold>N</fontbold>
+      <fontitalic>N</fontitalic>
+      <fontcolorred>0</fontcolorred>
+      <fontcolorgreen>0</fontcolorgreen>
+      <fontcolorblue>0</fontcolorblue>
+      <backgroundcolorred>255</backgroundcolorred>
+      <backgroundcolorgreen>165</backgroundcolorgreen>
+      <backgroundcolorblue>0</backgroundcolorblue>
+      <bordercolorred>100</bordercolorred>
+      <bordercolorgreen>100</bordercolorgreen>
+      <bordercolorblue>100</bordercolorblue>
+      <drawshadow>Y</drawshadow>
+    </notepad>
   </notepads>
-  <connection>
-    <name>datawarehouse_olap</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>datawarehouse_olap</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f297ae13af7cd784bddf</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-    </attributes>
-  </connection>
-  <connection>
-    <name>erp_oltp</name>
-    <server>localhost</server>
-    <type>MYSQL</type>
-    <access>Native</access>
-    <database>erp_oltp</database>
-    <port>3306</port>
-    <username>root</username>
-    <password>Encrypted 2be98afc86aa7f297ae13af7cd784bddf</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
-    <attributes>
-      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
-    </attributes>
-  </connection>
   <connection>
     <name>limesurvey</name>
     <server>localhost</server>
@@ -135,7 +124,7 @@
     <server>localhost</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>sugarcrm</database>
+    <database>sugarcrm652</database>
     <port>3306</port>
     <username>root</username>
     <password>Encrypted 2be98afc86aa7f297ae13af7cd784bddf</password>
