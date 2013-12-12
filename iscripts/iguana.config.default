@@ -1,0 +1,29 @@
+#!/bin/sh
+# Iguana 
+#
+# Iguana is MPL 2.0  http://www.mozilla.org/MPL/2.0/
+#  marcio@ambientelivre.com.br 
+#
+
+#CONFIG  AMBIENTE LIVRE 
+
+
+# Iguana Community Edition
+DIR_IGUANA=/opt/iguana
+DATABASE_HOST_IGUANA=localhost
+DATABASE_IGUANA=iguana
+PORT_IGUANA=3306
+USER_IGUANA=root
+PASS_IGUANA=sejalivre
+
+
+# SugarCRM Community Edition 
+DATABASE_SUGARCRM=sugarcrm652
+DATABASE_HOST_SUGARCRM=localhost
+PORT_SUGARCRM=3306
+USER_SUGARCRM=root
+PASS_SUGARCRM=sejalivre
+
+
+
+
