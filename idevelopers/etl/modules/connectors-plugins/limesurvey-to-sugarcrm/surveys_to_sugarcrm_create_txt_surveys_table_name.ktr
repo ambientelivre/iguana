@@ -190,7 +190,7 @@
     <query_only_on_change>N</query_only_on_change>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>401</xloc>
+      <xloc>416</xloc>
       <yloc>168</yloc>
       <draw>Y</draw>
       </GUI>

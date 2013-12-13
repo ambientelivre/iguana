@@ -145,7 +145,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Contatos (CRM)</from><to>email_addr_bean_rel</to><enabled>Y</enabled> </hop>  <hop> <from>email_addr_bean_rel</from><to>Contacts</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Contatos (CRM)</to><enabled>Y</enabled> </hop>  <hop> <from>Surveys</from><to>nome tabela</to><enabled>Y</enabled> </hop>  <hop> <from>nome tabela</from><to>Split Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Split Fields</from><to>sql questions</to><enabled>Y</enabled> </hop>  <hop> <from>sql questions</from><to>Dynamic SQL questions</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL questions</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>fieldname response</to><enabled>Y</enabled> </hop>  <hop> <from>fieldname response</from><to>Dynamic SQL row 2</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row 2</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Contacts</from><to>gera URL Respostas</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2 2</from><to>Table output 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>Table output</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>gera URL Respostas</from><to>sql title</to><enabled>Y</enabled> </hop>  <hop> <from>sql title</from><to>Dynamic SQL row</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Contatos (CRM)</from><to>email_addr_bean_rel</to><enabled>Y</enabled> </hop>  <hop> <from>email_addr_bean_rel</from><to>Contacts</to><enabled>Y</enabled> </hop>  <hop> <from>Add constants</from><to>Contatos (CRM)</to><enabled>Y</enabled> </hop>  <hop> <from>Surveys</from><to>nome tabela</to><enabled>Y</enabled> </hop>  <hop> <from>nome tabela</from><to>Split Fields</to><enabled>Y</enabled> </hop>  <hop> <from>Split Fields</from><to>sql questions</to><enabled>Y</enabled> </hop>  <hop> <from>sql questions</from><to>Dynamic SQL questions</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL questions</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>fieldname response</to><enabled>Y</enabled> </hop>  <hop> <from>fieldname response</from><to>Dynamic SQL row 2</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row 2</from><to>Add constants</to><enabled>Y</enabled> </hop>  <hop> <from>Contacts</from><to>gera URL Respostas</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Select values 3</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2 2</from><to>ltos_questions_contacts_c</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 3</from><to>ltos_questions</to><enabled>Y</enabled> </hop>  <hop> <from>Dynamic SQL row</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>gera URL Respostas</from><to>sql title</to><enabled>Y</enabled> </hop>  <hop> <from>sql title</from><to>Dynamic SQL row</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Add constants</name>
     <type>Constant</type>
@@ -649,7 +649,7 @@ WHERE Tables_in_limesurvey  LIKE &apos;lime_survey_%&apos;
     </step>
 
   <step>
-    <name>Table output</name>
+    <name>ltos_questions</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -686,7 +686,7 @@ WHERE Tables_in_limesurvey  LIKE &apos;lime_survey_%&apos;
     </step>
 
   <step>
-    <name>Table output 2</name>
+    <name>ltos_questions_contacts_c</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
