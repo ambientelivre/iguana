@@ -24,6 +24,7 @@ var Session = Backbone.Model.extend({
     username: null,
     password: null,
     sessionid: null,
+    upgradeTimeout: null,
         
     initialize: function(args, options) {
         // Attach a custom event bus to this model
@@ -33,7 +34,11 @@ var Session = Backbone.Model.extend({
         if (options && options.username && options.password) {
             this.username = options.username;
             this.password = options.password;
-            this.save({username:this.username, password:this.password},{success: this.check_session, error: this.check_session});
+            if (!Settings.DEMO) {
+                this.save({username:this.username, password:this.password},{success: this.check_session, error: this.check_session});
+            } else {
+                this.check_session();    
+            }
 
         } else {
             this.check_session();
@@ -58,12 +63,21 @@ var Session = Backbone.Model.extend({
         if ((response === null || response.sessionid == null)) {
             // Open form and retrieve credentials
             Saiku.ui.unblock();
-            this.form = new LoginForm({ session: this });
+            if (Settings.DEMO) {
+                this.form = new DemoLoginForm({ session: this });
+            } else {
+                this.form = new LoginForm({ session: this });
+            }
             this.form.render().open();
         } else {
             this.sessionid = response.sessionid;
             this.roles = response.roles;
             this.username = encodeURIComponent(response.username);
+            this.language = response.language;
+            if (typeof this.language != "undefined" && this.language != Saiku.i18n.locale) {
+                Saiku.i18n.locale = this.language;
+                Saiku.i18n.automatic_i18n();
+            }
             this.load_session();
         }
         
@@ -75,12 +89,7 @@ var Session = Backbone.Model.extend({
     },
     
     login: function(username, password) {
-        // Set expiration on localStorage to one day in the future
-        var expires = (new Date()).getTime() + 
-            Settings.LOCALSTORAGE_EXPIRATION;
-        typeof localStorage !== "undefined" && localStorage && localStorage.setItem('expiration', expires);
-
-        this.save({username:username, password:password},{success: this.check_session, error: this.check_session});
+        this.save({username:username, password:password},{dataType: "text", success: this.check_session, error: this.check_session});
         
     },
     

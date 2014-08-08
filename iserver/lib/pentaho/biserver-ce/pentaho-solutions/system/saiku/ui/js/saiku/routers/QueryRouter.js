@@ -27,7 +27,7 @@ var QueryRouter = Backbone.Router.extend({
         Settings.ACTION = "OPEN_QUERY";
         var options = {};
         var dataType = "text";
-        if (Settings.BIPLUGIN) {
+        if (!Settings.BIPLUGIN5 && Settings.BIPLUGIN) {
             var file = (Settings.GET.SOLUTION ? (Settings.GET.SOLUTION + "/") : "")
                         + (Settings.GET.PATH && Settings.GET.PATH != "/" ? (Settings.GET.PATH + "/") : "")
                         + (Settings.GET.ACTION || "");
@@ -35,13 +35,36 @@ var QueryRouter = Backbone.Router.extend({
                 file: file
             };
         } else {
-            
             options = {
                 file: query_name
             }
         }
-        var query = new SavedQuery(options);
-        query.fetch({ success: query.move_query_to_workspace, dataType: dataType});
+
+        var params = _.extend({ 
+                file: options.file
+            }, Settings.PARAMS);
+
+        var dialog = {
+            populate: function(repository) {
+                if (repository && repository.length > 0) {
+                    var f = repository[0];
+                    var query = new Query(params,{ name: options.file });
+                    Saiku.tabs.add(new Workspace({ query: query, item: repository[0] }));
+
+                } else {
+                    Saiku.tabs.add(new Workspace());
+                }
+                Settings.INITIAL_QUERY = false;
+            }
+        };
+
+        var repositoryFile = new Repository({}, { dialog: dialog }).fetch({ async: false, data: { path: options.file }});
+
+        
+
+
+        
+
     },
 
     open_query_repository: function( ) {

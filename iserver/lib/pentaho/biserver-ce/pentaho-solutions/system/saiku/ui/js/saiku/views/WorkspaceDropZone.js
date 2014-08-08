@@ -24,12 +24,14 @@ var WorkspaceDropZone = Backbone.View.extend({
     },
     
     events: {
-        'sortbeforestop': 'select_dimension',
+        'sortbeforestop .fields_list_body': 'select_dimension',
         'click .d_dimension span.selections': 'selections',
         'click .d_dimension a': 'selections',
         'click .d_measure a' : 'remove_dimension',
         'click .d_measure span.sort' : 'sort_measure',
-        'click .d_dimension span.sort' : 'sort_measure'
+        'click .d_dimension span.sort' : 'sort_measure',
+        'click .limit' : 'limit_axis',
+        'click .clear_axis' : 'clear_axis'
     },
     
     initialize: function(args) {
@@ -38,7 +40,7 @@ var WorkspaceDropZone = Backbone.View.extend({
         
         // Maintain `this` in jQuery event handlers
         _.bindAll(this, "select_dimension", "move_dimension", 
-                "remove_dimension", "update_selections","sort_measure");
+                "remove_dimension", "update_selections","sort_measure", "limit_axis", "set_query_axis", "set_query_axis_filter", "set_query_axis_sort");
     },
     
     render: function() {
@@ -48,15 +50,12 @@ var WorkspaceDropZone = Backbone.View.extend({
         // Activate drop zones
         $(this.el).find('.connectable').sortable({
             connectWith: $(this.el).find('.connectable'),
-            cursorAt: {
-                top: 10,
-                left: 35
-            },
             forcePlaceholderSize: true,
+            forceHelperSize: true,
             items: '> li',
             opacity: 0.60,
             placeholder: 'placeholder',
-            tolerance: 'pointer',
+            tolerance: 'touch',
             
             start: function(event, ui) {
                 ui.placeholder.text(ui.helper.text());
@@ -66,9 +65,392 @@ var WorkspaceDropZone = Backbone.View.extend({
         
         return this; 
     },
+    limit_axis: function(event) {
+        var self = this;
+        
+        if (typeof this.workspace.query == "undefined") {
+            return false;
+        }
+        if (this.workspace.query.get('type') != 'QM' || Settings.MODE == "view") {
+            return false;
+        }
+        var $target =  $(event.target).hasClass('limit') ? $(event.target) : $(event.target).parent();
+        var $axis = $target.siblings('.fields_list_body');
+        var source = "";
+        var target = "ROWS";
+        if ($axis.hasClass('rows')) { target = "ROWS";  }
+        if ($axis.hasClass('columns')) { target = "COLUMNS";  }
+        if ($axis.hasClass('filter')) { target = "FILTER";  }
+
+
+        
+        $body = $(document);
+        //$body.off('.contextMenu .contextMenuAutoHide');
+        //$('.context-menu-list').remove();
+        $.contextMenu('destroy', '.limit');
+        $.contextMenu({
+            appendTo: $target,
+            selector: '.limit', 
+            ignoreRightClick: true,
+             build: function($trigger, e) {
+                var query = self.workspace.query;
+                var schema = query.get('schema');
+                var cube = query.get('connection') + "/" + 
+                    query.get('catalog') + "/"
+                    + ((schema == "" || schema == null) ? "null" : schema) 
+                    + "/" + query.get('cube');
+
+                var items = {};
+                var measures = Saiku.session.sessionworkspace.cube[cube].get('data').measures;
+
+                var func, n, sortliteral, filterCondition, sortOrder, sortOrderLiteral;
+                var sortHl, topHl, filterHl;
+                var isFilter = false;
+                var isSort = false;
+                var isTop = false;
+                var totalFunction;
+                var axes = self.workspace.query.get('axes');
+                _.each(axes, function(a) {
+                    if (a.name == target) {
+                        func = a.limitFunction;
+                        n = a.limitFunctionN;
+                        sortliteral = a.limitFunctionSortLiteral;
+                        filterCondition = a.filterCondition;
+                        isTop = (a.limitFunction != null);
+                        isFilter = (a.filterCondition != null);
+                        isSort = (a.sortOrder != null);
+                        totalFunction = a.totalFunction;
+                        sortOrder = a.sortOrder;
+                        sortOrderLiteral = a.sortOrderLiteral;
+                    }
+                });
+
+                if (func != null && sortliteral == null) {
+                    topHl = func + "###SEPARATOR###" + n;
+                } else if (func != null && sortliteral != null && n != null) {
+                    topHl = "custom";
+                }
+
+                if (isSort && sortOrder != null) {
+                    sortHl = "customsort";
+                }
+
+                _.each(measures, function(measure) {
+                    items[measure.uniqueName] = {
+                        name: measure.caption,
+                        payload: {
+                            "n"     : 10,
+                            "sortliteral"    : measure.uniqueName
+                        }
+                    };
+                });
+
+
+                var addFun = function(items, fun) {
+                    var ret = {};
+                    for (key in items) {
+                        ret[ (fun + '###SEPARATOR###'+ key) ] = _.clone(items[key]);
+                        ret[ (fun + '###SEPARATOR###' + key) ].fun = fun;
+                        if (fun == func && sortliteral == key && items[key].payload["n"] == n) {
+                            topHl = fun + "Quick";
+                            ret[ (fun + '###SEPARATOR###' + key) ].name =
+                                    "<b>" + items[key].name + "</b>";
+                        }
+                        if (fun == sortOrder && sortOrderLiteral == key) {
+                            sortHl = fun + "Quick";
+                            ret[ (fun + '###SEPARATOR###' + key) ].name =
+                                    "<b>" + items[key].name + "</b>";
+                        }
+                    }
+                    return ret;
+                };
+
+                var citems = {
+                        "filter" : {name: "Filter", i18n: true, items: 
+                         { 
+                                "customfilter": {name: "Custom...", i18n: true },
+                                "clearfilter": {name: "Clear Filter", i18n: true }
+                         }},
+                        "limit" : {name: "Limit", i18n: true, items: 
+                        {
+                                "TopCount###SEPARATOR###10": {name: "Top 10", i18n: true },
+                                "BottomCount###SEPARATOR###10": {name: "Bottom 10", i18n: true },
+                                "TopCountQuick" : { name: "Top 10 by...", i18n: true, items: addFun(items, "TopCount") },
+                                "BottomCountQuick" : { name: "Bottom 10 by...", i18n: true, items: addFun(items, "BottomCount") },
+                                "customtop" : {name: "Custom Limit...", i18n: true },
+                                "clearlimit" : {name: "Clear Limit", i18n: true }
+                         }},
+                        "sort" : {name: "Sort", items:
+                        {
+                            "ASCQuick": {name: "Ascending" , i18n: true, items: addFun(items, "ASC") },
+                            "DESCQuick": {name: "Descending", i18n: true, items: addFun(items, "DESC")},
+                            "BASCQuick": {name: "Ascending (Breaking Hierarchy)", i18n: true, items: addFun(items, "BASC")},
+                            "BDESCQuick": {name: "Descending (Breaking Hierarchy)", i18n: true, items: addFun(items, "BDESC") },
+                            "customsort" : { name: "Custom...", i18n: true },
+                            "clearsort" : {name: "Clear Sort", i18n: true }
+                        }},
+                        "grand_totals" : {name: "Grand totals", items:
+                        {
+                            "show_totals_not": {name: "None", i18n: true},
+                            "show_totals_sum": {name: "Sum", i18n: true},
+                            "show_totals_min": {name: "Min", i18n: true},
+                            "show_totals_max": {name: "Max", i18n: true},
+                            "show_totals_avg": {name: "Avg", i18n: true}
+                        }}
+                };
+                $.each(citems, function(key, item){
+                    recursive_menu_translate(item, Saiku.i18n.po_file);
+                });
+
+                var totalItems = citems["grand_totals"].items;
+                if (totalFunction) {
+                    for (var key in totalItems) {
+                        if (key.substring("show_totals_".length) == totalFunction) {
+                            totalItems[key].name = "<b>" + totalItems[key].name + "</b";
+                        }
+                    }
+                } else 
+                    totalItems["show_totals_not"].name = "<b>" + totalItems["show_totals_not"].name + "</b";
+                
+
+                items["10"] = {
+                   payload: { "n" : 10 }
+                }
+                
+                if (isFilter) {
+                    var f = citems["filter"];
+                    f.name = "<b>" + f.name + "</b>";
+                    f.items["customfilter"].name = "<b>" + f.items["customfilter"].name + "</b>";
+                }
+                if (isSort) {
+                    var s = citems["sort"].items;
+                    citems["sort"].name = "<b>" + citems["sort"].name + "</b>";
+                    if (sortHl in s) {
+                        s[sortHl].name = "<b>" + s[sortHl].name + "</b>";    
+                    }
+                }
+                if (isTop) {
+                    var t = citems["limit"].items;
+                    citems["limit"].name = "<b>" + citems["limit"].name + "</b>";
+                    if (topHl in t) {
+                        t[topHl].name = "<b>" + t[topHl].name + "</b>";    
+                    }   
+                }
+                /**
+                if (quick in citems) {
+                    citems[quick].name = "<b>" + citems[quick].name + "</b>";
+                }
+                */
+
+                return {
+                    callback: function(key, options) {
+                            if (key == "clearfilter") {
+                                $target.removeClass('on');
+                                var url = "/axis/" + target + "/filter";
+                                self.set_query_axis_filter(target, null);
+                                self.workspace.query.action.del(url, {
+                                    success: self.workspace.query.run
+                                });
+                            } else if (key == "customfilter") {
+                                var save_custom = function(filterCondition) {
+                                    self.set_query_axis_filter(target, filterCondition);
+                                    var url = "/axis/" + target + "/filter" ;
+                                    self.workspace.query.action.post(url, {
+                                        success: self.workspace.query.run, data : { filterCondition: filterCondition }
+                                    });    
+                                };
+
+                                 (new FilterModal({ 
+                                    axis: target,
+                                    success: save_custom, 
+                                    query: self.workspace.query,
+                                    expression: filterCondition,
+                                    expressionType: "Filter"
+                                })).render().open();
+
+                            } else if (key == "clearlimit") {
+                                $target.removeClass('on');
+                                var url = "/axis/" + target + "/limit";
+                                self.set_query_axis(target, null, null, "");
+                                self.workspace.query.action.del(url, {
+                                    success: self.workspace.query.run
+                                });
+                            } else if (key == "customtop") {
+
+                                var save_custom = function(fun, n, sortliteral) {
+                                    self.set_query_axis(target, fun, n, sortliteral);
+                                    var url = "/axis/" + target + "/limit/" + fun;
+                                    self.workspace.query.action.post(url, {
+                                        success: self.workspace.query.run, data : { n: n, sortliteral: sortliteral }
+                                    });    
+                                };
+
+                                 (new CustomFilterModal({ 
+                                    axis: target,
+                                    measures: measures,
+                                    success: save_custom, 
+                                    query: self.workspace.query,
+                                    func: func,
+                                    n: n,
+                                    sortliteral: sortliteral
+                                })).render().open();
+                            } else if (key == "customsort") {
+
+                                var save_customsort = function(sortO, sortL) {
+                                    self.set_query_axis_sort(target, sortO, sortL);
+                                    var url = "/axis/" + target + "/sort/" + sortO + "/" + encodeURIComponent(sortL);
+                                    self.workspace.query.action.post(url, {
+                                        success: self.workspace.query.run
+                                    });    
+                                };
+
+                                 (new FilterModal({ 
+                                    axis: target,
+                                    success: save_customsort, 
+                                    query: self.workspace.query,
+                                    expression: sortOrderLiteral,
+                                    expressionType: "Order"
+                                })).render().open();
+                            } else if (key == "clearsort") {
+                                $target.removeClass('on');
+                                var url = "/axis/" + target + "/sort";
+                                self.set_query_axis_sort(target, null, null);
+                                self.workspace.query.action.del(url, {
+                                    success: self.workspace.query.run
+                                });
+                            } else if (key.indexOf("show_totals_") == 0){
+                            	var total = key.substring("show_totals_".length);
+                            	var url = "/axis/" + target + "/show_totals/" + total;
+                    			self.set_query_axis_total(target, total);
+                            	self.workspace.query.action.put(url, {
+                            		success: self.workspace.query.run
+                            	});
+                            } else {
+
+                                var fun = key.split('###SEPARATOR###')[0];
+                                var ikey = key.split('###SEPARATOR###')[1];
+                                var method = "";
+                                var data = {};
+                                if (_.indexOf(["ASC", "BASC", "DESC", "BDESC"], fun) > -1) {
+                                    method = "sort";
+                                    self.set_query_axis_sort(target, fun, items[ikey].payload["sortliteral"]);
+                                    fun += "/" +  encodeURIComponent(items[ikey].payload["sortliteral"]);
+                                } else {
+                                    method = "limit";
+                                    self.set_query_axis(target, fun, items[ikey].payload.n , items[ikey].payload["sortliteral"]);
+                                    data = items[ikey].payload;
+                                }
+                                var url = "/axis/" + target + "/" + method + "/" + fun;
+                                self.workspace.query.action.post(url, {
+                                    success: self.workspace.query.run, data : data
+                                });
+                            }
+
+                    },
+                    items: citems
+                } 
+            }
+        });
+    $target.contextMenu();
+
+
+    },
+    
+    set_query_axis_total: function(target, totalFunction) {
+    	var axes = this.workspace.query.get('axes');
+    	_.each(axes, function(axis) {
+    		if (axis.name == target) {
+	        	axis.totalFunction = totalFunction;
+	            return false;
+	        }
+    	});
+    	return false;
+	},
+    
+    set_query_axis_filter: function(target, filterCondition) {
+        var self = this;
+        var axes = this.workspace.query.get('axes');
+        _.each(axes, function(axis) {
+            if (axis.name == target) {
+                axis.filterCondition = filterCondition;
+                if (axis.limitFunction !=  null || axis.filterCondition != null || axis.sortOrder != null) {
+                    $(self.el).find('.fields_list[title="' + target + '"] .limit').addClass('on');
+                } else {
+                    $(self.el).find('.fields_list[title="' + target + '"] .limit').removeClass('on');
+                }
+                return false;
+            }
+        });
+        return false;
+    },
+    set_query_axis_sort: function(target, sortOrder, sortLiteral ) {
+        var self = this;
+        var axes = this.workspace.query.get('axes');
+        _.each(axes, function(axis) {
+            if (axis.name == target) {
+                axis.sortOrder = sortOrder;
+                axis.sortOrderLiteral = sortLiteral;
+                if (axis.limitFunction !=  null || axis.filterCondition != null || axis.sortOrder != null) {
+                    $(self.el).find('.fields_list[title="' + target + '"] .limit').addClass('on');
+                } else {
+                    $(self.el).find('.fields_list[title="' + target + '"] .limit').removeClass('on');
+                }
+                return false;
+            }
+        });
+        return false;
+    },
+    
+    set_query_axis: function(target, func, n, sortliteral) {
+        var self = this;
+        var axes = this.workspace.query.get('axes');
+        _.each(axes, function(axis) {
+            if (axis.name == target) {
+                axis.limitFunction = func;
+                axis.limitFunctionN = n;
+                axis.limitFunctionSortLiteral = sortliteral;
+                if (axis.limitFunction !=  null || axis.filterCondition != null || axis.sortOrder != null) {
+                    $(self.el).find('.fields_list[title="' + target + '"] .limit').addClass('on');
+                } else {
+                    $(self.el).find('.fields_list[title="' + target + '"] .limit').removeClass('on');
+                }
+                return false;
+            }
+        });
+        return false;
+    },
+
+    clear_axis: function(event) {
+            var self = this;
+            
+            if (typeof this.workspace.query == "undefined") {
+                return false;
+            }
+            if (this.workspace.query.get('type') != 'QM' || Settings.MODE == "view") {
+                return false;
+            }
+            var $target =  $(event.target);
+            var $axis = $target.siblings('.fields_list_body');
+            var source = "";
+            var target = "";
+            if ($axis.hasClass('rows')) { target = "ROWS";  }
+            if ($axis.hasClass('columns')) { target = "COLUMNS";  }
+            if ($axis.hasClass('filter')) { target = "FILTER";  }
+
+            var url = "/axis/" + target;
+            self.workspace.query.action.del(url, {
+                success: function(model, response) {
+                    $axis.find('.connectable').empty();
+                    self.workspace.query.parse(response);
+                    self.workspace.sync_query();
+                }
+            });
+            event.preventDefault();
+            return false;
+    },
 
     sort_measure: function(event, ui) {
-        $axis = $(event.target).parent().parents('.fields_list_body');
+        var $axis = $(event.target).parent().parents('.fields_list_body');
         var source = "";
         var target = "ROWS";
         
@@ -104,7 +486,7 @@ var WorkspaceDropZone = Backbone.View.extend({
         $(event.target).removeClass('none').addClass(futureSortOrder);
 
         if (futureSortOrder == "none") {
-            var url = "/axis/" + target + "/sort/";
+            var url = "/axis/" + target + "/sort";
             this.workspace.query.action.del(url, {
                 success: this.workspace.query.run
             });
@@ -119,7 +501,28 @@ var WorkspaceDropZone = Backbone.View.extend({
     
     select_dimension: function(event, ui) {
 
-        $axis = ui.item.parents('.fields_list_body');
+/*
+        $('.workspace_fields').css('height','');
+        var wh = $('.workspace_fields').height();
+        $('.workspace_fields').css('height', wh);
+
+        if ($axis.length == 0) {
+            $axis = $('.workspace_fields .placeholder').parents('.fields_list_body');
+        }
+
+        // total width - fieldslist header + padding 15 - clear icon width
+        var bodyWidth = ww - $axis.siblings('.fields_list_header').width() - 15 - $axis.siblings('.clear_axis').width();
+        $axis.width(bodyWidth);
+
+        var axisHeight = $axis.height() ? $axis.height() : 0;
+        if (axisHeight > 40) {
+            $axis.siblings('.fields_list_header').height($axis.height() - 6);
+        } else {
+            $axis.siblings('.fields_list_header').css('height','');
+        }
+        */
+        
+        var $axis = ui.item.parents('.fields_list_body');
         var target = "";
         
         if ($axis.hasClass('rows')) target = "ROWS";
@@ -137,10 +540,12 @@ var WorkspaceDropZone = Backbone.View.extend({
         // Make the element and its parent bold
         var original_href = ui.item.find('a').attr('href');
         var $original = $(this.workspace.el).find('.sidebar')
-            .find('a[href="' + original_href + '"]').parent('li');
+            .find('a[href="' + original_href + '"]').parent('li').first();
         $original
-            .css({fontWeight: "bold"})
-            .draggable('disable');
+            .css({fontWeight: "bold"});
+
+        $original.draggable('disable');
+
         $original.parents('.parent_dimension')
             .find('.folder_collapsed')
             .css({fontWeight: "bold"});
@@ -148,11 +553,10 @@ var WorkspaceDropZone = Backbone.View.extend({
 
         // Wrap with the appropriate parent element
         if (ui.item.find('a').hasClass('level')) {
-            var $icon = $("<div />").addClass('sprite').addClass('selections');
-            var $icon2 = $("<span />").addClass('sprite').addClass('sort none');
-        
+            var $icon = $("<span />").addClass('sprite selections');
+            var $icon2 = $("<span />").addClass('sprite sort none');
             ui.item.addClass('d_dimension').prepend($icon);
-            ui.item.addClass('d_dimension').prepend($icon2);
+            $icon2.insertBefore($icon);
         } else {
             var $icon = $("<span />").addClass('sort none');
             ui.item.addClass('d_measure').prepend($icon);
@@ -179,7 +583,7 @@ var WorkspaceDropZone = Backbone.View.extend({
 
         // Notify the model of the change
         this.workspace.query.move_dimension(member, 
-                target, index);
+                target, index, ("FILTER" == target));
 
         if ("FILTER" == target && ui.item.hasClass('d_dimension')) {
                 var ev = { target : $axis.find('a[href="#' + member + '"]') };
@@ -192,7 +596,7 @@ var WorkspaceDropZone = Backbone.View.extend({
     
     move_dimension: function(event, ui, target) {
         if (! ui.item.hasClass('deleted')) {
-            $axis = ui.item.parents('.fields_list_body');
+            var $axis = ui.item.parents('.fields_list_body');
 
             // Notify the model of the change
             var dimension = ui.item.find('a').attr('href').replace('#', '').split('/')[0];
@@ -223,8 +627,8 @@ var WorkspaceDropZone = Backbone.View.extend({
         var member = ui.item.find('a').attr('href');
         var dimension = member.replace('#', '').split('/')[0];
         var index = ui.item.parent('.connectable').children().index(ui.item);
-        var axis = ui.item.parents('.fields_list_body');
-        var allAxes = axis.parent().parent();
+        var $axis = ui.item.parents('.fields_list_body');
+        var allAxes = $axis.parent().parent();
         var target = '';
         var source = '';
         var myself = this;
@@ -275,17 +679,18 @@ var WorkspaceDropZone = Backbone.View.extend({
                                 .insertAfter(insertElement);
         
 
-        axis.find('.d_dimension a').each( function(index, element) {
+        $axis.find('.d_dimension a').each( function(index, element) {
             element = $(element);
             if (!element.prev() || (element.prev() && element.prev().length == 0)) {
-                var $icon = $("<span />").addClass('sprite').addClass('selections');
+                var $icon = $("<span />").addClass('sprite sort none');
                 $icon.insertBefore(element);
-                var $icon = $("<span />").addClass('sprite').addClass('sort none');
+                var $icon = $("<span />").addClass('sprite selections');
                 $icon.insertBefore(element);
+
             }
         });
 
-        axis.find('.d_measure a, .d_dimension a').each( function(index, element) {
+        $axis.find('.d_measure a, .d_dimension a').each( function(index, element) {
             element = $(element);
             if (!element.prev() || (element.prev() && element.prev().length == 0)) {
                 if (sourceAxis != "FILTER") {
@@ -298,6 +703,15 @@ var WorkspaceDropZone = Backbone.View.extend({
 
         $(ui.item).remove();
 
+        $(this.workspace.el).find('.fields_list_body').each(function(idx, ael) {
+            var $axis = $(ael);
+            if ($axis.find('li').length == 0) {
+                $axis.siblings('.clear_axis').addClass('hide');
+            } else {
+                $axis.siblings('.clear_axis').removeClass('hide');
+            }
+        });
+        return false;
     },
 
 
@@ -306,7 +720,7 @@ var WorkspaceDropZone = Backbone.View.extend({
         var $source = ui ? ui.draggable : $(event.target).parent();
         var original_href = $source.find('a').attr('href');
         var $original = $(this.workspace.el).find('.sidebar')
-            .find('a[href="' + original_href + '"]').parent('li');
+            .find('a[href="' + original_href + '"]').parent('li').first();
         $original
             .draggable('enable')
             .css({ fontWeight: 'normal' });
@@ -329,11 +743,15 @@ var WorkspaceDropZone = Backbone.View.extend({
         
         var url = "/axis/" + target + "/dimension/" + dimension;
         this.workspace.query.action.del(url, {
-            success: this.workspace.query.run
+            success: this.workspace.query.run,
+            dataType: "text"
         });
         
         // Remove element
         $source.addClass('deleted').remove();
+        if ($target_el.find('li.d_dimension, li.d_measure, li.ui-draggable').length == 0) {
+            $target_el.siblings('.clear_axis').addClass('hide');
+        }
         
         // Prevent workspace from getting this event
         event.stopPropagation();

@@ -18,34 +18,61 @@
  * The user's current locale
  */
 Saiku.i18n = {
-    locale: (navigator.language || navigator.browserLanguage || 
-        navigator.systemLanguage || navigator.userLanguage).substring(0,2).toLowerCase(),
+    locale: (navigator.language || navigator.browserLanguage ||
+        navigator.systemLanguage || navigator.userLanguage).substring(0, 2).toLowerCase(),
     po_file: {},
-    translate: function() {
-        $('.i18n').i18n(Saiku.i18n.po_file);
+    translate: function (specificElement) {
+        if (specificElement) {
+            $(specificElement).find('.i18n').i18n(Saiku.i18n.po_file);
+        } else {
+            $('.i18n').i18n(Saiku.i18n.po_file);
+        }
     },
-    automatic_i18n: function() {
+    automatic_i18n: function () {
         // Load language file if it isn't English
+
+        //compatible 'zh-CN' -> 'zh';
+        if (Saiku.i18n.locale == 'zh') Saiku.i18n.locale = 'cn';
+
         if (Saiku.i18n.locale != "en") {
             $.ajax({
                 url: "js/saiku/plugins/I18n/po/" + Saiku.i18n.locale + ".json",
                 type: 'GET',
                 dataType: 'json',
-                success: function(data) {
+                success: function (data) {
                     Saiku.i18n.po_file = data;
                     Saiku.i18n.translate();
                 }
             });
         }
-        
+
         return true;
     },
     elements: [],
-    improve_translation: function() {
+    improve_translation: function () {
         Saiku.tabs.add(new TranslationTab());
         return false;
     }
 };
+
+function recursive_menu_translate(object, po_file) {
+    if (object && object.hasOwnProperty('name') && object.i18n && po_file) {
+    	var translation = po_file[object.name];
+    	if (typeof translation != "undefined") {
+    		object.name = translation;
+    	} else if (object && object.hasOwnProperty('name') && po_file) {
+            if (Saiku.i18n.elements.indexOf(object.name) === -1) {
+                Saiku.i18n.elements.push(object.name);
+            }
+        }
+    }
+	
+	if (typeof object.items != "undefined") {
+		$.each(object.items, function(key, item){
+	    	recursive_menu_translate(item, po_file);
+		});
+	}
+};		
 
 /**
  * jQuery plugin for i18n
@@ -100,6 +127,19 @@ Saiku.i18n = {
 				}
 			}
 			
+			if (element.attr('value')) {
+				translated_value = translate( element.attr('value'), po_file );
+                if (Saiku.i18n.elements.indexOf && 
+                    Saiku.i18n.elements.indexOf(element.attr('value')) === -1) {
+                    Saiku.i18n.elements.push(element.attr('value'));
+                }
+				if (translated_value) {
+					element.data('original', element.attr('value'));
+					element.attr({ 'value': translated_value });
+					element.removeClass('i18n');
+				}
+			}
+			
 			// Remove class so this element isn't repeatedly translated
 			if (element.hasClass('i18n')) {
 			    element.addClass('i18n_failed');
@@ -147,7 +187,7 @@ var TranslationTab = Backbone.View.extend({
     },
     render: function() {
         var translation_table = {};
-        for (var i = 0; i < Saiku.i18n.elements.length; i++) {
+        for (var i = 0, len = Saiku.i18n.elements.length; i < len; i++) {
             translation_table[Saiku.i18n.elements[i]] = {
                 value: Saiku.i18n.po_file[Saiku.i18n.elements[i]],
                 name: encodeURI(Saiku.i18n.elements[i])
@@ -185,7 +225,8 @@ var TranslationTab = Backbone.View.extend({
         $(this.el).find('.changed').each(function(element) {
             translation[decodeURI($(this).attr('name'))] = encodeURI($(this).val());
         });
-        Translate.log(translation);
+        window.location = "mailto:contact@analytical-labs.com?subject=Translation for " + Saiku.i18n.locale + '&body=' + JSON.stringify(translation);
+        //Translate.log(translation);
         Saiku.ui.block('Thank you for improving our translation!');
         this.tab.remove();
         _.delay(function() {
@@ -204,22 +245,6 @@ var TranslationTab = Backbone.View.extend({
  */
 Saiku.i18n.automatic_i18n();
 
-/** 
- * Add translate button
- */
-Saiku.events.bind('toolbar:render', function(args) {
-    if (Saiku.i18n.locale != "en") {
-        var $link = $("<a />").text(Saiku.i18n.locale)
-            .attr({ 
-                href: "#translate",
-                title: "Improve this translation"
-            })
-            .click(Saiku.i18n.improve_translation)
-            .addClass('sprite translate i18n');
-        var $li = $("<li />").append($link);
-        $(args.toolbar.el).find('ul').append($li);
-    }
-});
 
 /**
  * Bind to new workspace
@@ -230,6 +255,22 @@ Saiku.events.bind('session:new', function() {
     
     // Translate new workspaces
     Saiku.session.bind('tab:add', Saiku.i18n.translate);
+
+    /** 
+     * Add translate button
+     */
+    if (Saiku.i18n.locale != "en") {
+        var $link = $("<a />").text(Saiku.i18n.locale)
+            .attr({ 
+                href: "#translate",
+                title: "Improve this translation"
+            })
+            .click(Saiku.i18n.improve_translation)
+            .addClass('sprite translate i18n');
+        var $li = $("<li />").append($link);
+        $(Saiku.toolbar.el).find('ul').append($li);
+    }
+
 });
 
 /**

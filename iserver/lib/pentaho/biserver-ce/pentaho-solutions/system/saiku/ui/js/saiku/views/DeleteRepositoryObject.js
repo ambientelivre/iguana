@@ -36,9 +36,10 @@ var DeleteRepositoryObject = Modal.extend({
     
     del: function() {
         this.query.id = _.uniqueId("query_");
-        this.query.url = this.query.url() + "?file=" + this.query.get('file');
+        this.query.url = this.query.url() + "?file=" + encodeURIComponent(this.query.get('file'));
         this.query.destroy({
             success: this.success,
+            dataType: "text",
             error: this.error
         });
         this.close();

@@ -175,7 +175,7 @@
     </attributes>
   </connection>
   <order>
-  <hop> <from>Table accounts_opportunities</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>Table opportunities</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>Merge tables</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows 2</from><to>Merge tables</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>If field value is null</to><enabled>Y</enabled> </hop>  <hop> <from>Converte DateTime to String</from><to>Converter String to date</to><enabled>Y</enabled> </hop>  <hop> <from>Converter String to date</from><to>Formatt String to date</to><enabled>Y</enabled> </hop>  <hop> <from>Formatt String to date</from><to>Database lookup 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup 2 2</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Table oport. audit</from><to>Sort rows 3</to><enabled>Y</enabled> </hop>  <hop> <from>Merge tables</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup</from><to>Converte DateTime to String</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows 3</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Modified Java Script Value 2</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value 2</from><to>Database lookup</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null</from><to>If field value is null 2</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null 2</from><to>If field value is null 3</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null 3</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>Table accounts_opportunities</from><to>Sort rows</to><enabled>Y</enabled> </hop>  <hop> <from>Table opportunities</from><to>Sort rows 2</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows</from><to>Merge tables</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows 2</from><to>Merge tables</to><enabled>Y</enabled> </hop>  <hop> <from>Select values</from><to>If field value is null</to><enabled>Y</enabled> </hop>  <hop> <from>Converte DateTime to String</from><to>Converter String to date</to><enabled>Y</enabled> </hop>  <hop> <from>Converter String to date</from><to>Formatt String to date</to><enabled>Y</enabled> </hop>  <hop> <from>Formatt String to date</from><to>Database lookup 2 2</to><enabled>Y</enabled> </hop>  <hop> <from>Database lookup 2 2</from><to>Select values</to><enabled>Y</enabled> </hop>  <hop> <from>Table oport. audit</from><to>Sort rows 3</to><enabled>Y</enabled> </hop>  <hop> <from>Merge tables</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>dimen_time</from><to>Converte DateTime to String</to><enabled>Y</enabled> </hop>  <hop> <from>Sort rows 3</from><to>Select values 2</to><enabled>Y</enabled> </hop>  <hop> <from>Select values 2</from><to>Merge Join</to><enabled>Y</enabled> </hop>  <hop> <from>Merge Join</from><to>Modified Java Script Value 2</to><enabled>Y</enabled> </hop>  <hop> <from>Modified Java Script Value 2</from><to>dimen_time</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null</from><to>If field value is null 2</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null 2</from><to>If field value is null 3</to><enabled>Y</enabled> </hop>  <hop> <from>If field value is null 3</from><to>Table output</to><enabled>Y</enabled> </hop>  </order>
   <step>
     <name>Converte DateTime to String</name>
     <type>SelectValues</type>
@@ -235,7 +235,7 @@
     </step>
 
   <step>
-    <name>Database lookup</name>
+    <name>dimen_time</name>
     <type>DBLookup</type>
     <description/>
     <distribute>N</distribute>
@@ -304,7 +304,7 @@
       <value>
         <name>pk_time</name>
         <rename>pk_time_modified</rename>
-        <default/>
+        <default>1</default>
         <type>Integer</type>
       </value>
     </lookup>

@@ -29,7 +29,7 @@ var Tab = Backbone.View.extend({
     
     template: function() {        
         // Create tab
-        return _.template("<a href='#<%= id %>'><%= caption %></a>" +
+        return _.template("<a class='saikutab' href='#<%= id %>'><%= caption %></a>" +
                 "<span class='close_tab sprite'>Close tab</span>")
             ({
                 id: this.id,
@@ -55,13 +55,47 @@ var Tab = Backbone.View.extend({
      * @returns tab
      */
     render: function() {
+        var self = this;
         // Render the content
         this.content.render();
         
         // Generate the element
         $(this.el).html(this.template());
-        
+        var menuitems = {
+            "new": {name: "New", i18n: true },
+            "closethis": {name: "Close This", i18n: true },
+            "closeothers": {name: "Close Others", i18n: true }
+        };
+        $.each(menuitems, function(key, item){
+            recursive_menu_translate(item, Saiku.i18n.po_file);
+        });
+
+        $.contextMenu('destroy', '.saikutab');
+        $.contextMenu({
+                selector: '.saikutab',
+                callback: function(key, options) {
+                    var selected = options.$trigger.attr('href').replace('#','');
+                    var tab = Saiku.tabs.find(selected);
+                    if (key == "closethis") {
+                        tab.remove();
+                        self.select();
+                        return;
+                    } else if (key == "new") {
+                        Saiku.tabs.new_tab();
+                    } else if (key == "closeothers") {
+                        tab.select();
+                        Saiku.tabs.close_others(tab);
+                    }
+                    //self.workspace.chart.exportChart(key);
+                },
+                items: menuitems
+            });
+
         return this;
+    },
+
+    set_caption: function(caption) {
+        $(this.el).find('.saikutab').html(caption);
     },
     
     /**
@@ -80,6 +114,7 @@ var Tab = Backbone.View.extend({
      * @param el
      */
     select: function() {
+        var self = this;
         // Deselect all tabs
         this.parent.select(this);
         
@@ -88,7 +123,6 @@ var Tab = Backbone.View.extend({
         
         // Trigger select event
         this.trigger('tab:select');
-        
         return false;
     },
     
@@ -142,11 +176,12 @@ var TabPager = Backbone.View.extend({
     
     render: function() {
         var pager = "";
-        for (var i = 0; i < this.tabset._tabs.length; i++) {
+        for (var i = 0, len = this.tabset._tabs.length; i < len; i++) {
             pager += "<a href='#" + i + "'>" + 
                 this.tabset._tabs[i].caption + "</a><br />";
         }
         $(this.el).html(pager);
+        $(this.el).find(".i18n").i18n(Saiku.i18n.po_file);
     },
     
     select: function(event) {
@@ -165,7 +200,10 @@ var TabSet = Backbone.View.extend({
     className: 'tabs',
     queryCount: 0,
     
-    events: { 'click a.pager': 'togglePager' },
+    events: { 
+        'click a.pager': 'togglePager' ,
+        'click a.new' : 'new_tab'
+    },
     
     _tabs: [],
     
@@ -174,7 +212,7 @@ var TabSet = Backbone.View.extend({
      * @returns tab_container
      */
     render: function() {
-        $(this.el).html('<a href="#pager" class="pager sprite"></a><ul></ul>')
+        $(this.el).html('<a href="#pager" class="pager sprite"></a><ul><li class="newtab"><a class="new">+&nbsp;&nbsp;</a></li></ul>')
             .appendTo($('#header'));
         this.content = $('<div id="tab_panel">').appendTo($('body'));
         this.pager = new TabPager({ tabset: this });
@@ -187,20 +225,29 @@ var TabSet = Backbone.View.extend({
      */
     add: function(content) {
         // Add it to the set
+        this.queryCount++;
         var tab = new Tab({ content: content });
         this._tabs.push(tab);
-        this.queryCount++;
         tab.parent = this;
         
         // Render it in the background, then select it
         tab.render().select();
-        $(tab.el).appendTo($(this.el).find('ul'));
+        $(tab.el).insertBefore($(this.el).find('ul li.newtab'));
         
         // Trigger add event on session
         Saiku.session.trigger('tab:add', { tab: tab });
         this.pager.render();
         
         return tab;
+    },
+
+    find: function(id) {
+        for (var i = 0, len = this._tabs.length; i < len; i++) {
+            if (this._tabs[i].id == id) {
+                return this._tabs[i];
+            }
+        }
+        return null;
     },
     
     /**
@@ -226,13 +273,13 @@ var TabSet = Backbone.View.extend({
             this.add(new Workspace());
         }
         
-        for (var i = 0; i < this._tabs.length; i++) {
+        for (var i = 0, len = this._tabs.length; i < len; i++) {
             if (this._tabs[i] == tab) {
                 // Remove the element
                 this._tabs.splice(i, 1);
+
                 Saiku.session.trigger('tab:remove', { tab: tab });
-                this.pager.render();
-                
+                this.pager.render();                
                 // Select the previous, or first tab
                 var next = this._tabs[i] ? i : (this._tabs.length - 1);
                 this._tabs[next].select();
@@ -241,9 +288,32 @@ var TabSet = Backbone.View.extend({
         
         return true;
     },
+
+    close_others: function(tab) {
+        var index = _.indexOf(this._tabs, tab);
+        this._tabs[index].select();
+        for (var i = 0, len = this._tabs.length; i < len; i++) {
+            if (this._tabs[i] != tab) {
+                // Remove the element
+                var otherTab = this._tabs[i];
+                otherTab.remove();
+                i--;
+            }
+        }
+        
+        
+
+    },
     
     togglePager: function() {
         $(this.pager.el).toggle();
+        return false;
+    },
+
+    new_tab: function() {
+        this.add(new Workspace());
+        var next = this._tabs.length - 1;
+        this._tabs[next].select();
         return false;
     }
 });

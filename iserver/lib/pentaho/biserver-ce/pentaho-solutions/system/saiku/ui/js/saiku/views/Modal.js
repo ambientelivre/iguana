@@ -44,7 +44,7 @@ var Modal = Backbone.View.extend({
                 "<div class='dialog_body'><%= message %></div>" +
         		"<div class='dialog_footer'>" +
             "<% _.each(buttons, function(button) { %>" +
-                "<a class='form_button' href='#<%= button.method %>'>&nbsp;<%= button.text %>&nbsp;</a>" +
+                "<a class='form_button i18n' href='#<%= button.method %>'>&nbsp;<%= button.text %>&nbsp;</a>" +
             "<% }); %>" +
             "</div>")(this);
     },
@@ -53,12 +53,18 @@ var Modal = Backbone.View.extend({
         _.extend(this, args);
         _.bindAll(this, "call");
         _.extend(this, Backbone.Events);
+
     },
     
     render: function() {
         $(this.el).html(this.template())
             .addClass("dialog_" + this.type)
             .dialog(this.options);
+
+        var uiDialogTitle = $('.ui-dialog-title'); 
+        uiDialogTitle.html(this.options.title);
+        uiDialogTitle.addClass('i18n');
+        Saiku.i18n.translate();
         return this;
     },
     
@@ -82,6 +88,7 @@ var Modal = Backbone.View.extend({
     
     close: function() {
         $(this.el).dialog('destroy').remove();
+        $(this.el).remove();
         return false;
     }
 });

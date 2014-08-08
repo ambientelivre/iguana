@@ -17,25 +17,34 @@
 /**
  * Repository query
  */
+var repoPathUrl = function() {
+    return (Settings.BIPLUGIN5 ? "/repository"
+                    : (Settings.BIPLUGIN ? "/pentahorepository2" : "/repository2"));
+}
 
 var RepositoryObject = Backbone.Model.extend( {
     url: function( ) {
-        var segment = Settings.BIPLUGIN ? 
-            "/pentahorepository2/resource" : "/repository2/resource";
+        var segment = repoPathUrl() + "/resource";
         return encodeURI(Saiku.session.username + segment);
     }
 } );
 
 var RepositoryAclObject = Backbone.Model.extend( {
     url: function( ) {
-        var segment = Settings.BIPLUGIN ? 
-            "/pentahorepository2/resource" : "/repository2/resource/acl";
+        var segment = repoPathUrl() + "/resource/acl";
         return encodeURI(Saiku.session.username + segment);
     },
     parse: function(response) {
         if (response != "OK") {
             _.extend(this.attributes, response);
         }
+    }
+} );
+
+var RepositoryZipExport = Backbone.Model.extend( {
+    url: function( ) {
+        var segment = repoPathUrl() + "/zip";
+        return encodeURI(Saiku.session.username) + segment;
     }
 } );
 
@@ -47,9 +56,7 @@ var SavedQuery = Backbone.Model.extend({
     },
     
     url: function() {
-        var u = Settings.BIPLUGIN ? 
-                encodeURI(Saiku.session.username + "/pentahorepository2/resource")  
-                    : encodeURI(Saiku.session.username + "/repository2/resource");
+        var u = encodeURI(Saiku.session.username) + repoPathUrl() + "/resource";
         return u;
     },
     
@@ -58,8 +65,12 @@ var SavedQuery = Backbone.Model.extend({
         var filename = model.get('file');
         for (var key in Settings) {
             if (key.match("^PARAM")=="PARAM") {
-                var variable = key.substring("PARAM".length, key.length)
-                file = file.replace("${" + variable + "}", Settings[key]);
+                var variable = key.substring("PARAM".length, key.length);
+                var Re = new RegExp("\\$\\{" + variable + "\\}","g");
+                var Re2 = new RegExp("\\$\\{" + variable.toLowerCase() + "\\}","g");
+                file = file.replace(Re,Settings[key]);
+                file = file.replace(Re2,Settings[key]);
+                
             }
         }
         var query = new Query({ 
@@ -80,16 +91,19 @@ var Repository = Backbone.Collection.extend({
     model: SavedQuery,
     
     initialize: function(args, options) {
-        this.dialog = options.dialog;
+        if (options && options.dialog) {
+            this.dialog = options.dialog;
+        }
     },
     
     parse: function(response) {
-        this.dialog.populate(response);
+        if (this.dialog) {
+            this.dialog.populate(response);
+        }
     },
     
     url: function() {
-        var segment = Settings.BIPLUGIN ? 
-            "/pentahorepository2/?type=saiku" : "/repository2/?type=saiku";
+        var segment = repoPathUrl() + "?type=saiku";
         return encodeURI(Saiku.session.username + segment);
     }
 });

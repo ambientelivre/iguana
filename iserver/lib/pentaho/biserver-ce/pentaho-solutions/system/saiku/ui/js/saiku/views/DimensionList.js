@@ -24,7 +24,7 @@ var DimensionList = Backbone.View.extend({
     events: {
         'click span': 'select',
         'click a': 'select',
-        'click .parent_dimension ul li a' : 'select_dimension',
+        'click .parent_dimension ul li a.level' : 'select_dimension',
         'click .measure' : 'select_measure'
     },
     
@@ -35,38 +35,63 @@ var DimensionList = Backbone.View.extend({
         // Bind parent element
         this.workspace = args.workspace;
         this.dimension = args.dimension;
+        this.type = args.type;
         
         // Fetch from the server if we haven't already
-        if (args.dimension && args.dimension.has('template')) {
+        if (args.dimension && args.dimension.has('template_' + args.type)) {
             this.load_dimension();
         } else if (! args.dimension){
             $(this.el).html('Could not load dimension. Please log out and log in again.');
         } else {
             $(this.el).html('Loading...');
-            args.dimension.fetch({ success: this.load_dimension });
+            this.workspace.bind('cube:loaded',  this.load_dimension);
         }
     },
     
     load_dimension: function() {
-        this.template = this.dimension.get('template');
+        this.template = this.dimension.get('template_' + this.type);
         this.render(); 
+        Saiku.i18n.translate(this.el);
         this.workspace.trigger('dimensions:loaded', $(this.el));
 
     },
     
     render: function() {
         // Pull the HTML from cache and hide all dimensions
-        $(this.el).html(this.template)
-            .find('.hide').hide().removeClass('hide');
+        var self = this;
+        $(this.el).hide().html(this.template);
+        if (isIE && isIE <= 8) {
+            $(this.el).show();
+        } else {
+            $(this.el).fadeTo(500,1);
+        }
         
         // Add draggable behavior
+        $(this.el).find('.measure,.level').parent('li').mousedown(function(event, ui) {
+            event.preventDefault();
+            if ($(event.target).parent().hasClass('ui-state-disabled')) {
+                return;
+            }
+            if (self.workspace.query.get('type') == "QM") {
+                if ( $(self.workspace.toolbar.el).find('.toggle_fields').hasClass('on') && $(self.workspace.el).find('.workspace_editor').is(':hidden')) {
+                    self.workspace.toolbar.toggle_fields();
+                }
+            }
+        });
         $(this.el).find('.measure,.level').parent('li').draggable({
             cancel: '.not-draggable, .hierarchy',
             connectToSortable: $(this.workspace.el)
                 .find('.columns > ul, .rows > ul, .filter > ul'),
             helper: 'clone',
             opacity: 0.60,
-            tolerance: 'pointer',
+            tolerance: 'touch',
+            stop: function() {
+                if (self.workspace.query.get('type') == "QM") {
+                    if ( $(self.workspace.toolbar.el).find('.toggle_fields').hasClass('on')) {
+                        self.workspace.toolbar.toggle_fields();
+                    }
+                }
+            },
             cursorAt: {
                 top: 10,
                 left: 35
@@ -87,20 +112,38 @@ var DimensionList = Backbone.View.extend({
     },
 
      select_dimension: function(event, ui) {
+        if (this.workspace.query.get('type') != "QM") {
+            return;
+        }
         if ($(event.target).parent().hasClass('ui-state-disabled')) {
+            event.preventDefault();
+            event.stopPropagation();
             return;
         }
         
-        $axis = $(this.workspace.el).find(".columns ul li").length > 0 ?
-            $(this.workspace.el).find(".rows ul") :
-            $(this.workspace.el).find(".columns ul");
-        $target = $(event.target).parent().clone()
+        var isAlreadyOnAxis = false;
+        var href = $(event.target).attr('href');
+        var hierarchy = href.substring(0,_.lastIndexOf(href, "/"));
+        var $axis = null;
+        if ($(this.workspace.el).find(".workspace_fields ul li a[href^='" + hierarchy + "']:first").length > 0) {
+            $axis = $(this.workspace.el).find(".workspace_fields ul li a[href^='" + hierarchy + "']").parent().parent();
+        } else {
+            $axis = $(this.workspace.el).find(".columns ul li").length > 0 ?
+                $(this.workspace.el).find(".rows ul") :
+                $(this.workspace.el).find(".columns ul");
+        }
+        var $target = $(event.target).parent().clone()
             .appendTo($axis);
         this.workspace.drop_zones.select_dimension({
             target: $axis
         }, {
             item: $target
         });
+
+        if ( $(this.workspace.toolbar.el).find('.toggle_fields').hasClass('on')) {
+            $(this.workspace.el).find('.workspace_editor').delay(2000).slideUp({ complete: this.workspace.adjust });
+        }
+        event.preventDefault();
         return false;
     },
 
@@ -115,7 +158,7 @@ var DimensionList = Backbone.View.extend({
         else if ($(this.workspace.el).find(".filter ul .d_measure").length > 0) $axis = $(this.workspace.el).find(".filter ul");
         else $axis = $(this.workspace.el).find(".columns ul");
 
-        $target = $(event.target).parent().clone();
+        var $target = $(event.target).parent().clone();
         if ($axis.find(".d_measure").length != 0)
             $target.insertAfter($axis.find(".d_measure:last"));
         else {
@@ -126,6 +169,11 @@ var DimensionList = Backbone.View.extend({
         }, {
             item: $target
         });
+
+        if ( $(this.workspace.toolbar.el).find('.toggle_fields').hasClass('on')) {
+            $(this.workspace.el).find('.workspace_editor').delay(2000).slideUp({ complete: this.workspace.adjust });
+        }
+        event.preventDefault();
         return false;
     }
 });

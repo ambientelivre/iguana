@@ -23,6 +23,7 @@
         <entry key="com.sun.jersey.config.property.packages" value="org.saiku.web" />
         <entry key="org.codehaus.enunciate.modules.jersey.config.ResourceProviderFactory" value="com.sun.jersey.spi.spring.container.SpringComponentProviderFactory" />
         <entry key="com.sun.jersey.spi.container.ContainerRequestFilters" value="com.sun.jersey.api.container.filter.PostReplaceFilter" />
+<!--        <entry key="com.sun.jersey.spi.container.ContainerResponseFilters" value="com.sun.jersey.api.container.filter.GZIPContentEncodingFilter" /> -->
       </map>
     </property>
   </bean>
@@ -34,7 +35,7 @@
 		<!-- <property name="dynamicSchemaProcessor" value="mondrian.i18n.LocalizingDynamicSchemaProcessor" /> -->
 	</bean>
 
-	<bean id="connectionManager" class="org.saiku.plugin.PentahoSecurityAwareConnectionManager" init-method="init">
+	<bean id="connectionManager" class="org.saiku.plugin.PentahoSecurityAwareConnectionManager" init-method="init"  destroy-method="destroy">
 		<property name="dataSourceManager" ref="pentahoDsManager" />
 		<property name="userAware" value="false" />
 		<property name="connectionPooling" value="true" />
@@ -48,7 +49,7 @@
 		<property name="datasourceService" ref="datasourceServiceBean" />
 	</bean>
 
-	<bean id="olapQueryBean" class="org.saiku.service.olap.OlapQueryService">
+	<bean id="olapQueryBean" class="org.saiku.service.olap.OlapQueryService"  destroy-method="destroy">
 		<property name="olapDiscoverService" ref="olapDiscoverServiceBean" />
 	</bean>
 
@@ -82,6 +83,21 @@
 		<property name="olapQueryService" ref="olapQueryBean" />
 		<property name="path" value="saiku-repository"/>
 	</bean>
+
+  	 <bean id="filterRepositoryBean" class="org.saiku.plugin.resources.PentahoFilterRepositoryResource">
+		<property name="olapQueryService" ref="olapQueryBean" />
+		<property name="sessionService" ref="sessionService" />
+		<property name="path" value="saiku-repository"/>
+	</bean>
 	
 	<bean id="pluginResource" class="org.saiku.plugin.resources.PluginResource" />
+	
+	<bean id="exporterBean" class="org.saiku.web.rest.resources.ExporterResource">
+		<property name="repository" ref="repositoryBean2" />
+		<property name="queryResource" ref="queryResource" />
+	</bean>
+	
+	<bean id="startupBean" scope="singleton" class="org.saiku.web.rest.util.StartupResource"  init-method="init"  />
+	
+	
 </beans>

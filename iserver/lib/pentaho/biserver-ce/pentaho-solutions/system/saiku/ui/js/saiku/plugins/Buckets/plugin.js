@@ -37,6 +37,7 @@ var Buckets = Backbone.View.extend({
     },
 
     tags: [],
+    bucket: null,
 
 
      tags_template: function() {
@@ -110,8 +111,13 @@ var Buckets = Backbone.View.extend({
         var self = this;
         $(this.el).toggle();
         $(event.target).toggleClass('on');
-        
+        self.bucket = null;
         if ($(event.target).hasClass('on')) {
+            if ($(self.workspace.toolbar.el).find(".zoom_mode.on").length > 0) {
+                $(self.workspace.toolbar.el).find(".zoom_mode.on").click();
+            }
+
+            
             var schema = self.workspace.query.get('schema');
             var cube = self.workspace.query.get('connection') + "-" + 
                     self.workspace.query.get('catalog') + "-"
@@ -145,7 +151,12 @@ var Buckets = Backbone.View.extend({
         
         var rendered = this.tags_template();
         var $table = $(rendered);
-        $(this.el).append($table)
+        if (this.bucket) {
+            $table.find('a.bucket[href="#' + this.bucket + '"]').addClass('on');
+        }
+        $(this.el).append($table);
+
+
         
     },
 
@@ -233,12 +244,13 @@ var Buckets = Backbone.View.extend({
         var self = this;
         if ($(event.target).hasClass('on')) {
             $(event.target).removeClass('on');
+            self.bucket = null;
             this.workspace.query.action.del("/tag", { 
                             success: this.workspace.query.run
             });
         } else {
             $(event.target).addClass('on');
-
+            self.bucket = tagName;
             _.each(this.tags, function(tag) {
                 if (tag.name == tagName) {
                     self.workspace.query.action.put("/tag", { 
@@ -295,7 +307,7 @@ var Buckets = Backbone.View.extend({
         }
         
         // Attach stats to existing tabs
-        for(var i = 0; i < Saiku.tabs._tabs.length; i++) {
+        for(var i = 0, len = Saiku.tabs._tabs.length; i < len; i++) {
             var tab = Saiku.tabs._tabs[i];
             new_workspace({
                 workspace: tab.content

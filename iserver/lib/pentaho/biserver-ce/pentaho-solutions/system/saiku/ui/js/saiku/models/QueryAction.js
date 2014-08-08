@@ -50,7 +50,7 @@ var QueryAction = Backbone.Model.extend({
     // Call arbitrary actions against the query
     handle: function(method, action, options) {
         // Set query action
-        this.url = this.query.url() + escape(action);
+        this.url = this.query.url() + action;
         
         // Clear out old attributes
         this.attributes = options.data? options.data : {};
@@ -58,9 +58,9 @@ var QueryAction = Backbone.Model.extend({
         // Initiate action
         if (method == "save") {
             // Handle response from server
-            this.parse = options.success;
+            //this.parse = options.success;
             
-            this.save();
+            this.save({}, options);
         } else if (method == "delete") {
             this.destroy(options);
         } else if (method == "fetch") {
