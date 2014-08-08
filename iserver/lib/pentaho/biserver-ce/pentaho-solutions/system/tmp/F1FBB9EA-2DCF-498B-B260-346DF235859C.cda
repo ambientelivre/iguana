@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CDADescriptor>
+  <DataSources>
+    <Connection id="1" type="metadata.metadata">
+      <XmiFile>metadata.xmi</XmiFile>
+      <DomainId>sugarcrm-ce/metadata.xmi</DomainId>
+    </Connection>
+  </DataSources>
+  <DataAccess id="BC_SUGARCRM_MINUS_CE_DIMEN_TIME.BC_SUGARCRM_MINUS_CE_DIMEN_TIME_YEAR" connection="1" type="mql" access="public" cache="true">
+    <Name>BC_SUGARCRM_MINUS_CE_DIMEN_TIME.BC_SUGARCRM_MINUS_CE_DIMEN_TIME_YEAR</Name>
+    <Query><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<mql>
+  <domain_id>sugarcrm-ce/metadata.xmi</domain_id>
+  <model_id>BV_MODEL_2</model_id>
+  <options>
+    <disable_distinct>false</disable_distinct>
+    <limit>-1</limit>
+  </options>
+  <selections>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_TIME</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_TIME_YEAR</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+  </selections>
+  <constraints/>
+  <orders/>
+</mql>
+]]></Query>
+  </DataAccess>
+  <DataAccess id="BC_SUGARCRM_MINUS_CE_DIMEN_TIME.BC_SUGARCRM_MINUS_CE_DIMEN_TIME_MONTH" connection="1" type="mql" access="public" cache="true">
+    <Name>BC_SUGARCRM_MINUS_CE_DIMEN_TIME.BC_SUGARCRM_MINUS_CE_DIMEN_TIME_MONTH</Name>
+    <Query><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<mql>
+  <domain_id>sugarcrm-ce/metadata.xmi</domain_id>
+  <model_id>BV_MODEL_2</model_id>
+  <options>
+    <disable_distinct>false</disable_distinct>
+    <limit>-1</limit>
+  </options>
+  <selections>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_TIME</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_TIME_MONTH</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+  </selections>
+  <constraints/>
+  <orders/>
+</mql>
+]]></Query>
+  </DataAccess>
+  <DataAccess id="F1FBB9EA-2DCF-498B-B260-346DF235859C" connection="1" type="mql" access="public">
+    <Name>F1FBB9EA-2DCF-498B-B260-346DF235859C</Name>
+    <Query><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<mql>
+  <domain_id>sugarcrm-ce/metadata.xmi</domain_id>
+  <model_id>BV_MODEL_2</model_id>
+  <options>
+    <disable_distinct>false</disable_distinct>
+    <limit>-1</limit>
+  </options>
+  <selections>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_SALES_STAGE</view>
+      <column>BC_EST_GIO_DA_VENDA_DESCRI__O_DO_EST_GIO</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_FACT_OPPORTUNITIES</view>
+      <column>BC_SUGARCRM_MINUS_CE_FACT_OPPORTUNITIES_PROBABILITY</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+    <selection>
+      <view>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT</view>
+      <column>BC_SUGARCRM_MINUS_CE_DIMEN_ACCOUNT_NAME</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+  </selections>
+  <constraints/>
+  <orders/>
+</mql>
+]]></Query>
+    <Columns>
+      <Column idx="0">
+        <Name>Description</Name>
+      </Column>
+      <Column idx="1">
+        <Name>Probability</Name>
+      </Column>
+      <Column idx="2">
+        <Name>Name Account</Name>
+      </Column>
+    </Columns>
+  </DataAccess>
+</CDADescriptor>

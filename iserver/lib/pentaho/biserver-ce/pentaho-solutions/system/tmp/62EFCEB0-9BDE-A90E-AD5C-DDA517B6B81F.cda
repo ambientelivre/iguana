@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CDADescriptor>
+  <DataSources>
+    <Connection id="1" type="metadata.metadata">
+      <XmiFile>metadata.xmi</XmiFile>
+      <DomainId>sugarcrm-ce/metadata.xmi</DomainId>
+    </Connection>
+  </DataSources>
+  <DataAccess id="62EFCEB0-9BDE-A90E-AD5C-DDA517B6B81F" connection="1" type="mql" access="public">
+    <Name>62EFCEB0-9BDE-A90E-AD5C-DDA517B6B81F</Name>
+    <Query><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+
+<mql>
+  <domain_id>sugarcrm-ce/metadata.xmi</domain_id>
+  <model_id>BV_MODEL_1</model_id>
+  <options>
+    <disable_distinct>false</disable_distinct>
+    <limit>-1</limit>
+  </options>
+  <selections>
+    <selection>
+      <view>BC_ACCOUNTS</view>
+      <column>BC_ACCOUNTS_NAME</column>
+      <aggregation>NONE</aggregation>
+    </selection>
+  </selections>
+  <constraints/>
+  <orders/>
+</mql>
+]]></Query>
+    <Columns>
+      <Column idx="0">
+        <Name>Name Account</Name>
+      </Column>
+    </Columns>
+  </DataAccess>
+</CDADescriptor>
