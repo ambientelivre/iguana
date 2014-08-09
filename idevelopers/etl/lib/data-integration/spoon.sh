@@ -20,6 +20,10 @@ export GDK_NATIVE_WINDOWS=1
 # Fix overlay scrollbar bug with Ubuntu 11.04
 export LIBOVERLAY_SCROLLBAR=0
 
+# Fix menus not showing up on Ubuntu 14.04's unity
+# Bug in: https://bugs.launchpad.net/ubuntu/+source/unity-gtk-module/+bug/1208019
+export UBUNTU_MENUPROXY=0
+
 # **************************************************
 # ** Init BASEDIR                                 **
 # **************************************************
@@ -38,15 +42,39 @@ setPentahoEnv
 # **************************************************
 
 LIBPATH="NONE"
-STARTUP="-jar launcher/launcher.jar"
+STARTUP="-jar launcher/pentaho-application-launcher-5.1.0.0-752.jar"
 
 case `uname -s` in 
 	AIX)
-		LIBPATH=$BASEDIR/../libswt/aix/
-		;;
+	ARCH=`uname -m`
+		case $ARCH in
 
+			ppc)
+				LIBPATH=$BASEDIR/../libswt/aix/
+				;;
+
+			ppc64)
+				LIBPATH=$BASEDIR/../libswt/aix64/
+				;;
+
+			*)	
+				echo "I'm sorry, this AIX platform [$ARCH] is not yet supported!"
+				exit
+				;;
+		esac
+		;;
 	SunOS) 
-		LIBPATH=$BASEDIR/../libswt/solaris/
+	ARCH=`uname -m`
+		case $ARCH in
+
+			i[3-6]86)
+				LIBPATH=$BASEDIR/../libswt/solaris-x86/
+				;;
+
+			*)	
+				LIBPATH=$BASEDIR/../libswt/solaris/
+				;;
+		esac
 		;;
 
 	Darwin)
@@ -96,6 +124,10 @@ case `uname -s` in
 				LIBPATH=$BASEDIR/../libswt/linux/ppc/
 				;;
 
+			ppc64)
+				LIBPATH=$BASEDIR/../libswt/linux/ppc64/
+				;;
+
 			*)	
 				echo "I'm sorry, this Linux platform [$ARCH] is not yet supported!"
 				exit
@@ -104,20 +136,22 @@ case `uname -s` in
 		;;
 
 	FreeBSD)
+		# note, the SWT library for linux is used, so FreeBSD should have the
+		# linux compatibility packages installed
 	    ARCH=`uname -m`
 		case $ARCH in
 			x86_64)
-				LIBPATH=$BASEDIR/../libswt/freebsd/x86_64/
+				LIBPATH=$BASEDIR/../libswt/linux/x86_64/
 				echo "I'm sorry, this FreeBSD platform [$ARCH] is not yet supported!"
 				exit
 				;;
 
 			i[3-6]86)
-				LIBPATH=$BASEDIR/../libswt/freebsd/x86/
+				LIBPATH=$BASEDIR/../libswt/linux/x86/
 				;;
 
 			ppc)
-				LIBPATH=$BASEDIR/../libswt/freebsd/ppc/
+				LIBPATH=$BASEDIR/../libswt/linux/ppc/
 				echo "I'm sorry, this FreeBSD platform [$ARCH] is not yet supported!"
 				exit
 				;;
@@ -155,7 +189,10 @@ if [ -z "$PENTAHO_DI_JAVA_OPTIONS" ]; then
     PENTAHO_DI_JAVA_OPTIONS="-Xmx512m -XX:MaxPermSize=256m"
 fi
 
-OPT="$OPT $PENTAHO_DI_JAVA_OPTIONS -Djava.library.path=$LIBPATH -DKETTLE_HOME=$KETTLE_HOME -DKETTLE_REPOSITORY=$KETTLE_REPOSITORY -DKETTLE_USER=$KETTLE_USER -DKETTLE_PASSWORD=$KETTLE_PASSWORD -DKETTLE_PLUGIN_PACKAGES=$KETTLE_PLUGIN_PACKAGES -DKETTLE_LOG_SIZE_LIMIT=$KETTLE_LOG_SIZE_LIMIT"
+OPT="$OPT $PENTAHO_DI_JAVA_OPTIONS -Djava.library.path=$LIBPATH -DKETTLE_HOME=$KETTLE_HOME -DKETTLE_REPOSITORY=$KETTLE_REPOSITORY -DKETTLE_USER=$KETTLE_USER -DKETTLE_PASSWORD=$KETTLE_PASSWORD -DKETTLE_PLUGIN_PACKAGES=$KETTLE_PLUGIN_PACKAGES -DKETTLE_LOG_SIZE_LIMIT=$KETTLE_LOG_SIZE_LIMIT -DKETTLE_JNDI_ROOT=$KETTLE_JNDI_ROOT"
+
+# optional line for attaching a debugger
+# OPT="$OPT -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
 
 # ***************
 # ** Run...    **

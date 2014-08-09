@@ -21,4 +21,4 @@ REM ** Run...    **
 REM ***************
 
 cd /D %CWD%
-"%_PENTAHO_JAVA%" -jar "%KETTLE_DIR%\launcher\launcher.jar" -main org.pentaho.di.core.encryption.Encr %*
+"%_PENTAHO_JAVA%" -jar "%KETTLE_DIR%\launcher\pentaho-application-launcher-5.1.0.0-752.jar" -main org.pentaho.di.core.encryption.Encr %*

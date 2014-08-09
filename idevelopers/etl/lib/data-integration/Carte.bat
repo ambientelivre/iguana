@@ -63,7 +63,7 @@ REM ******************************************************************
 
 if "%PENTAHO_DI_JAVA_OPTIONS%"=="" set PENTAHO_DI_JAVA_OPTIONS=-Xmx512m
 
-set OPT="%PENTAHO_DI_JAVA_OPTIONS%" "-Dorg.mortbay.util.URI.charset=UTF-8" "-Djava.library.path=%LIBSPATH%" "-DKETTLE_HOME=%KETTLE_HOME%" "-DKETTLE_REPOSITORY=%KETTLE_REPOSITORY%" "-DKETTLE_USER=%KETTLE_USER%" "-DKETTLE_PASSWORD=%KETTLE_PASSWORD%" "-DKETTLE_PLUGIN_PACKAGES=%KETTLE_PLUGIN_PACKAGES%" "-DKETTLE_LOG_SIZE_LIMIT=%KETTLE_LOG_SIZE_LIMIT%"
+set OPT="%PENTAHO_DI_JAVA_OPTIONS%" "-Dorg.mortbay.util.URI.charset=UTF-8" "-Djava.library.path=%LIBSPATH%" "-DKETTLE_HOME=%KETTLE_HOME%" "-DKETTLE_REPOSITORY=%KETTLE_REPOSITORY%" "-DKETTLE_USER=%KETTLE_USER%" "-DKETTLE_PASSWORD=%KETTLE_PASSWORD%" "-DKETTLE_PLUGIN_PACKAGES=%KETTLE_PLUGIN_PACKAGES%" "-DKETTLE_LOG_SIZE_LIMIT=%KETTLE_LOG_SIZE_LIMIT%" "-DKETTLE_JNDI_ROOT=%KETTLE_JNDI_ROOT%"
 
 REM ***********************************************************************
 REM ** Optionally set up the options for JAAS (uncomment to make active) **
@@ -77,5 +77,5 @@ REM ** Run...    **
 REM ***************
 
 cd /D %CWD%
-"%_PENTAHO_JAVA%" %OPT% -jar "%KETTLE_DIR%\launcher\launcher.jar" -main org.pentaho.di.www.Carte %*
+"%_PENTAHO_JAVA%" %OPT% -jar "%KETTLE_DIR%\launcher\pentaho-application-launcher-5.1.0.0-752.jar" -main org.pentaho.di.www.Carte %*
 

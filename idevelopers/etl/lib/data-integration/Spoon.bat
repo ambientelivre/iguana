@@ -18,7 +18,9 @@ if %KETTLE_DIR:~-1%==\ set KETTLE_DIR=%KETTLE_DIR:~0,-1%
 
 cd %KETTLE_DIR%
 
-set PENTAHO_JAVA=javaw
+REM Special console/debug options when called from SpoonConsole.bat or SpoonDebug.bat
+if "%SPOON_CONSOLE%"=="1" set PENTAHO_JAVA=java
+if not "%SPOON_CONSOLE%"=="1" set PENTAHO_JAVA=javaw
 set IS64BITJAVA=0
 
 call "%~dp0set-pentaho-env.bat"
@@ -91,11 +93,16 @@ REM ******************************************************************
 
 if "%PENTAHO_DI_JAVA_OPTIONS%"=="" set PENTAHO_DI_JAVA_OPTIONS="-Xmx512m" "-XX:MaxPermSize=256m"
 
-set OPT=%PENTAHO_DI_JAVA_OPTIONS% "-Djava.library.path=%LIBSPATH%" "-DKETTLE_HOME=%KETTLE_HOME%" "-DKETTLE_REPOSITORY=%KETTLE_REPOSITORY%" "-DKETTLE_USER=%KETTLE_USER%" "-DKETTLE_PASSWORD=%KETTLE_PASSWORD%" "-DKETTLE_PLUGIN_PACKAGES=%KETTLE_PLUGIN_PACKAGES%" "-DKETTLE_LOG_SIZE_LIMIT=%KETTLE_LOG_SIZE_LIMIT%"
+set OPT=%PENTAHO_DI_JAVA_OPTIONS% "-Djava.library.path=%LIBSPATH%" "-DKETTLE_HOME=%KETTLE_HOME%" "-DKETTLE_REPOSITORY=%KETTLE_REPOSITORY%" "-DKETTLE_USER=%KETTLE_USER%" "-DKETTLE_PASSWORD=%KETTLE_PASSWORD%" "-DKETTLE_PLUGIN_PACKAGES=%KETTLE_PLUGIN_PACKAGES%" "-DKETTLE_LOG_SIZE_LIMIT=%KETTLE_LOG_SIZE_LIMIT%" "-DKETTLE_JNDI_ROOT=%KETTLE_JNDI_ROOT%"
 
 REM ***************
 REM ** Run...    **
 REM ***************
 
+REM Eventually call java instead of javaw and do not run in a separate window
+if not "%SPOON_CONSOLE%"=="1" set SPOON_START_OPTION=start "Spoon"
+
 @echo on
-start "Spoon" "%_PENTAHO_JAVA%" %OPT% -jar launcher\launcher.jar -lib ..\%LIBSPATH% %_cmdline%
+%SPOON_START_OPTION% "%_PENTAHO_JAVA%" %OPT% -jar launcher\pentaho-application-launcher-5.1.0.0-752.jar -lib ..\%LIBSPATH% %_cmdline%
+@echo off
+if "%SPOON_PAUSE%"=="1" pause
