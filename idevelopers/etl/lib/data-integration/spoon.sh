@@ -42,7 +42,7 @@ setPentahoEnv
 # **************************************************
 
 LIBPATH="NONE"
-STARTUP="-jar launcher/pentaho-application-launcher-5.1.0.0-752.jar"
+STARTUP="$DIR/launcher/pentaho-application-launcher-5.2.0.0-209.jar"
 
 case `uname -s` in 
 	AIX)
@@ -79,7 +79,9 @@ case `uname -s` in
 
 	Darwin)
     ARCH=`uname -m`
-	OPT="-XstartOnFirstThread $OPT"
+	if [ -z "$IS_KITCHEN" ]; then
+		OPT="-XstartOnFirstThread $OPT"
+	fi
 	case $ARCH in
 		x86_64)
 			if $($_PENTAHO_JAVA -version 2>&1 | grep "64-Bit" > /dev/null )
@@ -197,4 +199,4 @@ OPT="$OPT $PENTAHO_DI_JAVA_OPTIONS -Djava.library.path=$LIBPATH -DKETTLE_HOME=$K
 # ***************
 # ** Run...    **
 # ***************
-"$_PENTAHO_JAVA" $OPT $STARTUP -lib $LIBPATH "${1+$@}"
+"$_PENTAHO_JAVA" $OPT -jar "$STARTUP" -lib $LIBPATH "${1+$@}"
